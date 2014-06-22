@@ -15,6 +15,7 @@ using Sisyphus.Web.Models;
 namespace Sisyphus.Web.Controllers
 {
     [Authorize]
+    [RequireHttps]
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;

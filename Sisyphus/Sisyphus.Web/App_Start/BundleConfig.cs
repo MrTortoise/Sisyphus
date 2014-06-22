@@ -3,7 +3,9 @@ using System.Web.Optimization;
 
 namespace Sisyphus.Web
 {
+#pragma warning disable 1591
     public class BundleConfig
+
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
@@ -32,4 +34,5 @@ namespace Sisyphus.Web
             BundleTable.EnableOptimizations = true;
         }
     }
+#pragma warning restore 1591
 }

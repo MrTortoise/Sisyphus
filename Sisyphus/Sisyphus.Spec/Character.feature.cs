@@ -148,7 +148,8 @@ this.ScenarioSetup(scenarioInfo);
                         "0",
                         "1"});
 #line 24
- testRunner.When("I move a character to place \"testplace2\" in time", ((string)(null)), table5, "When ");
+ testRunner.When("I create a journey for character to place \"testplace2\" in time called \"journey1\" " +
+                    "with description \"a test journey\"", ((string)(null)), table5, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "bit",
@@ -157,9 +158,130 @@ this.ScenarioSetup(scenarioInfo);
                         "0",
                         "2"});
 #line 27
- testRunner.And("I wait for time", ((string)(null)), table6, "And ");
+ testRunner.And("I wait for a time period", ((string)(null)), table6, "And ");
 #line 30
  testRunner.Then("I expect character \"jim\" to be at place \"testplace2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Take a character moving to a location and split journey into 2")]
+        public virtual void TakeACharacterMovingToALocationAndSplitJourneyInto2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take a character moving to a location and split journey into 2", ((string[])(null)));
+#line 32
+this.ScenarioSetup(scenarioInfo);
+#line 33
+ testRunner.Given("I have created a test database called \"characterTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "history"});
+            table7.AddRow(new string[] {
+                        "testPlace",
+                        "noneZ"});
+            table7.AddRow(new string[] {
+                        "testplace2",
+                        "noneZ"});
+            table7.AddRow(new string[] {
+                        "testplace3",
+                        "noneZ"});
+#line 34
+ testRunner.And("I havecreated the following places", ((string)(null)), table7, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "bit",
+                        "bitValue",
+                        "bitText"});
+            table8.AddRow(new string[] {
+                        "0",
+                        "0",
+                        "0"});
+            table8.AddRow(new string[] {
+                        "0",
+                        "1",
+                        "1"});
+            table8.AddRow(new string[] {
+                        "0",
+                        "2",
+                        "2"});
+            table8.AddRow(new string[] {
+                        "0",
+                        "3",
+                        "3"});
+            table8.AddRow(new string[] {
+                        "0",
+                        "4",
+                        "4"});
+            table8.AddRow(new string[] {
+                        "0",
+                        "5",
+                        "5"});
+#line 39
+ testRunner.And("I create a time system with the following members", ((string)(null)), table8, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "bit",
+                        "bitvalue"});
+            table9.AddRow(new string[] {
+                        "0",
+                        "0"});
+#line 47
+ testRunner.And("I set the time to", ((string)(null)), table9, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "backstory",
+                        "race",
+                        "sex",
+                        "place"});
+            table10.AddRow(new string[] {
+                        "jim",
+                        "is some dude",
+                        "last",
+                        "kinda",
+                        "testPlace"});
+#line 50
+ testRunner.And("I create the following characters", ((string)(null)), table10, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "bit",
+                        "bitvalue"});
+            table11.AddRow(new string[] {
+                        "0",
+                        "5"});
+#line 53
+ testRunner.And("I create a journey for character to place \"testplace2\" in time called \"journey1\" " +
+                    "with description \"a test journey\"", ((string)(null)), table11, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "bit",
+                        "bitvalue"});
+            table12.AddRow(new string[] {
+                        "0",
+                        "2"});
+#line 56
+ testRunner.When("I split journey \"journey1\" at time into \"journey1\" description \"first part\" and \"" +
+                    "journey2\" description \"second part\"", ((string)(null)), table12, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "startTime",
+                        "duration",
+                        "description"});
+            table13.AddRow(new string[] {
+                        "journey1",
+                        "0",
+                        "2",
+                        "first part"});
+            table13.AddRow(new string[] {
+                        "journey2",
+                        "2",
+                        "3",
+                        "second part"});
+#line 59
+ testRunner.Then("I expect character \"jim\" to have the following journeys", ((string)(null)), table13, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

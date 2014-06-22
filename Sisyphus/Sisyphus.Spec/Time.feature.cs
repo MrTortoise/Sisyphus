@@ -299,7 +299,7 @@ this.ScenarioSetup(scenarioInfo);
                         "0",
                         "5"});
 #line 68
- testRunner.When("I wait for a tiem period", ((string)(null)), table9, "When ");
+ testRunner.When("I wait for a time period", ((string)(null)), table9, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "bit",

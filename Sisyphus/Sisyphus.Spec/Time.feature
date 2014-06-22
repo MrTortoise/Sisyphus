@@ -65,7 +65,7 @@ Scenario: Create a single digit time system with named members and return value 
 	| 0   | 0        |
 	| 1   | 0        |
 	| 2   | 0        |
-	When I wait for a tiem period
+	When I wait for a time period
 	| bit | bitvalue |
 	| 0   | 5        |
 	Then I expect the current time value to be 

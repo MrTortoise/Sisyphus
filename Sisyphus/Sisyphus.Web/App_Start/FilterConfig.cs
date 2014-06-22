@@ -3,7 +3,9 @@ using System.Web.Mvc;
 
 namespace Sisyphus.Web
 {
+#pragma warning disable 1591
     public class FilterConfig
+
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
@@ -11,3 +13,4 @@ namespace Sisyphus.Web
         }
     }
 }
+#pragma warning restore 1591

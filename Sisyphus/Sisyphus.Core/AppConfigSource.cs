@@ -2,7 +2,7 @@
 {
     using System.Configuration;
 
-    class AppConfigSource : IConfigSource
+  public  class AppConfigSource : IConfigSource
     {
         public string Get(string key)
         {

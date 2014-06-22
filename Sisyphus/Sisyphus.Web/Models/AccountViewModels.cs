@@ -2,7 +2,9 @@
 
 namespace Sisyphus.Web.Models
 {
+#pragma warning disable 1591
     public class ExternalLoginConfirmationViewModel
+
     {
         [Required]
         [EmailAddress]
@@ -98,4 +100,5 @@ namespace Sisyphus.Web.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+    #pragma warning restore 1591
 }

@@ -8,6 +8,8 @@ using System.Web.Routing;
 
 namespace Sisyphus.Web
 {
+    using Sisyphus.Core;
+
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
@@ -16,6 +18,8 @@ namespace Sisyphus.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Config.Source = new AppConfigSource();
         }
     }
 }
