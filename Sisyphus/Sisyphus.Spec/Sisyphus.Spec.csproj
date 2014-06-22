@@ -59,6 +59,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Character.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Character.feature</DependentUpon>
+    </Compile>
     <Compile Include="ConfigSteps.cs" />
     <Compile Include="DatabaseSteps.cs" />
     <Compile Include="Places.feature.cs">
@@ -68,6 +73,11 @@
     </Compile>
     <Compile Include="PlacesSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Time.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Time.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sisyphus.Core\Sisyphus.Core.csproj">
@@ -77,10 +87,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Character.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Character.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Places.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Places.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Time.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Time.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
