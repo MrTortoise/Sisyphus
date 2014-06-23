@@ -8,9 +8,9 @@
         [Key]
         public int Id { get; set; }
       
-        public string Name { get; private set; }
+        public string Name { get;  set; }
 
-        public string History { get; private set; }
+        public string History { get;  set; }
 
         public Place()
         {

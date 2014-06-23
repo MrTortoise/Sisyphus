@@ -87,13 +87,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackStoryView.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BackStoryView.feature</DependentUpon>
+    </Compile>
     <Compile Include="Character.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Character.feature</DependentUpon>
     </Compile>
+    <Compile Include="CharacterBrowser.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CharacterBrowser.feature</DependentUpon>
+    </Compile>
     <Compile Include="ConfigSteps.cs" />
     <Compile Include="DatabaseSteps.cs" />
+    <Compile Include="DialogueCreation.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DialogueCreation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Event.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Event.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Interaction.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Interaction.feature</DependentUpon>
+    </Compile>
     <Compile Include="Places.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -101,6 +126,11 @@
     </Compile>
     <Compile Include="PlacesSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TheStory.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TheStory.feature</DependentUpon>
+    </Compile>
     <Compile Include="Time.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,14 +149,38 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BackStoryView.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>BackStoryView.feature.cs</LastGenOutput>
+    </None>
     <None Include="Character.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Character.feature.cs</LastGenOutput>
+    </None>
+    <None Include="CharacterBrowser.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CharacterBrowser.feature.cs</LastGenOutput>
+    </None>
+    <None Include="DialogueCreation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DialogueCreation.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Event.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Event.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Interaction.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Interaction.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Places.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Places.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TheStory.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TheStory.feature.cs</LastGenOutput>
     </None>
     <None Include="Time.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

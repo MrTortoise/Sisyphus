@@ -8,5 +8,10 @@
         {
             return ConfigurationManager.AppSettings[key];
         }
+
+      public ConnectionStringSettings GetConnectionString(string key)
+      {
+          return ConfigurationManager.ConnectionStrings[key];
+      }
     }
 }

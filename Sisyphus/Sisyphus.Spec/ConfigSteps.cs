@@ -27,15 +27,20 @@ public void GivenIHaveSetUpConfigurationToUseTestConfig()
             {
                 case Config.ConnectionString:
                 {
-                    var serverAddress = ConfigurationManager.AppSettings[SqlInstance];
-                    var database = (string)ScenarioContext.Current[DatabaseSteps.DatabaseName];
-
-                    string conString = DatabaseSteps.CreateConnectionString(serverAddress, database);
-                    return conString;
+                    throw new InvalidOperationException("use connection string for connection strings");
                 }
             }
 
             throw new ArgumentOutOfRangeException("key", "didnt match any expected config values");
+        }
+
+        public ConnectionStringSettings GetConnectionString(string key)
+        {
+            var serverAddress = ConfigurationManager.AppSettings[SqlInstance];
+            var database = (string)ScenarioContext.Current[DatabaseSteps.DatabaseName];
+
+            string conString = DatabaseSteps.CreateConnectionString(serverAddress, database);
+            return new ConnectionStringSettings("test", conString);
         }
     }
 }
