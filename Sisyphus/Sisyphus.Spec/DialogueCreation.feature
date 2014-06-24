@@ -12,7 +12,7 @@
          | name | backstory | race | sex    | place     |
          | jim  | none      | foot | rarley | somewhere |
          | jim2 | none      | foot | rarley | somewhere |
-	And I create the sollowing events
+	And I create the following events
 		| name       | Description                          | Outcomes            | Places               |
 		| testEvent  | a test event to show how things work | passed, failed, war | testPlace,testPlace2 |
 		| StoryStart | the start of the story               | started             | testPlace,testPlace2 |
@@ -31,8 +31,6 @@
 		 
 Scenario: Create dialogue between 2 characters
 	Given I open the view "DialogueCreation"
-	When I add to the event "testEvent" from perspective of "jim" dialogue "look its some story"
-	Then I expect "jim" to have the dialogue "look its some story"
-	And I expect "jim2" to have the dialogue "look its some story"
+	
 
 

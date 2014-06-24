@@ -130,7 +130,7 @@ namespace Sisyphus.Spec
                         "started",
                         "testPlace,testPlace2"});
 #line 17
- testRunner.And("I create the sollowing events", ((string)(null)), table3, "And ");
+ testRunner.And("I create the following events", ((string)(null)), table3, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "name"});

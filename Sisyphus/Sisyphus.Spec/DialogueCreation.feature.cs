@@ -32,8 +32,8 @@ namespace Sisyphus.Spec
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "DialogueCreation", "In order to advance characters development and the story\nAs a writer\nI want to be" +
-                    " able to create diaglogue between 2 characters", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "DialogueCreation", "In order to advance characters development and the story\r\nAs a writer\r\nI want to " +
+                    "be able to create diaglogue between 2 characters", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -117,7 +117,7 @@ namespace Sisyphus.Spec
                         "started",
                         "testPlace,testPlace2"});
 #line 15
- testRunner.And("I create the sollowing events", ((string)(null)), table3, "And ");
+ testRunner.And("I create the following events", ((string)(null)), table3, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "name"});
@@ -172,13 +172,6 @@ this.ScenarioSetup(scenarioInfo);
  this.FeatureBackground();
 #line 33
  testRunner.Given("I open the view \"DialogueCreation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 34
- testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" dialogue \"look its some " +
-                    "story\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 35
- testRunner.Then("I expect \"jim\" to have the dialogue \"look its some story\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 36
- testRunner.And("I expect \"jim2\" to have the dialogue \"look its some story\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

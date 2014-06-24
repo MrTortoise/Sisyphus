@@ -114,6 +114,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Event.feature</DependentUpon>
     </Compile>
+    <Compile Include="EventSequencer.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventSequencer.feature</DependentUpon>
+    </Compile>
     <Compile Include="Interaction.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -168,6 +173,10 @@
     <None Include="Event.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Event.feature.cs</LastGenOutput>
+    </None>
+    <None Include="EventSequencer.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EventSequencer.feature.cs</LastGenOutput>
     </None>
     <None Include="Interaction.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

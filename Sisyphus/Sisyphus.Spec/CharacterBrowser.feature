@@ -14,7 +14,7 @@ Background:
          | jim2 | none      | foot | rarley | somewhere |
          | jim3 | none      | foot | rarley | somewhere |
          | jim4 | none      | foot | rarley | somewhere |
-	And I create the sollowing events
+	And I create the following events
 		| name       | Description                          | Outcomes            | Places               |
 		| testEvent  | a test event to show how things work | passed, failed, war | testPlace,testPlace2 |
 		| StoryStart | the start of the story               | started             | testPlace,testPlace2 |
