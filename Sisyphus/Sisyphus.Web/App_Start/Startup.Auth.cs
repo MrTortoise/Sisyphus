@@ -50,11 +50,11 @@ namespace Sisyphus.Web
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "493510777594-ekl0nj5i9nktvhagc5evvk5e4padenvn.apps.googleusercontent.com",
+                ClientSecret = "3cGCKaz1liVhOYvYvD-shytJ"
+            });
         }
     }
 }

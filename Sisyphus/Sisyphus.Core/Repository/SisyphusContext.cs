@@ -12,5 +12,7 @@
         { }
 
         public DbSet<Place> Places { get; set; }
+
+        public DbSet<TimeUnit> TimeUnits { get; set; }
     }
 }
