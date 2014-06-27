@@ -104,25 +104,25 @@
     </Compile>
     <Compile Include="ConfigSteps.cs" />
     <Compile Include="DatabaseSteps.cs" />
-    <Compile Include="DialogueCreation.feature.cs">
+    <Compile Include="EventCreation.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DialogueCreation.feature</DependentUpon>
+      <DependentUpon>EventCreation.feature</DependentUpon>
     </Compile>
-    <Compile Include="Event.feature.cs">
+    <Compile Include="Decision.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Event.feature</DependentUpon>
+      <DependentUpon>Decision.feature</DependentUpon>
+    </Compile>
+    <Compile Include="EventStory.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventStory.feature</DependentUpon>
     </Compile>
     <Compile Include="EventSequencer.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EventSequencer.feature</DependentUpon>
-    </Compile>
-    <Compile Include="Interaction.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Interaction.feature</DependentUpon>
     </Compile>
     <Compile Include="Places.feature.cs">
       <AutoGen>True</AutoGen>
@@ -166,21 +166,21 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CharacterBrowser.feature.cs</LastGenOutput>
     </None>
-    <None Include="DialogueCreation.feature">
+    <None Include="EventCreation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>DialogueCreation.feature.cs</LastGenOutput>
+      <LastGenOutput>EventCreation.feature.cs</LastGenOutput>
     </None>
-    <None Include="Event.feature">
+    <None Include="Decision.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Event.feature.cs</LastGenOutput>
+      <LastGenOutput>Decision.feature.cs</LastGenOutput>
+    </None>
+    <None Include="EventStory.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EventStory.feature.cs</LastGenOutput>
     </None>
     <None Include="EventSequencer.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>EventSequencer.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Interaction.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Interaction.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Places.feature">
