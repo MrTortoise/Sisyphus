@@ -14,6 +14,10 @@ using Sisyphus.Web.Models;
 
 namespace Sisyphus.Web.Controllers
 {
+    using Sisyphus.Core;
+    using Sisyphus.Core.Repository;
+    using Sisyphus.Core.Services;
+
     [Authorize]
     [RequireHttps]
     public class AccountController : Controller
@@ -91,8 +95,11 @@ namespace Sisyphus.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                var service = new IdentityService();
+            
                 var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
-                IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+                var result = service.CreateUser(user, model.Password);
+                
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);

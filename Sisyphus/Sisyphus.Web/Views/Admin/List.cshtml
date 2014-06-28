@@ -1,0 +1,40 @@
+﻿@model Sisyphus.Web.Models.AdminViewModel
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>User List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PageSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Skip)
+        </th>
+    </tr>
+    <tr>
+        <td>@Html.EditorFor(model=>model.PageSize)</td>
+        <td>@Html.EditorFor(model=>model.Skip)</td>
+    </tr>
+</table>
+
+<table>
+    @foreach (var item in Model.Users) {
+        <tr>
+            @Html.Partial("userRoles",item)
+        </tr>
+    }
+</table>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

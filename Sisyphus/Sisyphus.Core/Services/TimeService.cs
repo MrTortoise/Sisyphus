@@ -7,8 +7,8 @@
     {
         public void CreateTimeUnit(TimeUnit timeUnit)
         {
-            var conString = Config.GetConnectionString(Config.ConnectionString);
-            var context = new SisyphusContext(conString.ConnectionString);
+            var conString = Config.GetConnectionString();
+            var context = new SisyphusContext(conString);
             using (var tran = context.Database.BeginTransaction())
             {
                 context.TimeUnits.Add(timeUnit);

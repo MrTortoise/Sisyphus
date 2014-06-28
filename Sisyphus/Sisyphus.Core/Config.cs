@@ -4,7 +4,7 @@
 
     public static class Config
     {
-        public const string ConnectionString = "DefaultConnection";
+        public const string ConnectionStringName = "DefaultConnection";
 
         public static IConfigSource Source { get; set; }
 
@@ -13,9 +13,14 @@
             return Source.Get(key);
         }
 
-        public static ConnectionStringSettings GetConnectionString(string key)
+        private static ConnectionStringSettings GetConnectionStringSettings(string key)
         {
             return Source.GetConnectionString(key);
+        }
+
+        public static string GetConnectionString()
+        {
+            return GetConnectionStringSettings(Config.ConnectionStringName).ConnectionString;
         }
     }
 }

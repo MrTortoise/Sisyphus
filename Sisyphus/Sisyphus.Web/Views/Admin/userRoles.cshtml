@@ -1,0 +1,30 @@
+﻿@using Sisyphus.Web.Models
+@model Sisyphus.Web.Models.UserModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <td>
+    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+    </td>
+    <td>
+        @Html.Encode(Model.UserName)
+    </td>
+         
+        <table class="table">
+            <tr><th>Role</th></tr>
+@foreach (var item in Model.Roles)
+            {
+                <tr>
+                    <td>
+                        @Html.Encode(item)
+                    </td>
+                    <td>
+                        @Html.ActionLink("remove","RemoveRoleFromUser","Admin", new UserModel(){Roles = new List<string>(){item},UserName = Model.UserName})
+                    </td>
+                </tr>
+            }
+        </table>
+}
+

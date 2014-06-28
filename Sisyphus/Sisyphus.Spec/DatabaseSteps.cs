@@ -37,23 +37,27 @@ namespace Sisyphus.Spec
                         command.ExecuteNonQuery();
                     }
                         // ReSharper disable once EmptyGeneralCatchClause
-                    catch {
+                    catch
+                    {
                         // dont care if this fails
                     }
-                 
-                    con.Close();
-                }
 
-
-
-                using (var command = con.CreateCommand())
-                {
-                    command.CommandText = createDb;
-                    con.Open();
-                    command.ExecuteNonQuery();
                     con.Close();
                 }
             }
+
+
+
+            //    using (var command = con.CreateCommand())
+            //    {
+            //        command.CommandText = createDb;
+            //        con.Open();
+            //        command.ExecuteNonQuery();
+            //        con.Close();
+            //    }
+            //}
+
+            StageDatabase.Stage();
 
             ScenarioContext.Current.Add(DatabaseName,databaseName);
         }

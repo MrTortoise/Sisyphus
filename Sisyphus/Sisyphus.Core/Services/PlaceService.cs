@@ -12,8 +12,8 @@
     {
         public Place CreatePlace(Place place)
         {
-            var conString = Config.GetConnectionString(Config.ConnectionString);
-            var context = new SisyphusContext(conString.ConnectionString);
+            var conString = Config.GetConnectionString();
+            var context = new SisyphusContext(conString);
             using (var tran = context.Database.BeginTransaction())
             {
                 var placeRepository = new PlaceRepository(context);
@@ -27,32 +27,32 @@
 
         public Place GetPlace(string name)
         {
-            var conString = Config.GetConnectionString(Config.ConnectionString);
-            var context = new SisyphusContext(conString.ConnectionString);
+            var conString = Config.GetConnectionString();
+            var context = new SisyphusContext(conString);
             var place = context.Places.SingleOrDefault(p => p.Name.ToLower().Equals(name.ToLower()));
             return place;
         }
 
         public Place GetPlace(int id)
         {
-            var conString = Config.GetConnectionString(Config.ConnectionString);
-            var context = new SisyphusContext(conString.ConnectionString);
+            var conString = Config.GetConnectionString();
+            var context = new SisyphusContext(conString);
             var place = context.Places.SingleOrDefault(p => p.Id == id);
             return place;
         }
 
         public List<Place> Places(int skip, int pageSize)
         {
-            var conString = Config.GetConnectionString(Config.ConnectionString);
-            var context = new SisyphusContext(conString.ConnectionString);
+            var conString = Config.GetConnectionString();
+            var context = new SisyphusContext(conString);
             var places = context.Places.OrderBy(i => i.Name).Skip(skip).Take(pageSize);
             return places.ToList();
         }
 
         public void EditPlace(Place place)
         {
-            var conString = Config.GetConnectionString(Config.ConnectionString);
-            var context = new SisyphusContext(conString.ConnectionString);
+            var conString = Config.GetConnectionString();
+            var context = new SisyphusContext(conString);
             using (var tran = context.Database.BeginTransaction())
             {
                 context.Entry(place).State = EntityState.Modified;
@@ -63,8 +63,8 @@
 
         public void Delete(Place place)
         {
-            var conString = Config.GetConnectionString(Config.ConnectionString);
-            var context = new SisyphusContext(conString.ConnectionString);
+            var conString = Config.GetConnectionString();
+            var context = new SisyphusContext(conString);
             using (var tran = context.Database.BeginTransaction())
             {
                 context.Entry(place).State = EntityState.Deleted;

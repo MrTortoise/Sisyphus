@@ -11,7 +11,7 @@ namespace Sisyphus.Spec
     public class ConfigSteps
     {
         [Given(@"I have set up configuration to use testConfig")]
-public void GivenIHaveSetUpConfigurationToUseTestConfig()
+        public void GivenIHaveSetUpConfigurationToUseTestConfig()
         {
             Config.Source = new TestConfigSource();
         }
@@ -25,7 +25,7 @@ public void GivenIHaveSetUpConfigurationToUseTestConfig()
         {
             switch (key)
             {
-                case Config.ConnectionString:
+                case Config.ConnectionStringName:
                 {
                     throw new InvalidOperationException("use connection string for connection strings");
                 }

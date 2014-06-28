@@ -12,6 +12,7 @@ namespace Sisyphus.Web.Controllers
     using Sisyphus.Core.Services;
 
     [RequireHttps]
+    [Authorize(Roles = "Writer")]
     public class PlaceController : Controller
     {
         // GET: Place
@@ -26,6 +27,7 @@ namespace Sisyphus.Web.Controllers
             return this.View(items);
         }
 
+         [Authorize(Roles = "Writer")]
         public ActionResult Create()
         {
             return this.View();
@@ -37,6 +39,7 @@ namespace Sisyphus.Web.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Writer")]
         public ActionResult Create([Bind(Include = "Name,History")]Place placeModel)
         {
             if (ModelState.IsValid)
@@ -59,6 +62,7 @@ namespace Sisyphus.Web.Controllers
              return this.View(places);
          }
 
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -77,6 +81,7 @@ namespace Sisyphus.Web.Controllers
             return this.View(item);
         }
 
+         [Authorize(Roles = "Writer")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -97,6 +102,7 @@ namespace Sisyphus.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Writer")]
         public ActionResult Edit([Bind(Include = "Id,Name,History")] Place place)
         {
             if (ModelState.IsValid)
@@ -108,6 +114,7 @@ namespace Sisyphus.Web.Controllers
             return this.View(place);
         }
 
+         [Authorize(Roles = "Writer")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -127,6 +134,7 @@ namespace Sisyphus.Web.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Writer")]
         public ActionResult DeleteConfirmed(int id)
         {
             var service = new PlaceService();

@@ -4,21 +4,31 @@ namespace Sisyphus.Web.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Threading.Tasks;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
+    using Sisyphus.Core;
+    using Sisyphus.Core.Repository;
+    using Sisyphus.Core.Services;
     using Sisyphus.Web.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Sisyphus.Web.Models.ApplicationDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
+        private const string AdminRole = "Admin";
+
+        private const string WriterRole = "Writer";
+
+        private const string ReaderRole = "Reader";
+
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
             ContextKey = "Sisyphus.Web.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(Sisyphus.Web.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -35,11 +45,27 @@ namespace Sisyphus.Web.Migrations
 
             var manager = new UserManager<ApplicationUser>(
                 new UserStore<ApplicationUser>(
-                    new ApplicationDbContext()));
+                    new ApplicationDbContext(Config.GetConnectionString())));
 
-            var user = new ApplicationUser() { UserName = "john" };
-            manager.Create(user, "test");
+            var idManager = new IdentityService();
+            idManager.CreateRole(AdminRole);
+            idManager.CreateRole(WriterRole);
+            idManager.CreateRole(ReaderRole);
 
+            var user = new ApplicationUser() { UserName = "Admin", Email = "test@test.com" };
+            var result = manager.CreateAsync(user);
+            Task.WaitAll(result);
+            context.SaveChanges();
+
+            user = context.Users.Single(u => u.UserName == "Admin");
+
+            var pw = manager.PasswordHasher.HashPassword("test");
+            user.PasswordHash = pw;
+            context.SaveChanges();
+
+            idManager.AddUserToRole(user.Id, AdminRole);
+            idManager.AddUserToRole(user.Id, WriterRole);
+            idManager.AddUserToRole(user.Id, ReaderRole);
         }
     }
 }
