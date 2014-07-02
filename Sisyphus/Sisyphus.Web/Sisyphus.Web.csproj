@@ -173,6 +173,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlaceController.cs" />
@@ -187,14 +188,16 @@
       <DependentUpon>201406272313253_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="Models\ExternalLoginListViewModel.cs" />
+    <Compile Include="Models\InstanceViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\ManageUserViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\ResetPasswordViewModel.cs" />
-    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\UserRoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -280,6 +283,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Dashboard\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

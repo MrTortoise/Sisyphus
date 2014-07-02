@@ -1,8 +1,7 @@
-﻿using System.Web;
-using System.Web.Mvc;
-
-namespace Sisyphus.Web
+﻿namespace Sisyphus.Web
 {
+    using System.Web.Mvc;
+
 #pragma warning disable 1591
     public class FilterConfig
 
@@ -13,4 +12,5 @@ namespace Sisyphus.Web
         }
     }
 }
+
 #pragma warning restore 1591

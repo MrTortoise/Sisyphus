@@ -1,13 +1,13 @@
 ﻿namespace Sisyphus.Core.Model
 {
     using System.ComponentModel.DataAnnotations;
-    using System.Data;
 
     public class Place
     {
+        #region Constructors and Destructors
+
         public Place()
         {
-
         }
 
         public Place(string name, string history)
@@ -16,17 +16,23 @@
             this.History = history;
         }
 
-        [Key]
-        public int Id { get; set; }
-      
-        /// <summary>
-        /// The name of the place
-        /// </summary>
-        public string Name { get;  set; }
+        #endregion
+
+        #region Public Properties
 
         /// <summary>
-        /// The history of the place, make it good.
+        ///     The history of the place, make it good.
         /// </summary>
-        public string History { get;  set; }
+        public string History { get; set; }
+
+        [Key]
+        public int Id { get; set; }
+
+        /// <summary>
+        ///     The name of the place
+        /// </summary>
+        public string Name { get; set; }
+
+        #endregion
     }
 }

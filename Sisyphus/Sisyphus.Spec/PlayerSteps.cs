@@ -1,8 +1,7 @@
-﻿using System;
-using TechTalk.SpecFlow;
-
-namespace Sisyphus.Spec
+﻿namespace Sisyphus.Spec
 {
+    using TechTalk.SpecFlow;
+
     [Binding]
     public class PlayerSteps
     {

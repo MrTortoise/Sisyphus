@@ -1,10 +1,9 @@
-﻿using System;
-using TechTalk.SpecFlow;
-
-namespace Sisyphus.Spec
+﻿namespace Sisyphus.Spec
 {
     using System.Configuration;
     using System.Data.SqlClient;
+
+    using TechTalk.SpecFlow;
 
     [Binding]
     public class DatabaseSteps
@@ -28,7 +27,7 @@ namespace Sisyphus.Spec
 
             using (var con = new SqlConnection(connectionString))
             {
-                using (var command = con.CreateCommand())
+                using (SqlCommand command = con.CreateCommand())
                 {
                     command.CommandText = dropDb;
                     con.Open();
@@ -46,8 +45,6 @@ namespace Sisyphus.Spec
                 }
             }
 
-
-
             //    using (var command = con.CreateCommand())
             //    {
             //        command.CommandText = createDb;
@@ -59,7 +56,7 @@ namespace Sisyphus.Spec
 
             StageDatabase.Stage();
 
-            ScenarioContext.Current.Add(DatabaseName,databaseName);
+            ScenarioContext.Current.Add(DatabaseName, databaseName);
         }
 
         public static string CreateConnectionString(string serverAddress, string database)

@@ -3,81 +3,97 @@
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
-    using System.Net.Sockets;
     using System.Threading.Tasks;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    using Sisyphus.Core;
     using Sisyphus.Core.Repository;
     using Sisyphus.Web.Models;
 
     public class IdentityService
     {
-        public bool RoleExists(string name)
+        #region Public Methods and Operators
+
+        public bool AddUserToRole(string userId, string roleName)
         {
-            var rm = new RoleManager<IdentityRole>(
-                new RoleStore<IdentityRole>(new ApplicationDbContext(Config.GetConnectionString())));
-            return rm.RoleExists(name);
+            var um =
+                new UserManager<ApplicationUser>(
+                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+            IdentityResult idResult = um.AddToRole(userId, roleName);
+            return idResult.Succeeded;
+        }
+
+        public void ClearUserRoles(string userId)
+        {
+            var um =
+                new UserManager<ApplicationUser>(
+                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+
+            Task<IList<string>> role = um.GetRolesAsync(userId);
+            Task.WaitAll(role);
+
+            IList<string> roles = role.Result;
+
+            foreach (string r in roles)
+            {
+                um.RemoveFromRole(userId, r);
+            }
         }
 
         public bool CreateRole(string name)
         {
-            var rm = new RoleManager<IdentityRole>(
-                new RoleStore<IdentityRole>(new ApplicationDbContext(Config.GetConnectionString())));
-            var idResult =  rm.Create(new IdentityRole(name));
+            var rm =
+                new RoleManager<IdentityRole>(
+                    new RoleStore<IdentityRole>(new ApplicationDbContext(Config.GetConnectionString())));
+            IdentityResult idResult = rm.Create(new IdentityRole(name));
             return idResult.Succeeded;
         }
-
 
         public IdentityResult CreateUser(ApplicationUser user, string password)
         {
-            var um = new UserManager<ApplicationUser>(
-                new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
-            var idResult = um.Create(user, password);
+            var um =
+                new UserManager<ApplicationUser>(
+                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+            IdentityResult idResult = um.Create(user, password);
             return idResult;
         }
 
-
-        public bool AddUserToRole(string userId, string roleName)
+        public Dictionary<string,string> GetAllRoles()
         {
-            var um = new UserManager<ApplicationUser>(
-                new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
-            var idResult = um.AddToRole(userId, roleName);
-            return idResult.Succeeded;
+            var rm =
+                new RoleManager<IdentityRole>(
+                    new RoleStore<IdentityRole>(new ApplicationDbContext(Config.GetConnectionString())));
+
+            Dictionary<string, string> roles = rm.Roles.ToDictionary(k => k.Id, v => v.Name);
+            return roles;
         }
 
-
-        public void ClearUserRoles(string userId)
+        public ApplicationUser GetUser(string userName)
         {
-            var um = new UserManager<ApplicationUser>(
-                new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+            var um =
+                new UserManager<ApplicationUser>(
+                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
 
-            var role = um.GetRolesAsync(userId);
-            Task.WaitAll(role);
-
-            var roles = role.Result;
-
-            foreach (var r in roles)
-            {
-                um.RemoveFromRole(userId, r);
-            }
+            ApplicationUser user = um.Users.SingleOrDefault(i => i.UserName == userName);
+            return user;
         }
 
         public Dictionary<string, List<string>> GetUserRoles(int skip, int pageSize)
         {
             var context = new ApplicationDbContext(Config.GetConnectionString());
             var rm = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-            var allRoles = rm.Roles.ToList();
+            List<IdentityRole> allRoles = rm.Roles.ToList();
             rm.Dispose();
             var um = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            
+
             var retval = new Dictionary<string, List<string>>();
-            var users = um.Users.Include("Roles").OrderBy(u => u.UserName).Skip(skip).Take(pageSize).ToList();
-            foreach (var user in users)
+            List<ApplicationUser> users =
+                um.Users.Include("Roles").OrderBy(u => u.UserName).Skip(skip).Take(pageSize).ToList();
+            foreach (ApplicationUser user in users)
             {
-                var roles = allRoles.Where(r => user.Roles.Any(i => i.RoleId == r.Id)).Select(j => j.Name).ToList();
+                List<string> roles =
+                    allRoles.Where(r => user.Roles.Any(i => i.RoleId == r.Id)).Select(j => j.Name).ToList();
                 retval.Add(user.UserName, roles);
             }
 
@@ -86,20 +102,12 @@
 
         public List<ApplicationUser> GetUsers()
         {
-            var um = new UserManager<ApplicationUser>(
+            var um =
+                new UserManager<ApplicationUser>(
                     new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
 
-            var users = um.Users;
+            IQueryable<ApplicationUser> users = um.Users;
             return users.ToList();
-        }
-
-        public ApplicationUser GetUser(string userName)
-        {
-            var um = new UserManager<ApplicationUser>(
-                 new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
-
-            var user = um.Users.SingleOrDefault(i => i.UserName == userName);
-            return user;
         }
 
         public bool IsUserInRole(string userName, string role)
@@ -108,14 +116,34 @@
                 new RoleManager<IdentityRole>(
                     new RoleStore<IdentityRole>(new ApplicationDbContext(Config.GetConnectionString())));
 
-            var roleId = rm.Roles.Single(r => r.Name == role).Id;
+            string roleId = rm.Roles.Single(r => r.Name == role).Id;
 
             var um =
                 new UserManager<ApplicationUser>(
                     new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
 
-            var retVal = um.Users.Single(u => u.UserName == userName).Roles.Any(r => r.RoleId == roleId);
+            bool retVal = um.Users.Single(u => u.UserName == userName).Roles.Any(r => r.RoleId == roleId);
             return retVal;
+        }
+
+        public bool RoleExists(string name)
+        {
+            var rm =
+                new RoleManager<IdentityRole>(
+                    new RoleStore<IdentityRole>(new ApplicationDbContext(Config.GetConnectionString())));
+            return rm.RoleExists(name);
+        }
+
+        #endregion
+
+        public void AddUserNameToRole(string userName, string role)
+        {
+            var um =
+                new UserManager<ApplicationUser>(
+                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+
+            ApplicationUser user = um.Users.Single(i => i.UserName == userName);
+            um.AddToRole(user.Id, role);
         }
     }
 }

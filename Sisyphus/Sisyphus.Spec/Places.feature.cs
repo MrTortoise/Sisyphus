@@ -9,211 +9,199 @@
 //      the code is regenerated.
 //  </auto-generated>
 // ------------------------------------------------------------------------------
+
 #region Designer generated code
+
+
 #pragma warning disable
+
 namespace Sisyphus.Spec
 {
     using TechTalk.SpecFlow;
-    
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Places")]
     public partial class PlacesFeature
     {
-        
         private static TechTalk.SpecFlow.ITestRunner testRunner;
-        
+
 #line 1 "Places.feature"
 #line hidden
-        
+
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Places", "In order to have locations characters can interact in\r\nAs a writer\r\nI want to be " +
-                    "to manipulate places", ProgrammingLanguage.CSharp, ((string[])(null)));
+            var featureInfo = new TechTalk.SpecFlow.FeatureInfo(
+                new System.Globalization.CultureInfo("en-US"),
+                "Places",
+                "In order to have locations characters can interact in\r\nAs a writer\r\nI want to be "
+                + "to manipulate places",
+                ProgrammingLanguage.CSharp,
+                ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
-        
+
         [NUnit.Framework.TestFixtureTearDownAttribute()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
-        
+
         [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
-        
+
         [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
         }
-        
+
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
         }
-        
+
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
-        
+
         public virtual void FeatureBackground()
         {
 #line 6
 #line 7
- testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            testRunner.Given(
+                "I have set up configuration to use testConfig",
+                ((string)(null)),
+                ((TechTalk.SpecFlow.Table)(null)),
+                "Given ");
 #line hidden
         }
-        
+
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create a new place with a name and history")]
         [NUnit.Framework.CategoryAttribute("mytag")]
         public virtual void CreateANewPlaceWithANameAndHistory()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new place with a name and history", new string[] {
-                        "mytag"});
+            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(
+                "Create a new place with a name and history",
+                new string[] { "mytag" });
 #line 10
-this.ScenarioSetup(scenarioInfo);
+            this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
+            this.FeatureBackground();
 #line 11
- testRunner.Given("I have created a test database called \"placesTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            testRunner.Given(
+                "I have created a test database called \"placesTest\"",
+                ((string)(null)),
+                ((TechTalk.SpecFlow.Table)(null)),
+                "Given ");
 #line 12
- testRunner.When("I create a place called \"test1\" with history \"history1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+            testRunner.When(
+                "I create a place called \"test1\" with history \"history1\"",
+                ((string)(null)),
+                ((TechTalk.SpecFlow.Table)(null)),
+                "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "history"});
-            table1.AddRow(new string[] {
-                        "test1",
-                        "history1"});
+            var table1 = new TechTalk.SpecFlow.Table(new string[] { "name", "history" });
+            table1.AddRow(new string[] { "test1", "history1" });
 #line 13
- testRunner.Then("I expect places to contain", ((string)(null)), table1, "Then ");
+            testRunner.Then("I expect places to contain", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
-        
+
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create several places and return them")]
         public virtual void CreateSeveralPlacesAndReturnThem()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create several places and return them", ((string[])(null)));
+            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(
+                "Create several places and return them",
+                ((string[])(null)));
 #line 17
-this.ScenarioSetup(scenarioInfo);
+            this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
+            this.FeatureBackground();
 #line 18
- testRunner.Given("I have created a test database called \"placesTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            testRunner.Given(
+                "I have created a test database called \"placesTest\"",
+                ((string)(null)),
+                ((TechTalk.SpecFlow.Table)(null)),
+                "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "history"});
-            table2.AddRow(new string[] {
-                        "test1",
-                        "history1"});
-            table2.AddRow(new string[] {
-                        "test2",
-                        "history2"});
-            table2.AddRow(new string[] {
-                        "test3",
-                        "history3"});
-            table2.AddRow(new string[] {
-                        "test4",
-                        "history4"});
+            var table2 = new TechTalk.SpecFlow.Table(new string[] { "name", "history" });
+            table2.AddRow(new string[] { "test1", "history1" });
+            table2.AddRow(new string[] { "test2", "history2" });
+            table2.AddRow(new string[] { "test3", "history3" });
+            table2.AddRow(new string[] { "test4", "history4" });
 #line 19
- testRunner.When("I create the following places", ((string)(null)), table2, "When ");
+            testRunner.When("I create the following places", ((string)(null)), table2, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "history"});
-            table3.AddRow(new string[] {
-                        "test1",
-                        "history1"});
-            table3.AddRow(new string[] {
-                        "test2",
-                        "history2"});
-            table3.AddRow(new string[] {
-                        "test3",
-                        "history3"});
-            table3.AddRow(new string[] {
-                        "test4",
-                        "history4"});
+            var table3 = new TechTalk.SpecFlow.Table(new string[] { "name", "history" });
+            table3.AddRow(new string[] { "test1", "history1" });
+            table3.AddRow(new string[] { "test2", "history2" });
+            table3.AddRow(new string[] { "test3", "history3" });
+            table3.AddRow(new string[] { "test4", "history4" });
 #line 25
- testRunner.Then("I expect places to contain", ((string)(null)), table3, "Then ");
+            testRunner.Then("I expect places to contain", ((string)(null)), table3, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
-        
+
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create a list of places and return a page")]
         public virtual void CreateAListOfPlacesAndReturnAPage()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a list of places and return a page", ((string[])(null)));
+            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(
+                "Create a list of places and return a page",
+                ((string[])(null)));
 #line 32
-this.ScenarioSetup(scenarioInfo);
+            this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
+            this.FeatureBackground();
 #line 33
- testRunner.Given("I have created a test database called \"placesTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            testRunner.Given(
+                "I have created a test database called \"placesTest\"",
+                ((string)(null)),
+                ((TechTalk.SpecFlow.Table)(null)),
+                "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "history"});
-            table4.AddRow(new string[] {
-                        "test1",
-                        "history1"});
-            table4.AddRow(new string[] {
-                        "test2",
-                        "history2"});
-            table4.AddRow(new string[] {
-                        "test3",
-                        "history3"});
-            table4.AddRow(new string[] {
-                        "test4",
-                        "history4"});
-            table4.AddRow(new string[] {
-                        "test5",
-                        "history5"});
-            table4.AddRow(new string[] {
-                        "test6",
-                        "history6"});
-            table4.AddRow(new string[] {
-                        "test7",
-                        "history7"});
-            table4.AddRow(new string[] {
-                        "test8",
-                        "history8"});
+            var table4 = new TechTalk.SpecFlow.Table(new string[] { "name", "history" });
+            table4.AddRow(new string[] { "test1", "history1" });
+            table4.AddRow(new string[] { "test2", "history2" });
+            table4.AddRow(new string[] { "test3", "history3" });
+            table4.AddRow(new string[] { "test4", "history4" });
+            table4.AddRow(new string[] { "test5", "history5" });
+            table4.AddRow(new string[] { "test6", "history6" });
+            table4.AddRow(new string[] { "test7", "history7" });
+            table4.AddRow(new string[] { "test8", "history8" });
 #line 34
- testRunner.And("I create the following places", ((string)(null)), table4, "And ");
+            testRunner.And("I create the following places", ((string)(null)), table4, "And ");
 #line 44
- testRunner.When("I get 3 places skipping 3 and store them", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+            testRunner.When(
+                "I get 3 places skipping 3 and store them",
+                ((string)(null)),
+                ((TechTalk.SpecFlow.Table)(null)),
+                "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "history"});
-            table5.AddRow(new string[] {
-                        "test4",
-                        "history4"});
-            table5.AddRow(new string[] {
-                        "test5",
-                        "history5"});
-            table5.AddRow(new string[] {
-                        "test6",
-                        "history6"});
+            var table5 = new TechTalk.SpecFlow.Table(new string[] { "name", "history" });
+            table5.AddRow(new string[] { "test4", "history4" });
+            table5.AddRow(new string[] { "test5", "history5" });
+            table5.AddRow(new string[] { "test6", "history6" });
 #line 45
- testRunner.Then("I expect the stored places to contain the following", ((string)(null)), table5, "Then ");
+            testRunner.Then("I expect the stored places to contain the following", ((string)(null)), table5, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
     }
 }
+
 #pragma warning restore
+
 #endregion

@@ -1,20 +1,26 @@
 ﻿namespace Sisyphus.Core.Services
 {
+    using System.Data.Entity;
+
     using Sisyphus.Core.Model;
     using Sisyphus.Core.Repository;
 
-    public class TimeService    
+    public class TimeService
     {
+        #region Public Methods and Operators
+
         public void CreateTimeUnit(TimeUnit timeUnit)
         {
-            var conString = Config.GetConnectionString();
+            string conString = Config.GetConnectionString();
             var context = new SisyphusContext(conString);
-            using (var tran = context.Database.BeginTransaction())
+            using (DbContextTransaction tran = context.Database.BeginTransaction())
             {
                 context.TimeUnits.Add(timeUnit);
                 context.SaveChanges();
                 tran.Commit();
             }
         }
+
+        #endregion
     }
 }

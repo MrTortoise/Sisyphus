@@ -15,8 +15,16 @@ Scenario: Create a user
 Scenario: View user list
 	When I get the user list
 	Then I expect the followign users to be in the user list
-	| name          |
+	| name                   |
 	| adminfeature@admin.com |
+
+Scenario: I need to view all roles so i can assign one ot a user
+	When I get the role list
+	Then I expect there to be the following roles
+	| role   |
+	| Reader |
+	| Writer |
+	| Admin  |
 
 Scenario: Assign roles to user
 	When I assign the following roles to user "adminfeature@admin.com"

@@ -1,30 +1,47 @@
 ﻿@using Sisyphus.Web.Models
-@model Sisyphus.Web.Models.UserModel
+@model Sisyphus.Web.Models.UserRoleViewModel
 
-@using (Html.BeginForm())
+@*@using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
+    @Html.AntiForgeryToken()*@
+
     <td>
-    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-2" })
     </td>
     <td>
         @Html.Encode(Model.UserName)
     </td>
-         
-        <table class="table">
-            <tr><th>Role</th></tr>
-@foreach (var item in Model.Roles)
-            {
-                <tr>
-                    <td>
-                        @Html.Encode(item)
-                    </td>
-                    <td>
-                        @Html.ActionLink("remove","RemoveRoleFromUser","Admin", new UserModel(){Roles = new List<string>(){item},UserName = Model.UserName})
-                    </td>
-                </tr>
-            }
-        </table>
-}
 
+<table class="table">
+    <tr><th>Role</th></tr>
+    @foreach (string item in Model.Roles)
+    {
+        using (Html.BeginForm("RemoveRoleFromUser", "Admin",new RouteValueDictionary(){{"user",Model.UserName},{"role",item}}, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <tr>
+                <td>
+                    @Html.Encode(item)
+                </td>
+                <td>
+                    <input type="submit" value="RemoveRoleFromUser" />
+                    @*@Html.ActionLink("remove", "RemoveRoleFromUser", "Admin", new UserRoleViewModel { Roles = new List<string> { item }, UserName = Model.UserName })*@
+                </td>
+            </tr>
+        }
+    }
+    <tr>   
+        <td >
+            @using (Html.BeginForm("AddRoleToUser", "Admin", Model, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <fieldset>
+                    @Html.DropDownList("roleDropDown", Model.AllRoles)
+                    <input type="submit" value="roleDropDown" />
+                </fieldset> 
+            }
+        </td>
+            @*<td>@Html.ActionLink("Add", "AddRoleToUser", "Admin", new UserRoleViewModel { UserName = Model.UserName, AllRoles = Model.AllRoles })</td>*@
+    </tr>
+</table>
+@*}*@

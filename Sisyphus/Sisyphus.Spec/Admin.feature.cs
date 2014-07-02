@@ -32,7 +32,7 @@ namespace Sisyphus.Spec
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Admin", "In order to manage player accounts\nAs an admin\nI want to be an admin", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Admin", "In order to manage player accounts\r\nAs an admin\r\nI want to be an admin", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -117,25 +117,40 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Assign roles to user")]
-        public virtual void AssignRolesToUser()
+        [NUnit.Framework.DescriptionAttribute("I need to view all roles so i can assign one ot a user")]
+        public virtual void INeedToViewAllRolesSoICanAssignOneOtAUser()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Assign roles to user", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I need to view all roles so i can assign one ot a user", ((string[])(null)));
 #line 21
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
+#line 22
+ testRunner.When("I get the role list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "role"});
             table2.AddRow(new string[] {
-                        "Admin"});
+                        "Reader"});
             table2.AddRow(new string[] {
                         "Writer"});
             table2.AddRow(new string[] {
-                        "Reader"});
-#line 22
- testRunner.When("I assign the following roles to user \"adminfeature@admin.com\"", ((string)(null)), table2, "When ");
+                        "Admin"});
+#line 23
+ testRunner.Then("I expect there to be the following roles", ((string)(null)), table2, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Assign roles to user")]
+        public virtual void AssignRolesToUser()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Assign roles to user", ((string[])(null)));
+#line 29
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "role"});
@@ -145,8 +160,19 @@ this.FeatureBackground();
                         "Writer"});
             table3.AddRow(new string[] {
                         "Reader"});
-#line 27
- testRunner.Then("I expect the user \"adminfeature@admin.com\" to have the following roles", ((string)(null)), table3, "Then ");
+#line 30
+ testRunner.When("I assign the following roles to user \"adminfeature@admin.com\"", ((string)(null)), table3, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "role"});
+            table4.AddRow(new string[] {
+                        "Admin"});
+            table4.AddRow(new string[] {
+                        "Writer"});
+            table4.AddRow(new string[] {
+                        "Reader"});
+#line 35
+ testRunner.Then("I expect the user \"adminfeature@admin.com\" to have the following roles", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

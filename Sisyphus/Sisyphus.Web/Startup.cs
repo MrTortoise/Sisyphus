@@ -1,14 +1,18 @@
 ﻿using Microsoft.Owin;
-using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Sisyphus.Web.Startup))]
+using Sisyphus.Web;
+
+[assembly: OwinStartup(typeof(Startup))]
+
 namespace Sisyphus.Web
 {
+    using Owin;
+
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            this.ConfigureAuth(app);
         }
     }
 }

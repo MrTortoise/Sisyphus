@@ -1,17 +1,17 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin;
-using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.DataProtection;
-using Microsoft.Owin.Security.Google;
-using Owin;
-using System;
-using Sisyphus.Web.Models;
-
-namespace Sisyphus.Web
+﻿namespace Sisyphus.Web
 {
+    using System;
+
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin;
+    using Microsoft.Owin.Security.Cookies;
+    using Microsoft.Owin.Security.Google;
+
+    using Owin;
+
     using Sisyphus.Core.Repository;
+    using Sisyphus.Web.Models;
 
     public partial class Startup
     {
@@ -25,18 +25,28 @@ namespace Sisyphus.Web
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
             // Configure the sign in cookie
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"),
-                Provider = new CookieAuthenticationProvider
+            app.UseCookieAuthentication(
+                new CookieAuthenticationOptions
                 {
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
-                        validateInterval: TimeSpan.FromMinutes(30),
-                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
-                }
-            });
-            
+                    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                    LoginPath = new PathString("/Account/Login"),
+                    Provider =
+                        new CookieAuthenticationProvider
+                        {
+                            OnValidateIdentity =
+                                SecurityStampValidator
+                                .OnValidateIdentity
+                                <ApplicationUserManager,
+                                ApplicationUser>(
+                                    TimeSpan.FromMinutes(
+                                        30),
+                                    (manager, user) =>
+                                user
+                                .GenerateUserIdentityAsync
+                                (manager))
+                        }
+                });
+
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
@@ -52,11 +62,13 @@ namespace Sisyphus.Web
             //   appId: "",
             //   appSecret: "");
 
-            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            {
-                ClientId = "493510777594-ekl0nj5i9nktvhagc5evvk5e4padenvn.apps.googleusercontent.com",
-                ClientSecret = "3cGCKaz1liVhOYvYvD-shytJ"
-            });
+            app.UseGoogleAuthentication(
+                new GoogleOAuth2AuthenticationOptions
+                {
+                    ClientId =
+                        "493510777594-ekl0nj5i9nktvhagc5evvk5e4padenvn.apps.googleusercontent.com",
+                    ClientSecret = "3cGCKaz1liVhOYvYvD-shytJ"
+                });
         }
     }
 }

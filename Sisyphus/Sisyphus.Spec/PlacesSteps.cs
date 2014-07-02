@@ -1,20 +1,16 @@
-﻿using System.Data.Entity;
-
-using TechTalk.SpecFlow;
-
-namespace Sisyphus.Spec
+﻿namespace Sisyphus.Spec
 {
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Linq;
     using System.Web.Mvc;
 
     using NUnit.Framework;
 
-    using Sisyphus.Core;
     using Sisyphus.Core.Model;
     using Sisyphus.Core.Services;
     using Sisyphus.Web.Controllers;
+
+    using TechTalk.SpecFlow;
 
     [Binding]
     public class PlacesSteps
@@ -33,13 +29,13 @@ namespace Sisyphus.Spec
         public void ThenIExpectPlacesToContain(Table table)
         {
             var placeService = new PlaceService();
-            foreach (var row in table.Rows)
+            foreach (TableRow row in table.Rows)
             {
                 var place = new Place(row[0], row[1]);
-                var item = placeService.GetPlace(place.Name);
+                Place item = placeService.GetPlace(place.Name);
 
                 Assert.IsNotNull(item);
-                Assert.AreEqual(place.Name,item.Name);
+                Assert.AreEqual(place.Name, item.Name);
                 Assert.AreEqual(place.History, item.History);
             }
         }
@@ -49,7 +45,7 @@ namespace Sisyphus.Spec
         public void WhenICreateTheFollowingPlaces(Table table)
         {
             var cont = new PlaceController();
-            foreach (var row in table.Rows)
+            foreach (TableRow row in table.Rows)
             {
                 var place = new Place(row[0], row[1]);
                 cont.Create(place);
@@ -70,14 +66,11 @@ namespace Sisyphus.Spec
         public void ThenIExpectTheStoredPlacesToContainTheFollowing(Table table)
         {
             var places = (List<Place>)ScenarioContext.Current[PlacesKey];
-            foreach (var row in table.Rows)
+            foreach (TableRow row in table.Rows)
             {
                 var place = new Place(row[0], row[1]);
                 Assert.IsTrue(places.Any(p => place.Name == p.Name && place.History == p.History));
             }
         }
-
     }
 }
-
-

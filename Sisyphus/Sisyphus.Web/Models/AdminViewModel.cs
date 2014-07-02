@@ -1,30 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Sisyphus.Web.Models
+﻿namespace Sisyphus.Web.Models
 {
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
+    using System.Web.Mvc;
+
     public class AdminViewModel
     {
         public AdminViewModel()
         {
-            
         }
 
-        public AdminViewModel(int skip, int pageSize, Dictionary<string, List<string>> userRoles)
+        public AdminViewModel(
+            int skip,
+            int pageSize,
+            Dictionary<string, List<string>> userRoles,
+            Dictionary<string, string> allRoles)
         {
             this.Skip = skip;
             this.PageSize = pageSize;
-            Users = new List<UserModel>();
+            this.Users = new List<UserRoleViewModel>();
+
+            var roles =
+                allRoles.Select(i => new SelectListItem() { Selected = false, Value = i.Key, Text = i.Value }).ToList();
+            roles[0].Selected = true;
+
             foreach (var item in userRoles)
             {
-                Users.Add(new UserModel() { UserName = item.Key, Roles = item.Value.ToList() });
+                this.Users.Add(
+                    new UserRoleViewModel { UserName = item.Key, Roles = item.Value.ToList(), AllRoles = roles });
             }
         }
 
         public int PageSize { get; set; }
+
         public int Skip { get; set; }
-        public List<UserModel> Users { get; set; }
+
+        public List<UserRoleViewModel> Users { get; set; }
     }
 }

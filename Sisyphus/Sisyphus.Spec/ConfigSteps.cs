@@ -1,11 +1,11 @@
-﻿using System;
-using TechTalk.SpecFlow;
-
-namespace Sisyphus.Spec
+﻿namespace Sisyphus.Spec
 {
+    using System;
     using System.Configuration;
 
     using Sisyphus.Core;
+
+    using TechTalk.SpecFlow;
 
     [Binding]
     public class ConfigSteps
@@ -36,7 +36,7 @@ namespace Sisyphus.Spec
 
         public ConnectionStringSettings GetConnectionString(string key)
         {
-            var serverAddress = ConfigurationManager.AppSettings[SqlInstance];
+            string serverAddress = ConfigurationManager.AppSettings[SqlInstance];
             var database = (string)ScenarioContext.Current[DatabaseSteps.DatabaseName];
 
             string conString = DatabaseSteps.CreateConnectionString(serverAddress, database);

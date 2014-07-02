@@ -9,224 +9,207 @@
 //      the code is regenerated.
 //  </auto-generated>
 // ------------------------------------------------------------------------------
+
 #region Designer generated code
+
+
 #pragma warning disable
+
 namespace Sisyphus.Spec
 {
     using TechTalk.SpecFlow;
-    
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("EventCreation")]
     public partial class EventCreationFeature
     {
-        
         private static TechTalk.SpecFlow.ITestRunner testRunner;
-        
+
 #line 1 "EventCreation.feature"
 #line hidden
-        
+
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "EventCreation", "In order to create meaningful events \r\nAs a writer\r\nI want to be able to open a e" +
-                    "vent creation form to set all the items", ProgrammingLanguage.CSharp, ((string[])(null)));
+            var featureInfo = new TechTalk.SpecFlow.FeatureInfo(
+                new System.Globalization.CultureInfo("en-US"),
+                "EventCreation",
+                "In order to create meaningful events \r\nAs a writer\r\nI want to be able to open a e"
+                + "vent creation form to set all the items",
+                ProgrammingLanguage.CSharp,
+                ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
-        
+
         [NUnit.Framework.TestFixtureTearDownAttribute()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
-        
+
         [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
-        
+
         [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
         }
-        
+
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
         }
-        
+
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
-        
+
         public virtual void FeatureBackground()
         {
 #line 6
 #line 7
- testRunner.Given("I have created a test database called \"eventCreation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            testRunner.Given(
+                "I have created a test database called \"eventCreation\"",
+                ((string)(null)),
+                ((TechTalk.SpecFlow.Table)(null)),
+                "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "history"});
-            table1.AddRow(new string[] {
-                        "testPlace",
-                        "history1"});
-            table1.AddRow(new string[] {
-                        "testPlace2",
-                        "history1"});
+            var table1 = new TechTalk.SpecFlow.Table(new string[] { "name", "history" });
+            table1.AddRow(new string[] { "testPlace", "history1" });
+            table1.AddRow(new string[] { "testPlace2", "history1" });
 #line 8
- testRunner.And("I create the following places", ((string)(null)), table1, "And ");
+            testRunner.And("I create the following places", ((string)(null)), table1, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "backstory",
-                        "race",
-                        "sex",
-                        "place"});
-            table2.AddRow(new string[] {
-                        "jim",
-                        "none",
-                        "foot",
-                        "rarley",
-                        "somewhere"});
-            table2.AddRow(new string[] {
-                        "jim2",
-                        "none",
-                        "foot",
-                        "rarley",
-                        "somewhere"});
-            table2.AddRow(new string[] {
-                        "jim3",
-                        "none",
-                        "foot",
-                        "rarley",
-                        "somewhere"});
-            table2.AddRow(new string[] {
-                        "jim4",
-                        "none",
-                        "foot",
-                        "rarley",
-                        "somewhere"});
+            var table2 = new TechTalk.SpecFlow.Table(new string[] { "name", "backstory", "race", "sex", "place" });
+            table2.AddRow(new string[] { "jim", "none", "foot", "rarley", "somewhere" });
+            table2.AddRow(new string[] { "jim2", "none", "foot", "rarley", "somewhere" });
+            table2.AddRow(new string[] { "jim3", "none", "foot", "rarley", "somewhere" });
+            table2.AddRow(new string[] { "jim4", "none", "foot", "rarley", "somewhere" });
 #line 12
- testRunner.And("I create the following characters", ((string)(null)), table2, "And ");
+            testRunner.And("I create the following characters", ((string)(null)), table2, "And ");
 #line hidden
         }
-        
+
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open Event creation")]
         public virtual void OpenEventCreation()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open Event creation", ((string[])(null)));
+            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open Event creation", ((string[])(null)));
 #line 19
-this.ScenarioSetup(scenarioInfo);
+            this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
+            this.FeatureBackground();
 #line 20
- testRunner.Given("I open the view \"EventSequencer\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            testRunner.Given(
+                "I open the view \"EventSequencer\"",
+                ((string)(null)),
+                ((TechTalk.SpecFlow.Table)(null)),
+                "Given ");
 #line 21
- testRunner.When("I click open Event Creation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+            testRunner.When("I click open Event Creation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 22
- testRunner.Then("I expect to get the \"EventCreation\" view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            testRunner.Then(
+                "I expect to get the \"EventCreation\" view",
+                ((string)(null)),
+                ((TechTalk.SpecFlow.Table)(null)),
+                "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
-        
+
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open event creation - verify supporting data is correct")]
         public virtual void OpenEventCreation_VerifySupportingDataIsCorrect()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open event creation - verify supporting data is correct", ((string[])(null)));
+            var scenarioInfo =
+                new TechTalk.SpecFlow.ScenarioInfo(
+                    "Open event creation - verify supporting data is correct",
+                    ((string[])(null)));
 #line 24
-this.ScenarioSetup(scenarioInfo);
+            this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
+            this.FeatureBackground();
 #line 25
- testRunner.When("I open the view \"EventCreation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+            testRunner.When(
+                "I open the view \"EventCreation\"",
+                ((string)(null)),
+                ((TechTalk.SpecFlow.Table)(null)),
+                "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table3.AddRow(new string[] {
-                        "testPlace"});
-            table3.AddRow(new string[] {
-                        "testPlace2"});
+            var table3 = new TechTalk.SpecFlow.Table(new string[] { "name" });
+            table3.AddRow(new string[] { "testPlace" });
+            table3.AddRow(new string[] { "testPlace2" });
 #line 26
- testRunner.Then("I expect event creation to have the following places", ((string)(null)), table3, "Then ");
+            testRunner.Then("I expect event creation to have the following places", ((string)(null)), table3, "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table4.AddRow(new string[] {
-                        "jim"});
-            table4.AddRow(new string[] {
-                        "jim2"});
-            table4.AddRow(new string[] {
-                        "jim3"});
-            table4.AddRow(new string[] {
-                        "jim4"});
+            var table4 = new TechTalk.SpecFlow.Table(new string[] { "name" });
+            table4.AddRow(new string[] { "jim" });
+            table4.AddRow(new string[] { "jim2" });
+            table4.AddRow(new string[] { "jim3" });
+            table4.AddRow(new string[] { "jim4" });
 #line 30
- testRunner.And("I expect event creation to ahve the following characters available", ((string)(null)), table4, "And ");
+            testRunner.And(
+                "I expect event creation to ahve the following characters available",
+                ((string)(null)),
+                table4,
+                "And ");
 #line hidden
             this.ScenarioCleanup();
         }
-        
+
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create an event")]
         public virtual void CreateAnEvent()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create an event", ((string[])(null)));
+            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create an event", ((string[])(null)));
 #line 37
-this.ScenarioSetup(scenarioInfo);
+            this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
+            this.FeatureBackground();
 #line 38
- testRunner.Given("I open the view \"EventCreator\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            testRunner.Given(
+                "I open the view \"EventCreator\"",
+                ((string)(null)),
+                ((TechTalk.SpecFlow.Table)(null)),
+                "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "Description",
-                        "Outcomes",
-                        "Places",
-                        "Duration",
-                        "Characters",
-                        "Event Type"});
-            table5.AddRow(new string[] {
-                        "testEvent",
-                        "a test event to show how things work",
-                        "passed, failed, war",
-                        "testPlace,testPlace2",
-                        "3",
-                        "jim,jim3",
-                        "story"});
+            var table5 =
+                new TechTalk.SpecFlow.Table(
+                    new string[] { "name", "Description", "Outcomes", "Places", "Duration", "Characters", "Event Type" });
+            table5.AddRow(
+                new string[]
+                {
+                    "testEvent", "a test event to show how things work", "passed, failed, war", "testPlace,testPlace2",
+                    "3", "jim,jim3", "story"
+                });
 #line 39
- testRunner.When("I create the following event", ((string)(null)), table5, "When ");
+            testRunner.When("I create the following event", ((string)(null)), table5, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "Description",
-                        "Outcomes",
-                        "Places",
-                        "Duration",
-                        "Characters",
-                        "Event Type"});
-            table6.AddRow(new string[] {
-                        "testEvent",
-                        "a test event to show how things work",
-                        "passed, failed, war",
-                        "testPlace,testPlace2",
-                        "3",
-                        "jim,jim3",
-                        "story"});
+            var table6 =
+                new TechTalk.SpecFlow.Table(
+                    new string[] { "name", "Description", "Outcomes", "Places", "Duration", "Characters", "Event Type" });
+            table6.AddRow(
+                new string[]
+                {
+                    "testEvent", "a test event to show how things work", "passed, failed, war", "testPlace,testPlace2",
+                    "3", "jim,jim3", "story"
+                });
 #line 42
- testRunner.Then("I expect the following events to exist", ((string)(null)), table6, "Then ");
+            testRunner.Then("I expect the following events to exist", ((string)(null)), table6, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
     }
 }
+
 #pragma warning restore
+
 #endregion

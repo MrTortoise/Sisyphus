@@ -1,7 +1,5 @@
 namespace Sisyphus.Web.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
     using System.Threading.Tasks;
@@ -24,8 +22,8 @@ namespace Sisyphus.Web.Migrations
 
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "Sisyphus.Web.Models.ApplicationDbContext";
+            this.AutomaticMigrationsEnabled = true;
+            this.ContextKey = "Sisyphus.Web.Models.ApplicationDbContext";
         }
 
         protected override void Seed(ApplicationDbContext context)
@@ -43,23 +41,23 @@ namespace Sisyphus.Web.Migrations
             //    );
             //
 
-            var manager = new UserManager<ApplicationUser>(
-                new UserStore<ApplicationUser>(
-                    new ApplicationDbContext(Config.GetConnectionString())));
+            var manager =
+                new UserManager<ApplicationUser>(
+                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
 
             var idManager = new IdentityService();
             idManager.CreateRole(AdminRole);
             idManager.CreateRole(WriterRole);
             idManager.CreateRole(ReaderRole);
 
-            var user = new ApplicationUser() { UserName = "Admin", Email = "test@test.com" };
-            var result = manager.CreateAsync(user);
+            var user = new ApplicationUser { UserName = "Admin", Email = "test@test.com" };
+            Task<IdentityResult> result = manager.CreateAsync(user);
             Task.WaitAll(result);
             context.SaveChanges();
 
             user = context.Users.Single(u => u.UserName == "Admin");
 
-            var pw = manager.PasswordHasher.HashPassword("test");
+            string pw = manager.PasswordHasher.HashPassword("test");
             user.PasswordHash = pw;
             context.SaveChanges();
 
