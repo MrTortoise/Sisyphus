@@ -6,11 +6,13 @@ This project has 2 aspects, the engine/editor and the next phase which will be a
 
 ### How do I get set up? ###
 
+* Sourcecode is in a git repository
 * Visual studio 2013
 * Specflow
 * MVC5
 * Web publish deploys to azure, locally need sql express installed
 * Tests are Nunit, any nunit test runner
+* Code for this part of the engine is c#
 
 ### Contribution guidelines ###
 
