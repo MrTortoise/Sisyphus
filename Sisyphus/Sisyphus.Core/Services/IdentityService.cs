@@ -145,5 +145,15 @@
             ApplicationUser user = um.Users.Single(i => i.UserName == userName);
             um.AddToRole(user.Id, role);
         }
+
+        public void RemoveRoleFromUser(string role, string userName)
+        {
+            var um =
+         new UserManager<ApplicationUser>(
+             new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+
+            ApplicationUser user = um.Users.Single(i => i.UserName == userName);
+            um.RemoveFromRole(user.Id, role);
+        }
     }
 }

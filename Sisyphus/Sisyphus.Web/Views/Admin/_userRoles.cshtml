@@ -32,12 +32,13 @@
     }
     <tr>   
         <td >
-            @using (Html.BeginForm("AddRoleToUser", "Admin", Model, FormMethod.Post))
+            @using (Html.BeginForm("AddRoleToUser", "Admin", new { username = Model.UserName}, FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
+                @Html.HiddenFor((model => model.UserName))
                 <fieldset>
                     @Html.DropDownList("roleDropDown", Model.AllRoles)
-                    <input type="submit" value="roleDropDown" />
+                    <input type="submit" value="AddRoleToUser" />
                 </fieldset> 
             }
         </td>

@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using System.Web.Routing;
 
     using Sisyphus.Core.Services;
     using Sisyphus.Web.Models;
@@ -29,7 +30,9 @@
         [HttpPost]
         public ActionResult RemoveRoleFromUser(string role, string user)
         {
-            return RedirectToAction("Index");
+            var service = new IdentityService();
+            service.RemoveRoleFromUser(role, user);
+            return RedirectToAction("List", new { skip = 0, pageSize = 10 });
         }
 
         public ActionResult AssignRoleToUser(string userId, string role)
@@ -41,11 +44,13 @@
     
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult AddRoleToUser([Bind(Include = "UserName,AllRoles,Roles")]UserRoleViewModel roleViewModel)
+        //ublic ActionResult AddRoleToUser([Bind(Include = "UserName,AllRoles,Roles")]UserRoleViewModel roleViewModel)
+        public ActionResult AddRoleToUser(string username, string roleDropDown)
         {
             var service = new IdentityService();
-            service.AddUserNameToRole(roleViewModel.UserName, roleViewModel.AllRoles.Single(r => r.Selected).Text);
-            return this.List(0, 10);
+            //service.AddUserNameToRole(roleViewModel.UserName, roleViewModel.AllRoles.Single(r => r.Selected).Text);
+            service.AddUserNameToRole(username, roleDropDown);
+            return RedirectToAction("List", new { skip = 0, pageSize = 10 });
         }
     }
 }

@@ -261,7 +261,7 @@
     <Content Include="Views\Place\Edit.cshtml" />
     <Content Include="Views\Place\Delete.cshtml" />
     <Content Include="Views\Admin\List.cshtml" />
-    <Content Include="Views\Admin\userRoles.cshtml" />
+    <Content Include="Views\Admin\_userRoles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201406272313253_Init.resx">

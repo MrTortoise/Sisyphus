@@ -22,7 +22,7 @@
             this.Users = new List<UserRoleViewModel>();
 
             var roles =
-                allRoles.Select(i => new SelectListItem() { Selected = false, Value = i.Key, Text = i.Value }).ToList();
+                allRoles.Select(i => new SelectListItem() { Selected = false, Value = i.Value, Text = i.Value }).ToList();
             roles[0].Selected = true;
 
             foreach (var item in userRoles)
