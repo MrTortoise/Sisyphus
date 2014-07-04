@@ -262,6 +262,7 @@
     <Content Include="Views\Place\Delete.cshtml" />
     <Content Include="Views\Admin\List.cshtml" />
     <Content Include="Views\Admin\_userRoles.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201406272313253_Init.resx">

@@ -28,7 +28,7 @@
         {
             var manager =
                 new ApplicationUserManager(
-                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new UserStore<ApplicationUser>(new SisyphusContext(Config.GetConnectionString())));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
                                     {

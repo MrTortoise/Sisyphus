@@ -12,7 +12,7 @@ namespace Sisyphus.Web.Migrations
     using Sisyphus.Core.Services;
     using Sisyphus.Web.Models;
 
-    public sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<SisyphusContext>
     {
         private const string AdminRole = "Admin";
 
@@ -23,10 +23,10 @@ namespace Sisyphus.Web.Migrations
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
-            this.ContextKey = "Sisyphus.Web.Models.ApplicationDbContext";
+            this.ContextKey = "Sisyphus.Web.Models.SisyphusContext";
         }
 
-        protected override void Seed(ApplicationDbContext context)
+        protected override void Seed(SisyphusContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -43,7 +43,7 @@ namespace Sisyphus.Web.Migrations
 
             var manager =
                 new UserManager<ApplicationUser>(
-                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new UserStore<ApplicationUser>(new SisyphusContext(Config.GetConnectionString())));
 
             var idManager = new IdentityService();
             idManager.CreateRole(AdminRole);

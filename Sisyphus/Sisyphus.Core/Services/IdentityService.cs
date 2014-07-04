@@ -19,7 +19,7 @@
         {
             var um =
                 new UserManager<ApplicationUser>(
-                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new UserStore<ApplicationUser>(new SisyphusContext(Config.GetConnectionString())));
             IdentityResult idResult = um.AddToRole(userId, roleName);
             return idResult.Succeeded;
         }
@@ -28,7 +28,7 @@
         {
             var um =
                 new UserManager<ApplicationUser>(
-                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new UserStore<ApplicationUser>(new SisyphusContext(Config.GetConnectionString())));
 
             Task<IList<string>> role = um.GetRolesAsync(userId);
             Task.WaitAll(role);
@@ -45,7 +45,7 @@
         {
             var rm =
                 new RoleManager<IdentityRole>(
-                    new RoleStore<IdentityRole>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new RoleStore<IdentityRole>(new SisyphusContext(Config.GetConnectionString())));
             IdentityResult idResult = rm.Create(new IdentityRole(name));
             return idResult.Succeeded;
         }
@@ -54,7 +54,7 @@
         {
             var um =
                 new UserManager<ApplicationUser>(
-                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new UserStore<ApplicationUser>(new SisyphusContext(Config.GetConnectionString())));
             IdentityResult idResult = um.Create(user, password);
             return idResult;
         }
@@ -63,7 +63,7 @@
         {
             var rm =
                 new RoleManager<IdentityRole>(
-                    new RoleStore<IdentityRole>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new RoleStore<IdentityRole>(new SisyphusContext(Config.GetConnectionString())));
 
             Dictionary<string, string> roles = rm.Roles.ToDictionary(k => k.Id, v => v.Name);
             return roles;
@@ -73,7 +73,7 @@
         {
             var um =
                 new UserManager<ApplicationUser>(
-                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new UserStore<ApplicationUser>(new SisyphusContext(Config.GetConnectionString())));
 
             ApplicationUser user = um.Users.SingleOrDefault(i => i.UserName == userName);
             return user;
@@ -81,7 +81,7 @@
 
         public Dictionary<string, List<string>> GetUserRoles(int skip, int pageSize)
         {
-            var context = new ApplicationDbContext(Config.GetConnectionString());
+            var context = new SisyphusContext(Config.GetConnectionString());
             var rm = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             List<IdentityRole> allRoles = rm.Roles.ToList();
             rm.Dispose();
@@ -104,7 +104,7 @@
         {
             var um =
                 new UserManager<ApplicationUser>(
-                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new UserStore<ApplicationUser>(new SisyphusContext(Config.GetConnectionString())));
 
             IQueryable<ApplicationUser> users = um.Users;
             return users.ToList();
@@ -114,13 +114,13 @@
         {
             var rm =
                 new RoleManager<IdentityRole>(
-                    new RoleStore<IdentityRole>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new RoleStore<IdentityRole>(new SisyphusContext(Config.GetConnectionString())));
 
             string roleId = rm.Roles.Single(r => r.Name == role).Id;
 
             var um =
                 new UserManager<ApplicationUser>(
-                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new UserStore<ApplicationUser>(new SisyphusContext(Config.GetConnectionString())));
 
             bool retVal = um.Users.Single(u => u.UserName == userName).Roles.Any(r => r.RoleId == roleId);
             return retVal;
@@ -130,7 +130,7 @@
         {
             var rm =
                 new RoleManager<IdentityRole>(
-                    new RoleStore<IdentityRole>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new RoleStore<IdentityRole>(new SisyphusContext(Config.GetConnectionString())));
             return rm.RoleExists(name);
         }
 
@@ -140,7 +140,7 @@
         {
             var um =
                 new UserManager<ApplicationUser>(
-                    new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+                    new UserStore<ApplicationUser>(new SisyphusContext(Config.GetConnectionString())));
 
             ApplicationUser user = um.Users.Single(i => i.UserName == userName);
             um.AddToRole(user.Id, role);
@@ -150,7 +150,7 @@
         {
             var um =
          new UserManager<ApplicationUser>(
-             new UserStore<ApplicationUser>(new ApplicationDbContext(Config.GetConnectionString())));
+             new UserStore<ApplicationUser>(new SisyphusContext(Config.GetConnectionString())));
 
             ApplicationUser user = um.Users.Single(i => i.UserName == userName);
             um.RemoveFromRole(user.Id, role);

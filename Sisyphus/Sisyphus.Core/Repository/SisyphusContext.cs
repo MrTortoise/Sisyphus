@@ -1,10 +1,14 @@
 ﻿namespace Sisyphus.Core.Repository
 {
+    using System;
     using System.Data.Entity;
 
-    using Sisyphus.Core.Model;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
-    public class SisyphusContext : DbContext
+    using Sisyphus.Core.Model;
+    using Sisyphus.Web.Models;
+
+    public class SisyphusContext : IdentityDbContext<ApplicationUser>
     {
         #region Constructors and Destructors
 
@@ -22,5 +26,10 @@
         public DbSet<TimeUnit> TimeUnits { get; set; }
 
         #endregion
+
+        public static SisyphusContext Create()
+        {
+            return new SisyphusContext(Config.GetConnectionString());
+        }
     }
 }

@@ -11,11 +11,13 @@
     public class AdminController : Controller
     {
         // GET: Admin
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            return this.List(0, 10);
+            return this.View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult List(int skip, int pageSize)
         {
@@ -26,6 +28,7 @@
             return this.View(vm);
         }
 
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult RemoveRoleFromUser(string role, string user)
@@ -35,6 +38,7 @@
             return RedirectToAction("List", new { skip = 0, pageSize = 10 });
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult AssignRoleToUser(string userId, string role)
         {
             var service = new IdentityService();
@@ -42,6 +46,7 @@
             return this.List(0, 10);
         }
     
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         //ublic ActionResult AddRoleToUser([Bind(Include = "UserName,AllRoles,Roles")]UserRoleViewModel roleViewModel)

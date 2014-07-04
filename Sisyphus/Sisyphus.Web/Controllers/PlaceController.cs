@@ -8,7 +8,6 @@
     using Sisyphus.Core.Services;
 
     [RequireHttps]
-    [Authorize(Roles = "Writer")]
     public class PlaceController : Controller
     {
         // GET: Place
