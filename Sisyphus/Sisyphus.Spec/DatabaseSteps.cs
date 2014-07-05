@@ -20,7 +20,9 @@
                               + @"( NAME = N'Sisyphus-test', FILENAME = N'" + testDbPath + databaseName
                               + ".mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )";
 
-            string dropDb = "DROP DATABASE " + databaseName + ";";
+            string dropDb = "IF EXISTS(SELECT name FROM sys.databases WHERE name = '" + databaseName
+                            + "') ALTER DATABASE " + databaseName + " SET RESTRICTED_USER WITH ROLLBACK IMMEDIATE; IF EXISTS(SELECT name FROM sys.databases WHERE name = '" + databaseName
+                            + "') DROP DATABASE " + databaseName + ";";
 
             const string Database = "Master";
             string connectionString = CreateConnectionString(serverAddress, Database);
@@ -31,15 +33,9 @@
                 {
                     command.CommandText = dropDb;
                     con.Open();
-                    try
-                    {
-                        command.ExecuteNonQuery();
-                    }
-                        // ReSharper disable once EmptyGeneralCatchClause
-                    catch
-                    {
-                        // dont care if this fails
-                    }
+
+                    command.ExecuteNonQuery();
+
 
                     con.Close();
                 }
@@ -61,7 +57,7 @@
 
         public static string CreateConnectionString(string serverAddress, string database)
         {
-            return string.Format("Server = {0}; Database = {1}; Trusted_Connection = True;", serverAddress, database);
+            return string.Format("Server = {0}; Database = {1};User=testRunner;Password=testtest;Trusted_Connection = True;", serverAddress, database);
         }
     }
 }

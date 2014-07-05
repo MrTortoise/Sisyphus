@@ -64,6 +64,7 @@
     <Compile Include="AppConfigSource.cs" />
     <Compile Include="IConfigSource.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Repository\SisyphusContextFactory.cs" />
     <Compile Include="Services\IdentityService.cs" />
     <Compile Include="Services\PlaceService.cs" />
     <Compile Include="Repository\TimeRepository.cs" />

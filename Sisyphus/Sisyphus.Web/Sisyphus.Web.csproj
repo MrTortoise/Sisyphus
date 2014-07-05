@@ -173,11 +173,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CharacterEditorController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\EventSequencerController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlaceController.cs" />
+    <Compile Include="Controllers\PlacesEditorController.cs" />
     <Compile Include="Controllers\TimeController.cs" />
+    <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -263,6 +267,10 @@
     <Content Include="Views\Admin\List.cshtml" />
     <Content Include="Views\Admin\_userRoles.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Writer\Index.cshtml" />
+    <Content Include="Views\CharacterEditor\Index.cshtml" />
+    <Content Include="Views\PlacesEditor\Index.cshtml" />
+    <Content Include="Views\EventSequencer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201406272313253_Init.resx">

@@ -9,7 +9,8 @@
     {
         public static void Stage()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SisyphusContext, Configuration>());
+            //Database.SetInitializer(new  MigrateDatabaseToLatestVersion<SisyphusContext, Configuration>());
+            Database.SetInitializer(new DatabaseStagingDropCreateSeed());
         }
     }
 }

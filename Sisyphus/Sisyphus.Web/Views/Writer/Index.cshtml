@@ -1,0 +1,15 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Writer Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Writer Dashboard</h2>
+
+<ul>
+    <li>@Html.ActionLink("Time Editor","TimeEditor")</li>
+    <li>@Html.ActionLink("Places Editor","PlacesEditor")</li>
+    <li>@Html.ActionLink("Character Editor","CharacterBrowser")</li>
+    <li>@Html.ActionLink("Event Sequencer","EventSequencer")</li>
+</ul>

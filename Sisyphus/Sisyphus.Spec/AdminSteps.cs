@@ -21,6 +21,8 @@
 
         private const string AllRoles = "allRoles";
 
+        [When(@"I create a user with email ""(.*)"" with password ""(.*)""")]
+        [When(@"I have created a user ""(.*)"" with password ""(.*)""")]
         [Given(@"I create a user with email ""(.*)"" with password ""(.*)""")]
         [Given(@"I have created a user ""(.*)"" with password ""(.*)""")]
         public void GivenIHaveCreatedAUserWithPassword(string userName, string password)
@@ -42,7 +44,8 @@
             }
         }
 
-        [Then(@"I expect to be able to log in with the user ""(.*)"" and password ""(.*)""")]
+        [Given(@"I log in with the user ""(.*)"" and password ""(.*)""")]
+        [Then(@"I log in with the user ""(.*)"" and password ""(.*)""")]
         public void ThenIExpectToBeAbleToLogInWithTheUserAndPassword(string userName, string password)
         {
             var controller = new AccountController();
@@ -60,6 +63,7 @@
             ScenarioContext.Current.Add(usersListName, users.Model);
         }
 
+        [Given(@"I assign the following roles to user ""(.*)""")]
         [When(@"I assign the following roles to user ""(.*)""")]
         public void WhenIAssignTheFollowingRolesToUser(string userName, Table table)
         {
@@ -108,7 +112,7 @@
         public void WhenIGetTheRoleList()
         {
             var service = new IdentityService();
-            Dictionary<string,string> rolesResult = service.GetAllRoles();
+            Dictionary<string, string> rolesResult = service.GetAllRoles();
             ScenarioContext.Current.Add(AllRoles, rolesResult);
         }
 

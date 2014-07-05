@@ -64,32 +64,23 @@ namespace Sisyphus.Spec
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void FeatureBackground()
-        {
-#line 6
-#line 7
- testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
- testRunner.And("I have created a test database called \"adminTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
- testRunner.And("I create a user with email \"adminfeature@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-        }
-        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create a user")]
         public virtual void CreateAUser()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a user", ((string[])(null)));
-#line 11
-this.ScenarioSetup(scenarioInfo);
 #line 6
-this.FeatureBackground();
-#line 12
+this.ScenarioSetup(scenarioInfo);
+#line 7
+ testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.And("I have created a test database called \"adminTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+ testRunner.When("I create a user with email \"adminfeature@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
  testRunner.Then("I expect the user \"adminfeature@admin.com\" to exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 13
- testRunner.And("I expect to be able to log in with the user \"adminfeature@admin.com\" and password" +
-                    " \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("I log in with the user \"adminfeature@admin.com\" and password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -99,18 +90,22 @@ this.FeatureBackground();
         public virtual void ViewUserList()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View user list", ((string[])(null)));
-#line 15
+#line 13
 this.ScenarioSetup(scenarioInfo);
-#line 6
-this.FeatureBackground();
+#line 14
+ testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 15
+ testRunner.And("I have created a test database called \"adminTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
+ testRunner.And("I create a user with email \"adminfeature@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
  testRunner.When("I get the user list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "name"});
             table1.AddRow(new string[] {
                         "adminfeature@admin.com"});
-#line 17
+#line 18
  testRunner.Then("I expect the followign users to be in the user list", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -121,11 +116,13 @@ this.FeatureBackground();
         public virtual void INeedToViewAllRolesSoICanAssignOneOtAUser()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I need to view all roles so i can assign one ot a user", ((string[])(null)));
-#line 21
-this.ScenarioSetup(scenarioInfo);
-#line 6
-this.FeatureBackground();
 #line 22
+this.ScenarioSetup(scenarioInfo);
+#line 23
+ testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 24
+ testRunner.And("I have created a test database called \"adminTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 25
  testRunner.When("I get the role list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -136,7 +133,7 @@ this.FeatureBackground();
                         "Writer"});
             table2.AddRow(new string[] {
                         "Admin"});
-#line 23
+#line 26
  testRunner.Then("I expect there to be the following roles", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -147,10 +144,14 @@ this.FeatureBackground();
         public virtual void AssignRolesToUser()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Assign roles to user", ((string[])(null)));
-#line 29
+#line 32
 this.ScenarioSetup(scenarioInfo);
-#line 6
-this.FeatureBackground();
+#line 33
+ testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 34
+ testRunner.And("I have created a test database called \"adminTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.And("I create a user with email \"adminfeature@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "role"});
@@ -160,7 +161,7 @@ this.FeatureBackground();
                         "Writer"});
             table3.AddRow(new string[] {
                         "Reader"});
-#line 30
+#line 36
  testRunner.When("I assign the following roles to user \"adminfeature@admin.com\"", ((string)(null)), table3, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -171,7 +172,7 @@ this.FeatureBackground();
                         "Writer"});
             table4.AddRow(new string[] {
                         "Reader"});
-#line 35
+#line 41
  testRunner.Then("I expect the user \"adminfeature@admin.com\" to have the following roles", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();

@@ -3,6 +3,7 @@
     using System.Web.Mvc;
 
     [RequireHttps]
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -24,6 +25,9 @@
             return this.View();
         }
 
-
+        public ActionResult WriterDashboard()
+        {
+            return RedirectToAction("Index", "Writer");
+        }
     }
 }

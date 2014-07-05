@@ -41,23 +41,25 @@ namespace Sisyphus.Web.Migrations
             //    );
             //
 
-            var manager =
-                new UserManager<ApplicationUser>(
-                    new UserStore<ApplicationUser>(new SisyphusContext(Config.GetConnectionString())));
+            IdentityService idManager;
+            ApplicationUser user;
+            string pw;
+            using (var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context)))
+            {
+                idManager = new IdentityService();
+                idManager.CreateRole(AdminRole);
+                idManager.CreateRole(WriterRole);
+                idManager.CreateRole(ReaderRole);
 
-            var idManager = new IdentityService();
-            idManager.CreateRole(AdminRole);
-            idManager.CreateRole(WriterRole);
-            idManager.CreateRole(ReaderRole);
+                user = new ApplicationUser { UserName = "Admin", Email = "test@test.com" };
+                Task<IdentityResult> result = manager.CreateAsync(user);
+                Task.WaitAll(result);
+                context.SaveChanges();
 
-            var user = new ApplicationUser { UserName = "Admin", Email = "test@test.com" };
-            Task<IdentityResult> result = manager.CreateAsync(user);
-            Task.WaitAll(result);
-            context.SaveChanges();
+                user = context.Users.Single(u => u.UserName == "Admin");
 
-            user = context.Users.Single(u => u.UserName == "Admin");
-
-            string pw = manager.PasswordHasher.HashPassword("test");
+                pw = manager.PasswordHasher.HashPassword("test");
+            }
             user.PasswordHash = pw;
             context.SaveChanges();
 

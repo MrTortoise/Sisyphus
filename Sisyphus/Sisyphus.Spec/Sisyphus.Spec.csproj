@@ -144,6 +144,7 @@
       <DependentUpon>CharacterBrowser.feature</DependentUpon>
     </Compile>
     <Compile Include="ConfigSteps.cs" />
+    <Compile Include="DatabaseStagingDropCreateSeed.cs" />
     <Compile Include="DatabaseSteps.cs" />
     <Compile Include="EventCreation.feature.cs">
       <AutoGen>True</AutoGen>
@@ -195,6 +196,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UserRegistration.feature</DependentUpon>
     </Compile>
+    <Compile Include="WriterIndex.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WriterIndex.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WriterIndexSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sisyphus.Core\Sisyphus.Core.csproj">
@@ -260,6 +267,10 @@
     <None Include="UserRegistration.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UserRegistration.feature.cs</LastGenOutput>
+    </None>
+    <None Include="WriterIndex.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>WriterIndex.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

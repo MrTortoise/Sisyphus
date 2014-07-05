@@ -1,9 +1,15 @@
 ﻿namespace Sisyphus.Core
 {
+    using System;
     using System.Configuration;
 
     public static class Config
     {
+        static Config()
+        {
+            Source = new AppConfigSource();
+        }
+
         #region Constants
 
         public const string ConnectionStringName = "DefaultConnection";
@@ -25,7 +31,16 @@
 
         public static string GetConnectionString()
         {
-            return GetConnectionStringSettings(ConnectionStringName).ConnectionString;
+            //try
+            //{
+                var conString = GetConnectionStringSettings(ConnectionStringName).ConnectionString;
+                return conString;
+            //}
+            //catch (Exception)
+            //{
+                
+            //   return @"Data Source=WINGAY-PC\SQLEXPRESS;Initial Catalog=Sisyphus;Integrated Security=True";
+            //}
         }
 
         #endregion
