@@ -2,6 +2,9 @@
 {
     using System.Configuration;
     using System.Data.SqlClient;
+    using System.Runtime.Remoting.Contexts;
+
+    using Sisyphus.Core.Repository;
 
     using TechTalk.SpecFlow;
 
@@ -17,7 +20,7 @@
             string testDbPath = ConfigurationManager.AppSettings["testDbPath"];
 
             string createDb = @"CREATE DATABASE [" + databaseName + "] ON  PRIMARY "
-                              + @"( NAME = N'Sisyphus-test', FILENAME = N'" + testDbPath + databaseName
+                              + @"( NAME = N'" + databaseName + "', FILENAME = N'" + testDbPath + databaseName
                               + ".mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )";
 
             string dropDb = "IF EXISTS(SELECT name FROM sys.databases WHERE name = '" + databaseName
@@ -40,7 +43,8 @@
                     con.Close();
                 }
             }
-
+            //using (var con = new SqlConnection(connectionString))
+            //{
             //    using (var command = con.CreateCommand())
             //    {
             //        command.CommandText = createDb;
@@ -51,7 +55,10 @@
             //}
 
             StageDatabase.Stage();
-
+            using (var context = new SisyphusContext(connectionString + "Initial Catalog=" + databaseName)) 
+            {
+                context.Database.Initialize(true);
+            }
             ScenarioContext.Current.Add(DatabaseName, databaseName);
         }
 

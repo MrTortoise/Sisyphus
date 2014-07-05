@@ -14,5 +14,10 @@
             var timeService = new TimeService();
             timeService.CreateTimeUnit(timeUnit);
         }
+
+        public ActionResult Index()
+        {
+            return this.View();
+        }
     }
 }

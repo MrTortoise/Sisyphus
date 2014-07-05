@@ -16,17 +16,17 @@ Background:
 	And I use the controller WriterHome
 
 Scenario: Navigate to places page
-	When I click open PlacesEditor	
-	Then The resulting Action result should be PlacesEditorIndex
+	When I click open PlacesEditor on the writer index	
+	Then The resulting RedirectToRouteResult should be to controller "PlacesEditor" action "Index"
 
 Scenario: Navigate to chracter Browser 
-	When I click open Character browser on the Places Editor
-	Then The resulting Action result should be CharacterBrowserIndex
+	When I click open Character browser on the writer index
+	Then The resulting RedirectToRouteResult should be to controller "CharacterBrowser" action "Index"
 
 Scenario: Navigate to the Time editor
-	When I click open Time editor on the places editor
-	Then The resulting Action result should be TimeEditor
+	When I click open Time editor on the writer index
+	Then The resulting RedirectToRouteResult should be to controller "Time" action "Index"
 
 Scenario: Navigate to the Event Sequencer
-	When I click open event sequencer on the places controller
-	Then The resulting Action result shuold be TimeEditor
+	When I click open event sequencer on the writer index
+	Then The resulting RedirectToRouteResult should be to controller "EventSequencer" action "Index"

@@ -25,13 +25,18 @@ namespace Sisyphus.Web.Controllers
         [Authorize(Roles = "Writer")]
         public ActionResult CharacterBrowser()
         {
-            return RedirectToAction("Index", "CharacterEditor");
+            return RedirectToAction("Index", "CharacterBrowser");
         }
 
         [Authorize(Roles = "Writer")]
         public ActionResult EventSequencer()
         {
             return RedirectToAction("Index", "EventSequencer");
+        }
+
+        public ActionResult TimeEditor()
+        {
+            return RedirectToAction("Index", "Time");
         }
     }
 }

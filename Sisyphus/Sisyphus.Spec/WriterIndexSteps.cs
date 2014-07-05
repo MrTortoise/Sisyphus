@@ -3,6 +3,10 @@ using TechTalk.SpecFlow;
 
 namespace Sisyphus.Spec
 {
+    using System.Web.Mvc;
+
+    using NUnit.Framework;
+
     using Sisyphus.Web.Controllers;
 
     [Binding]
@@ -20,7 +24,7 @@ namespace Sisyphus.Spec
         }
 
 
-        [When(@"I click open PlacesEditor")]
+        [When(@"I click open PlacesEditor on the writer index")]
         public void WhenIClickOpenPlacesEditor()
         {
             var controller = (WriterController)ScenarioContext.Current[WriterControllerName];
@@ -30,7 +34,7 @@ namespace Sisyphus.Spec
 
 
 
-        [When(@"I click open Character browser on the Places Editor")]
+        [When(@"I click open Character browser on the writer index")]
         public void WhenIClickOpenCharacterBrowserOnThePlacesEditor()
         {
             var controller = (WriterController)ScenarioContext.Current[WriterControllerName];
@@ -38,15 +42,15 @@ namespace Sisyphus.Spec
             ScenarioContext.Current.Add(ReturnedResult, result);
         }
 
-        [When(@"I click open Time editor on the places editor")]
+        [When(@"I click open Time editor on the writer index")]
         public void WhenIClickOpenTimeEditorOnThePlacesEditor()
         {
             var controller = (WriterController)ScenarioContext.Current[WriterControllerName];
-            var result = controller.PlacesEditor();
+            var result = controller.TimeEditor();
             ScenarioContext.Current.Add(ReturnedResult, result);
         }
 
-        [When(@"I click open event sequencer on the places controller")]
+        [When(@"I click open event sequencer on the writer index")]
         public void WhenIClickOpenEventSequencerOnThePlacesController()
         {
             var controller = (WriterController)ScenarioContext.Current[WriterControllerName];
@@ -54,28 +58,14 @@ namespace Sisyphus.Spec
             ScenarioContext.Current.Add(ReturnedResult, result);
         }
 
-        [Then(@"The resulting Action result should be PlacesEditorIndex")]
-        public void ThenTheResultingActionResultShouldBePlacesIndex()
+        [Then(@"The resulting RedirectToRouteResult should be to controller ""(.*)"" action ""(.*)""")]
+        public void ThenTheResultingRedirectToRouteResultShouldBeToControllerAction(string controller, string action)
         {
-            var result = ScenarioContext.Current[ReturnedResult];
+            var result = ScenarioContext.Current[ReturnedResult] as RedirectToRouteResult;
+            Assert.IsNotNull(result);
+            Assert.AreEqual(controller, result.RouteValues["controller"]);
+            Assert.AreEqual(action, result.RouteValues["action"]);
         }
 
-        [Then(@"The resulting Action result should be CharacterBrowserIndex")]
-        public void ThenTheResultingActionResultShouldBeCharacterBrowserIndex()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Then(@"The resulting Action result should be TimeEditor")]
-        public void ThenTheResultingActionResultShouldBeTimeEditor()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
-        [Then(@"The resulting Action result shuold be TimeEditor")]
-        public void ThenTheResultingActionResultShuoldBeTimeEditor()
-        {
-            ScenarioContext.Current.Pending();
-        }
     }
 }

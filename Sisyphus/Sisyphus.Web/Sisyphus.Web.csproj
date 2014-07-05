@@ -173,6 +173,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CharacterBrowserController.cs" />
     <Compile Include="Controllers\CharacterEditorController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EventSequencerController.cs" />
@@ -271,6 +272,8 @@
     <Content Include="Views\CharacterEditor\Index.cshtml" />
     <Content Include="Views\PlacesEditor\Index.cshtml" />
     <Content Include="Views\EventSequencer\Index.cshtml" />
+    <Content Include="Views\CharacterBrowser\Index.cshtml" />
+    <Content Include="Views\Time\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201406272313253_Init.resx">
