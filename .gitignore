@@ -396,3 +396,11 @@ $RECYCLE.BIN/
 /Sisyphus/packages/Newtonsoft.Json.4.5.11/lib/sl4/Newtonsoft.Json.xml
 /Sisyphus/packages/Newtonsoft.Json.4.5.11/lib/winrt45/Newtonsoft.Json.dll
 /Sisyphus/packages/Newtonsoft.Json.4.5.11/lib/winrt45/Newtonsoft.Json.xml
+/Sisyphus/Sisyphus.Web.Azure/ServiceConfiguration.Local.cscfg
+/Sisyphus/Sisyphus.Web.Azure/ServiceDefinition.csdef
+/Sisyphus/Sisyphus.Web.Azure/Sisyphus.Web.Azure.ccproj
+/Sisyphus/Sisyphus.Web.Azure/Sisyphus.WebContent/diagnostics.wadcfg
+/Sisyphus/Sisyphus.Web/App_Start/MigrationConfig.cs
+/Sisyphus/Sisyphus.Web/Migrations/201407051957032_oneContext.Designer.cs
+/Sisyphus/Sisyphus.Web/Migrations/201407051957032_oneContext.cs
+/Sisyphus/Sisyphus.Web/Migrations/201407051957032_oneContext.resx
