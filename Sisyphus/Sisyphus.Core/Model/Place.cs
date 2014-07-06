@@ -12,12 +12,6 @@
         {
         }
 
-        public Place(string name, string history)
-        {
-            this.Name = name;
-            this.History = history;
-        }
-
         #endregion
 
         #region Public Properties

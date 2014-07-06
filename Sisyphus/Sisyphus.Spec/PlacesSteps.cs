@@ -20,7 +20,7 @@
         [When(@"I create a place called ""(.*)"" with history ""(.*)""")]
         public void WhenICreateAPlaceCalledWithHistory(string name, string history)
         {
-            var place = new Place(name, history);
+            var place = new Place() { Name = name, History = history };
             var placeController = new PlaceController();
             placeController.Create(place);
         }
@@ -31,7 +31,7 @@
             var placeService = new PlaceService();
             foreach (TableRow row in table.Rows)
             {
-                var place = new Place(row[0], row[1]);
+                var place = new Place(){Name = row[0],History = row[1]};
                 Place item = placeService.GetPlace(place.Name);
 
                 Assert.IsNotNull(item);
@@ -47,7 +47,7 @@
             var cont = new PlaceController();
             foreach (TableRow row in table.Rows)
             {
-                var place = new Place(row[0], row[1]);
+                var place = new Place() { Name = row[0], History = row[1] };
                 cont.Create(place);
                 Assert.IsTrue(place.Id != 0);
             }
@@ -68,7 +68,7 @@
             var places = (List<Place>)ScenarioContext.Current[PlacesKey];
             foreach (TableRow row in table.Rows)
             {
-                var place = new Place(row[0], row[1]);
+                var place = new Place() { Name = row[0], History = row[1] };
                 Assert.IsTrue(places.Any(p => place.Name == p.Name && place.History == p.History));
             }
         }

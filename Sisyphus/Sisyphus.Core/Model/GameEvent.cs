@@ -33,26 +33,5 @@ namespace Sisyphus.Core.Model
 
         [Timestamp]
         public Byte[] TimeStamp { get; set; }
-
-        public GameEvent()
-        {
-            // ReSharper disable DoNotCallOverridableMethodsInConstructor
-            this.OutcomeEntities = new HashSet<Outcome>();
-            this.PlaceEntities = new HashSet<Place>();
-            this.CharacterEntities = new HashSet<Character>();
-            // ReSharper restore DoNotCallOverridableMethodsInConstructor
-        }
-
-        public GameEvent(string name, string description, List<Outcome> outcomeEntities, List<Place> placeEntities, int duration, List<Character> characterEntities, EventType eventType)
-        {
-            this.Name = name;
-            this.Description = description;
-            this.Duration = duration;
-            this.EventType = eventType;
-
-            outcomeEntities.ForEach(o => this.OutcomeEntities.Add(o));
-            placeEntities.ForEach(p => this.PlaceEntities.Add(p));
-            characterEntities.ForEach(c => this.CharacterEntities.Add(c));
-        }
     }
 }

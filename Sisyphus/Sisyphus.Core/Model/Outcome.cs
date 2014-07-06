@@ -22,10 +22,5 @@ namespace Sisyphus.Core.Model
         {
             
         }
-
-        public Outcome(string name)
-        {
-            this.Name = name;
-        }
     }
 }

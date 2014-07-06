@@ -266,7 +266,7 @@ this.FeatureBackground();
             table8.AddRow(new string[] {
                         "testPlace2"});
 #line 50
- testRunner.Then("I expect event event editor to have the followibng places", ((string)(null)), table8, "Then ");
+ testRunner.Then("I expect event event editor to have the following places", ((string)(null)), table8, "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "name"});

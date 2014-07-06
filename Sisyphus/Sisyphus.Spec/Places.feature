@@ -29,7 +29,7 @@ Scenario: Create several places and return them
     | test4 | history4 |
 
 Scenario: Create a list of places and return a page
-	And I create the following places
+	Given I create the following places
 	| name  | history  |
 	| test1 | history1 |
 	| test2 | history2 |

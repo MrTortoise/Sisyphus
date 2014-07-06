@@ -27,16 +27,18 @@ namespace Sisyphus.Core.Services
                 {
                     var placeEntities = context.Places.Where(p => places.Contains(p.Name)).ToList();
                     var characterEntities = context.Characters.Where(c => characters.Contains(c.Name)).ToList();
-                    var outcomeEntities = outcomes.Select(o => new Outcome(o)).ToList();
+                    var outcomeEntities = outcomes.Select(o => new Outcome() { Name = o }).ToList();
 
-                    var gameEvent = new GameEvent(
-                        name,
-                        description,
-                        outcomeEntities,
-                        placeEntities,
-                        duration,
-                        characterEntities,
-                        eventType);
+                    var gameEvent = new GameEvent()
+                                    {
+                                        Name = name,
+                                        Description = description,
+                                        OutcomeEntities = new HashSet<Outcome>(outcomeEntities),
+                                        PlaceEntities = new HashSet<Place>(placeEntities),
+                                        Duration = duration,
+                                        CharacterEntities = new HashSet<Character>(characterEntities),
+                                        EventType = eventType
+                                    };
                     context.GameEvents.Add(gameEvent);
                     context.SaveChanges();
                     tran.Commit();
@@ -69,7 +71,12 @@ namespace Sisyphus.Core.Services
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
             {
-                var retVal = context.GameEvents.SingleOrDefault(e => e.Name == eventName);
+                var retVal =
+                    context.GameEvents.Where(e => e.Name == eventName)
+                        .Include(e => e.OutcomeEntities)
+                        .Include(e => e.PlaceEntities)
+                        .Include(e => e.CharacterEntities)
+                        .SingleOrDefault();
                 return retVal;
             }
         }

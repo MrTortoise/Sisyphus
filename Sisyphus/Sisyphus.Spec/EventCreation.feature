@@ -47,7 +47,7 @@ Scenario: Click edit Event - require viewmodel to contain list of all places and
 		| name      | Description                          | Outcomes           |  Places               | Duration | Characters | Event Type |
 		| testEvent | a test event to show how things work | passed, failed, war|  testPlace,testPlace2 | 3        | jim,jim3   | story      |
 	When I edit the Event "testEvent"
-	Then I expect event event editor to have the followibng places
+	Then I expect event event editor to have the following places
 		| name       |
 		| testPlace  |
 		| testPlace2 |

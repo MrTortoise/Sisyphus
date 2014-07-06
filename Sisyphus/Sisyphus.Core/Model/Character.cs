@@ -34,14 +34,5 @@ namespace Sisyphus.Core.Model
         {
             
         }
-
-        public Character(string name, string backStory, string race, string sex, Place placeEntity)
-        {
-            this.Name = name;
-            this.BackStory = backStory;
-            this.Race = race;
-            this.Sex = sex;
-            this.Place = placeEntity;
-        }
     }
 }

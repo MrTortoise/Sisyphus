@@ -188,7 +188,7 @@ this.FeatureBackground();
                         "test8",
                         "history8"});
 #line 32
- testRunner.And("I create the following places", ((string)(null)), table4, "And ");
+ testRunner.Given("I create the following places", ((string)(null)), table4, "Given ");
 #line 42
  testRunner.When("I get 3 places skipping 3 and store them", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden

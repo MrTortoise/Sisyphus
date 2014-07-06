@@ -77,12 +77,11 @@
         public List<Place> Places(int skip, int pageSize)
         {
             string conString = Config.GetConnectionString();
-            IQueryable<Place> places;
             using (var context = new SisyphusContext(conString))
             {
-                places = context.Places.OrderBy(i => i.Name).Skip(skip).Take(pageSize);
+                IQueryable<Place> places = context.Places.OrderBy(i => i.Name).Skip(skip).Take(pageSize);
+                return places.ToList();
             }
-            return places.ToList();
         }
 
         #endregion

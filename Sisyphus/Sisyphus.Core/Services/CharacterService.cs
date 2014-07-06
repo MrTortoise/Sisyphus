@@ -24,7 +24,14 @@ namespace Sisyphus.Core.Services
 
                 using (var tran = context.Database.BeginTransaction())
                 {
-                    var character = new Character(name, backStory, race, sex, placeEntity);
+                    var character = new Character()
+                                    {
+                                        Name = name,
+                                        BackStory = backStory,
+                                        Race = race,
+                                        Sex = sex,
+                                        Place = placeEntity
+                                    };
                     context.Characters.Add(character);
                     context.SaveChanges();
                     tran.Commit();

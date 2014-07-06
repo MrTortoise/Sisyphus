@@ -23,7 +23,7 @@ Background:
 		| jim  |
 
 Scenario: Open character browser and look at characters
-	Given I open the view "CharacterBrowser"
+	Given I open the view Character Browser
 	Then I expect the character browser to contain the following characters
          | name | backstory | race | sex    | place     |
          | jim  | none      | foot | rarley | somewhere |
@@ -32,7 +32,7 @@ Scenario: Open character browser and look at characters
          | jim4 | none      | foot | rarley | somewhere | 
 
 Scenario: Open a specific character from the browser
-	Given I open the view "CharacterBrowser"
+	Given I open the view Character Browser
 	When I select the character "jim" in the character browser
 	Then I expect to get the "CharacterInformation" view
 	And I expect the chatacter "jim" to be the CharacterInformation views subject

@@ -36,7 +36,20 @@
 
         public ActionResult Edit(GameEvent gameEvent)
         {
-            return this.View(gameEvent);
+            var placeService = new PlaceService();
+            var places = placeService.GetPlaces();
+
+            var characterService = new CharacterService();
+            var characters = characterService.GetCharacters();
+
+            var viewModel = new GameEventEditViewModel()
+                            {
+                                Places = places,
+                                Characters = characters,
+                                GameEvent = gameEvent
+                            };
+
+            return this.View(viewModel);
         }
 
         public ActionResult AddCharacterToEvent(string characterName, GameEvent gameEvent)
