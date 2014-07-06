@@ -1,5 +1,7 @@
 namespace Sisyphus.Web.Migrations
 {
+    using System;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
     using System.Threading.Tasks;
@@ -7,13 +9,12 @@ namespace Sisyphus.Web.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    using Sisyphus.Core;
-    using Sisyphus.Core.Repository;
     using Sisyphus.Core.Services;
     using Sisyphus.Web.Models;
 
-    public sealed class Configuration : DbMigrationsConfiguration<SisyphusContext>
+    public sealed class Configuration : DbMigrationsConfiguration<Sisyphus.Core.Repository.SisyphusContext>
     {
+
         private const string AdminRole = "Admin";
 
         private const string WriterRole = "Writer";
@@ -22,11 +23,10 @@ namespace Sisyphus.Web.Migrations
 
         public Configuration()
         {
-            this.AutomaticMigrationsEnabled = true;
-            this.ContextKey = "Sisyphus.Web.Models.SisyphusContext";
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SisyphusContext context)
+        protected override void Seed(Sisyphus.Core.Repository.SisyphusContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -41,31 +41,31 @@ namespace Sisyphus.Web.Migrations
             //    );
             //
 
-            IdentityService idManager;
-            ApplicationUser user;
-            string pw;
+            using (var roleMan = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context)))
+            {
+                roleMan.Create(new IdentityRole(AdminRole));
+                roleMan.Create(new IdentityRole(WriterRole));
+                roleMan.Create(new IdentityRole(ReaderRole));
+            }
+
             using (var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context)))
             {
-                idManager = new IdentityService();
-                idManager.CreateRole(AdminRole);
-                idManager.CreateRole(WriterRole);
-                idManager.CreateRole(ReaderRole);
-
-                user = new ApplicationUser { UserName = "Admin", Email = "test@test.com" };
+                var user = new ApplicationUser { UserName = "Admin", Email = "test@test.com" };
                 Task<IdentityResult> result = manager.CreateAsync(user);
                 Task.WaitAll(result);
                 context.SaveChanges();
 
                 user = context.Users.Single(u => u.UserName == "Admin");
+                string pw = manager.PasswordHasher.HashPassword("test");
 
-                pw = manager.PasswordHasher.HashPassword("test");
+                user.PasswordHash = pw;
+                context.SaveChanges();
+
+                manager.AddToRole(user.Id, AdminRole);
+                manager.AddToRole(user.Id, WriterRole);
+                manager.AddToRole(user.Id, ReaderRole);
             }
-            user.PasswordHash = pw;
-            context.SaveChanges();
 
-            idManager.AddUserToRole(user.Id, AdminRole);
-            idManager.AddUserToRole(user.Id, WriterRole);
-            idManager.AddUserToRole(user.Id, ReaderRole);
         }
     }
 }

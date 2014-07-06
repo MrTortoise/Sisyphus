@@ -1,6 +1,8 @@
 ﻿namespace Sisyphus.Core.Model
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class Place
     {
@@ -20,6 +22,9 @@
 
         #region Public Properties
 
+        [Timestamp]
+        public Byte[] TimeStamp { get; set; }
+
         /// <summary>
         ///     The history of the place, make it good.
         /// </summary>
@@ -31,7 +36,13 @@
         /// <summary>
         ///     The name of the place
         /// </summary>
+        [Required]
+        [Index(IsUnique = true)]
+        [Column("PlaceName",TypeName = "nvarchar")]
+        [MaxLength(100)]
         public string Name { get; set; }
+
+        
 
         #endregion
     }

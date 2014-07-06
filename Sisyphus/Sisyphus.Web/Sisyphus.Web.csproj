@@ -169,12 +169,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\MigrationConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CharacterBrowserController.cs" />
     <Compile Include="Controllers\CharacterEditorController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Migrations\201407061603102_GameEvent.cs" />
+    <Compile Include="Migrations\201407061603102_GameEvent.Designer.cs">
+      <DependentUpon>201407061603102_GameEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreateEventViewModel.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EventSequencerController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
@@ -187,11 +194,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AdminViewModel.cs" />
-    <Compile Include="Migrations\201406272313253_Init.cs" />
-    <Compile Include="Migrations\201406272313253_Init.Designer.cs">
-      <DependentUpon>201406272313253_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201407060936547_initial.cs" />
+    <Compile Include="Migrations\201407060936547_initial.Designer.cs">
+      <DependentUpon>201407060936547_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\ForgotPasswordViewModel.cs" />
@@ -215,6 +222,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Sisyphus %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Sisyphus.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -274,11 +282,9 @@
     <Content Include="Views\EventSequencer\Index.cshtml" />
     <Content Include="Views\CharacterBrowser\Index.cshtml" />
     <Content Include="Views\Time\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201406272313253_Init.resx">
-      <DependentUpon>201406272313253_Init.cs</DependentUpon>
-    </EmbeddedResource>
+    <Content Include="Views\EventSequencer\CreateEvent.cshtml" />
+    <Content Include="Views\Event\Create.cshtml" />
+    <Content Include="Views\Event\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -296,6 +302,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Dashboard\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201407060936547_initial.resx">
+      <DependentUpon>201407060936547_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407061603102_GameEvent.resx">
+      <DependentUpon>201407061603102_GameEvent.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

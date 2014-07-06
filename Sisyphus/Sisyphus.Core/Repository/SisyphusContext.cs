@@ -25,6 +25,10 @@
 
         public DbSet<TimeUnit> TimeUnits { get; set; }
 
+        public DbSet<Character> Characters { get; set; }
+
+        public DbSet<GameEvent> GameEvents { get; set; }
+
         #endregion
 
         public static SisyphusContext Create()

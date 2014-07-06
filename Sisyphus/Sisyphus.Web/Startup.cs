@@ -12,6 +12,7 @@ namespace Sisyphus.Web
     {
         public void Configuration(IAppBuilder app)
         {
+            
             this.ConfigureAuth(app);
         }
     }

@@ -14,7 +14,7 @@ Background:
          | jim2 | none      | foot | rarley | somewhere |
          | jim3 | none      | foot | rarley | somewhere |
          | jim4 | none      | foot | rarley | somewhere |
-	And I create the following events
+	And I create the following event
 		| name       | Description                          | Outcomes            | Places               |
 		| testEvent  | a test event to show how things work | passed, failed, war | testPlace,testPlace2 |
 		| StoryStart | the start of the story               | started             | testPlace,testPlace2 |
@@ -42,7 +42,7 @@ Scenario: View a specific characters involvement in events
 	And I open the view "CharacterBrowser"
 	And I select the character "jim" in the character browser
 	When I select view events in the character browser
-	Then I expect to see the events browser
+	Then The resulting RedirectToRouteResult should be to controller "CharacterEventBrowser" action "Index"
 	And I expect the events in the events browser to be
 		| name      |
 		| testEvent |

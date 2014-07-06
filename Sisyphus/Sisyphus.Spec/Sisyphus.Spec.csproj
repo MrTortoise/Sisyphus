@@ -123,6 +123,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionStepsHelpers.cs" />
     <Compile Include="Admin.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,6 +145,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CharacterBrowser.feature</DependentUpon>
     </Compile>
+    <Compile Include="CharacterBrowserSteps.cs" />
     <Compile Include="ConfigSteps.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="DatabaseStagingDropCreateSeed.cs" />
@@ -153,6 +155,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EventCreation.feature</DependentUpon>
     </Compile>
+    <Compile Include="EventCreationSteps.cs" />
     <Compile Include="EventStory.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
