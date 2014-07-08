@@ -202,7 +202,7 @@ this.FeatureBackground();
                         "jim,jim3",
                         "story"});
 #line 38
- testRunner.When("I create the following event", ((string)(null)), table5, "When ");
+ testRunner.When("I create the following events", ((string)(null)), table5, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
@@ -255,7 +255,7 @@ this.FeatureBackground();
                         "jim,jim3",
                         "story"});
 #line 46
- testRunner.Given("I create the following event", ((string)(null)), table7, "Given ");
+ testRunner.Given("I create the following events", ((string)(null)), table7, "Given ");
 #line 49
  testRunner.When("I edit the Event \"testEvent\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden

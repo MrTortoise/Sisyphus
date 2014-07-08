@@ -172,11 +172,13 @@
     <Compile Include="App_Start\MigrationConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="ContextWrapper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CharacterBrowserController.cs" />
     <Compile Include="Controllers\CharacterEditorController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="IContextWrapper.cs" />
     <Compile Include="Migrations\201407061603102_GameEvent.cs" />
     <Compile Include="Migrations\201407061603102_GameEvent.Designer.cs">
       <DependentUpon>201407061603102_GameEvent.cs</DependentUpon>
@@ -211,6 +213,7 @@
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\ResetPasswordViewModel.cs" />
     <Compile Include="Models\UserRoleViewModel.cs" />
+    <Compile Include="Models\WriterIndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

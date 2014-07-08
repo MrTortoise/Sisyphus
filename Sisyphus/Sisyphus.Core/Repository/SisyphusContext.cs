@@ -6,6 +6,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using Sisyphus.Core.Model;
+    using Sisyphus.Core.Services;
     using Sisyphus.Web.Models;
 
     public class SisyphusContext : IdentityDbContext<ApplicationUser>
@@ -28,6 +29,10 @@
         public DbSet<Character> Characters { get; set; }
 
         public DbSet<GameEvent> GameEvents { get; set; }
+
+        public DbSet<Story> Stories { get; set; }
+
+        public DbSet<Session> Sessions { get; set; }
 
         #endregion
 

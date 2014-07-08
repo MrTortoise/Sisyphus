@@ -33,5 +33,7 @@ namespace Sisyphus.Core.Model
 
         [Timestamp]
         public Byte[] TimeStamp { get; set; }
+
+        public virtual Story Story { get; set; }
     }
 }

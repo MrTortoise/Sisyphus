@@ -3,9 +3,6 @@
 	As an admin
 	I want to be an admin
 
-	
-
-
 	Background: 
 	Given I have set up configuration to use testConfig
 	And I have created a test database called "adminTest"

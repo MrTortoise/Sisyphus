@@ -148,8 +148,15 @@
     <Compile Include="CharacterBrowserSteps.cs" />
     <Compile Include="ConfigSteps.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="ContextWrapperSteps.cs" />
     <Compile Include="DatabaseStagingDropCreateSeed.cs" />
     <Compile Include="DatabaseSteps.cs" />
+    <Compile Include="DateTime.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DateTime.feature</DependentUpon>
+    </Compile>
+    <Compile Include="DateTimeSteps.cs" />
     <Compile Include="EventCreation.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,8 +190,20 @@
       <DependentUpon>PlayerDashboard.feature</DependentUpon>
     </Compile>
     <Compile Include="PlayerSteps.cs" />
+    <Compile Include="ContextWrapper.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContextWrapper.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Session.feature</DependentUpon>
+    </Compile>
     <Compile Include="StageDatabase.cs" />
+    <Compile Include="TestContextWrapper.cs" />
+    <Compile Include="TestDateTimeAdapter.cs" />
     <Compile Include="TheStory.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -236,6 +255,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CharacterBrowser.feature.cs</LastGenOutput>
     </None>
+    <None Include="DateTime.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>DateTime.feature.cs</LastGenOutput>
+    </None>
     <None Include="EventCreation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>EventCreation.feature.cs</LastGenOutput>
@@ -260,6 +283,14 @@
     <None Include="PlayerDashboard.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>PlayerDashboard.feature.cs</LastGenOutput>
+    </None>
+    <None Include="ContextWrapper.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ContextWrapper.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Session.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Session.feature.cs</LastGenOutput>
     </None>
     <None Include="TheStory.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

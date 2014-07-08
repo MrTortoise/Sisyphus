@@ -49,7 +49,7 @@
 
 Scenario: Start a path in the story
 	Given I have created a test database called "placesTest"	
-	When I start the starting point process off	
+	When I start the story "testStory"
 	Then I expect to be on the "BackStory" view
 
 Scenario: Select one or more characters to follow and start a story

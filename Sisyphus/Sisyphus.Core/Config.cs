@@ -10,6 +10,8 @@
 
         public const string ConnectionStringName = "DefaultConnection";
 
+        public const string SessionTimeOutStringName = "SessionTimeout";
+
         #endregion
 
         #region Public Properties

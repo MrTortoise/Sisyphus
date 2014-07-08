@@ -35,7 +35,7 @@ Scenario: open event creation - verify the viewmodel
 		| jim4 |
 
 Scenario: Create an event
-	When I create the following event
+	When I create the following events
 		| name      | Description                          | Outcomes           |  Places               | Duration | Characters | Event Type |
 		| testEvent | a test event to show how things work | passed, failed, war|  testPlace,testPlace2 | 3        | jim,jim3   | story      |
 	Then I expect the following events to exist
@@ -43,7 +43,7 @@ Scenario: Create an event
 		| testEvent | a test event to show how things work | passed, failed, war | testPlace,testPlace2 | 3        | jim,jim3   | story      |
 
 Scenario: Click edit Event - require viewmodel to contain list of all places and characters 
-	Given I create the following event
+	Given I create the following events
 		| name      | Description                          | Outcomes           |  Places               | Duration | Characters | Event Type |
 		| testEvent | a test event to show how things work | passed, failed, war|  testPlace,testPlace2 | 3        | jim,jim3   | story      |
 	When I edit the Event "testEvent"

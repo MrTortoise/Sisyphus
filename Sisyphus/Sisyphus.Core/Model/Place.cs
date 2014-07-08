@@ -36,6 +36,8 @@
         [MaxLength(100)]
         public string Name { get; set; }
 
+        public virtual Story Story { get; set; }
+
         
 
         #endregion

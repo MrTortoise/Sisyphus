@@ -12,6 +12,7 @@
         protected void Application_Start()
         {
             Config.Source = new AppConfigSource();
+            ContextWrapper.Instance = new ContextWrapper();
             MigrationConfig.ConfigureMigration();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

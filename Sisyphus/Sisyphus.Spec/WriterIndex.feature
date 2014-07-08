@@ -14,6 +14,21 @@ Background:
 		| Reader |
 	And I log in with the user "writer@admin.com" and password "testtest"
 	And I use the controller WriterHome
+	And I have created the stories
+	| name  | backStory                      |
+	| test1 | ooo itS BACK STORY             |
+	| test2 | COR HE THINKS ITS A WEAL STOWY |
+
+Scenario: Expect to see any previously created stories
+	Then I expect the WriterHome controller to have the following stories available
+	| name  | backStory                      |
+	| test1 | ooo itS BACK STORY             |
+	| test2 | COR HE THINKS ITS A WEAL STOWY |
+
+Scenario: Select a story verify that that story is the active story
+	When I select the story "test1"
+	Then I expect the active story to be "test1"	
+	
 
 Scenario: Navigate to places page
 	When I click open PlacesEditor on the writer index	

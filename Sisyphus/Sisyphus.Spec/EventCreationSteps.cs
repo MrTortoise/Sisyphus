@@ -21,8 +21,8 @@ namespace Sisyphus.Spec
     {
         private const string CreateEventView = "CreateEventView";
 
-        [Given(@"I create the following event")]
-        [When(@"I create the following event")]
+        [Given(@"I create the following events")]
+        [When(@"I create the following events")]
         public void WhenICreateTheFollowingEvent(Table table)
         {
             var controller = new EventController();
