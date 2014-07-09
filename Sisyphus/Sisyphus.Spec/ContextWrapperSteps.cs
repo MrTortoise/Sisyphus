@@ -18,6 +18,7 @@ namespace Sisyphus.Spec
             ContextWrapper.Instance = new TestContextWrapper();
         }
 
+        [Given(@"I set the user Identity to ""(.*)""")]
         [When(@"I set the user Identity to ""(.*)""")]
         public void WhenISetTheUserIdentityTo(string userName)
         {

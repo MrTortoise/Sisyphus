@@ -10,6 +10,7 @@
 
     using Owin;
 
+    using Sisyphus.Core.Model;
     using Sisyphus.Core.Repository;
     using Sisyphus.Web.Models;
 

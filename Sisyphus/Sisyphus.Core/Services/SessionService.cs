@@ -9,7 +9,7 @@ namespace Sisyphus.Core.Services
 
     public class SessionService
     {
-        public void CreateSession(string userName, string storyName)
+        public Session CreateSession(string userName, string storyName)
         {
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
@@ -19,10 +19,12 @@ namespace Sisyphus.Core.Services
                     var user = context.Users.Single(u => u.UserName == userName);
                     var story = context.Stories.SingleOrDefault(s => s.Name == storyName);
 
+                    var session = new Session() { Date = SisyphusDateTime.DateTimeAdapter.Now, Story = story, User = user };
                     context.Sessions.Add(
-                        new Session() { Date = SisyphusDateTime.DateTimeAdapter.Now, Story = story, User = user });
+                        session);
                     context.SaveChanges();
                     tran.Commit();
+                    return session;
                 }
             }
         }
@@ -33,21 +35,26 @@ namespace Sisyphus.Core.Services
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
             {
-                var session = context.Sessions.Where(s => s.User.UserName == userName).OrderBy(s => s.Date).FirstOrDefault();
+                var session = GetLatestSession(userName, context);
                 if (session == null)
                 {
                     this.CreateSession(userName, null);
-                    session = context.Sessions.Where(s => s.User.UserName == userName).OrderBy(s => s.Date).First(); 
+                    session = GetLatestSession(userName, context); 
                 }else 
-                    if (session.Date.AddMinutes(timeoutMins) > SisyphusDateTime.DateTimeAdapter.Now)
+                    if (session.Date.AddMinutes(timeoutMins) < SisyphusDateTime.DateTimeAdapter.Now)
                 {
                     this.CreateSession(userName, session.Story.Name);
-                    session = context.Sessions.Where(s => s.User.UserName == userName).OrderBy(s => s.Date).First();
+                    session = GetLatestSession(userName, context);
                 }
 
                 return session;
             }
 
+        }
+
+        private static Session GetLatestSession(string userName, SisyphusContext context)
+        {
+            return context.Sessions.Include("User").Include("Story").Where(s => s.User.UserName == userName).OrderByDescending(s => s.Date).First();
         }
     }
 }

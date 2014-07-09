@@ -9,6 +9,7 @@ namespace Sisyphus.Web.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
+    using Sisyphus.Core.Model;
     using Sisyphus.Core.Services;
     using Sisyphus.Web.Models;
 

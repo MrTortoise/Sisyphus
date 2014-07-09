@@ -8,8 +8,8 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
+    using Sisyphus.Core.Model;
     using Sisyphus.Core.Repository;
-    using Sisyphus.Web.Models;
 
     public class IdentityService
     {

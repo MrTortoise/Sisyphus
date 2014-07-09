@@ -19,6 +19,7 @@ namespace Sisyphus.Core.Model
         public virtual ICollection<Place> Places { get; set; }
         public virtual ICollection<GameEvent> Events { get; set; }
         public virtual ICollection<TimeUnit> TimeUnits { get; set; }
-        public virtual ICollection<Character> Characters { get; set; } 
+        public virtual ICollection<Character> Characters { get; set; }
+        public virtual ICollection<Session> Sessions { get; set; }  
     }
 }

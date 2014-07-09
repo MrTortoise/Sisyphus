@@ -7,7 +7,6 @@
 
     using Sisyphus.Core.Model;
     using Sisyphus.Core.Services;
-    using Sisyphus.Web.Models;
 
     public class SisyphusContext : IdentityDbContext<ApplicationUser>
     {

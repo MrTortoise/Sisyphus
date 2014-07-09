@@ -183,6 +183,14 @@
     <Compile Include="Migrations\201407061603102_GameEvent.Designer.cs">
       <DependentUpon>201407061603102_GameEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407092219580_session.cs" />
+    <Compile Include="Migrations\201407092219580_session.Designer.cs">
+      <DependentUpon>201407092219580_session.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407092228242_fixedUserSession.cs" />
+    <Compile Include="Migrations\201407092228242_fixedUserSession.Designer.cs">
+      <DependentUpon>201407092228242_fixedUserSession.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\CreateEventViewModel.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EventSequencerController.cs" />
@@ -313,6 +321,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407061603102_GameEvent.resx">
       <DependentUpon>201407061603102_GameEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407092219580_session.resx">
+      <DependentUpon>201407092219580_session.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407092228242_fixedUserSession.resx">
+      <DependentUpon>201407092228242_fixedUserSession.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

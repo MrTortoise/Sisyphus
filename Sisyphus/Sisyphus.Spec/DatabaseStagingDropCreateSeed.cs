@@ -13,6 +13,7 @@ namespace Sisyphus.Spec
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using Sisyphus.Core;
+    using Sisyphus.Core.Model;
     using Sisyphus.Core.Repository;
     using Sisyphus.Core.Services;
     using Sisyphus.Web.Models;

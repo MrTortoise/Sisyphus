@@ -8,6 +8,7 @@
 
     using NUnit.Framework;
 
+    using Sisyphus.Core.Model;
     using Sisyphus.Core.Services;
     using Sisyphus.Web.Controllers;
     using Sisyphus.Web.Models;

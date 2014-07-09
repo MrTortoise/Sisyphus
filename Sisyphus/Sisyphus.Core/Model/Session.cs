@@ -5,8 +5,6 @@ namespace Sisyphus.Core.Model
 
     using Microsoft.AspNet.Identity;
 
-    using Sisyphus.Web.Models;
-
     public class Session
     {
         [Key]

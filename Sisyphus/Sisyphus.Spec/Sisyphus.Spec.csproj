@@ -201,6 +201,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Session.feature</DependentUpon>
     </Compile>
+    <Compile Include="SessionSteps.cs" />
     <Compile Include="StageDatabase.cs" />
     <Compile Include="TestContextWrapper.cs" />
     <Compile Include="TestDateTimeAdapter.cs" />

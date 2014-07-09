@@ -5,6 +5,11 @@
 
 Background: 
 	Given I have set up configuration to use testConfig
+	And I set the config key "SessionTimeout" to "15"
+	And I set ContextWrapper To use TestContextWrapper 
+	And I set the user Identity to "writer@admin.com"
+	And I have set SisyphusDateTime to TestDateTime
+	And I have set the date to year "2014" Month "7" Day "20" hour "19" minute "24" second "12" millisecond "123"
 	And I have created a test database called "writerTest"
 	And I create a user with email "writer@admin.com" with password "testtest"
 	And I assign the following roles to user "writer@admin.com"

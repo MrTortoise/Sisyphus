@@ -59,9 +59,12 @@ namespace Sisyphus.Spec
         }
 
         [Then(@"I expect the active story to be ""(.*)""")]
-        public void ThenIExpectTheActiveStoryToBe(string p0)
+        public void ThenIExpectTheActiveStoryToBe(string storyName)
         {
-            ScenarioContext.Current.Pending();
+            var controller = (WriterController)ScenarioContext.Current[WriterControllerName];
+            var result = (ViewResult)controller.Index();
+            var model = (WriterIndexViewModel)result.Model;
+            Assert.AreEqual(storyName, model.SelectedStory.Name);
         }
 
 

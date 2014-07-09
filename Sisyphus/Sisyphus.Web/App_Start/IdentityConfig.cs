@@ -9,6 +9,7 @@
     using Microsoft.Owin.Security.DataProtection;
 
     using Sisyphus.Core;
+    using Sisyphus.Core.Model;
     using Sisyphus.Core.Repository;
     using Sisyphus.Web.Models;
 

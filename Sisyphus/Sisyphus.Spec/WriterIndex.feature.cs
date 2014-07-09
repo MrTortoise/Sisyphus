@@ -71,8 +71,19 @@ namespace Sisyphus.Spec
 #line 7
  testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("I have created a test database called \"writerTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I set the config key \"SessionTimeout\" to \"15\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
+ testRunner.And("I set ContextWrapper To use TestContextWrapper", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.And("I set the user Identity to \"writer@admin.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("I have set SisyphusDateTime to TestDateTime", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.And("I have set the date to year \"2014\" Month \"7\" Day \"20\" hour \"19\" minute \"24\" secon" +
+                    "d \"12\" millisecond \"123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.And("I have created a test database called \"writerTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
  testRunner.And("I create a user with email \"writer@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -83,11 +94,11 @@ namespace Sisyphus.Spec
                         "Writer"});
             table1.AddRow(new string[] {
                         "Reader"});
-#line 10
- testRunner.And("I assign the following roles to user \"writer@admin.com\"", ((string)(null)), table1, "And ");
 #line 15
+ testRunner.And("I assign the following roles to user \"writer@admin.com\"", ((string)(null)), table1, "And ");
+#line 20
  testRunner.And("I log in with the user \"writer@admin.com\" and password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
+#line 21
  testRunner.And("I use the controller WriterHome", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -99,7 +110,7 @@ namespace Sisyphus.Spec
             table2.AddRow(new string[] {
                         "test2",
                         "COR HE THINKS ITS A WEAL STOWY"});
-#line 17
+#line 22
  testRunner.And("I have created the stories", ((string)(null)), table2, "And ");
 #line hidden
         }
@@ -109,7 +120,7 @@ namespace Sisyphus.Spec
         public virtual void ExpectToSeeAnyPreviouslyCreatedStories()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Expect to see any previously created stories", ((string[])(null)));
-#line 22
+#line 27
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
@@ -123,7 +134,7 @@ this.FeatureBackground();
             table3.AddRow(new string[] {
                         "test2",
                         "COR HE THINKS ITS A WEAL STOWY"});
-#line 23
+#line 28
  testRunner.Then("I expect the WriterHome controller to have the following stories available", ((string)(null)), table3, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -134,13 +145,13 @@ this.FeatureBackground();
         public virtual void SelectAStoryVerifyThatThatStoryIsTheActiveStory()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a story verify that that story is the active story", ((string[])(null)));
-#line 28
+#line 33
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 29
+#line 34
  testRunner.When("I select the story \"test1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 30
+#line 35
  testRunner.Then("I expect the active story to be \"test1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -151,13 +162,13 @@ this.FeatureBackground();
         public virtual void NavigateToPlacesPage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to places page", ((string[])(null)));
-#line 33
+#line 38
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 34
+#line 39
  testRunner.When("I click open PlacesEditor on the writer index", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 35
+#line 40
  testRunner.Then("The resulting RedirectToRouteResult should be to controller \"PlacesEditor\" action" +
                     " \"Index\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -169,13 +180,13 @@ this.FeatureBackground();
         public virtual void NavigateToChracterBrowser()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to chracter Browser", ((string[])(null)));
-#line 37
+#line 42
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 38
+#line 43
  testRunner.When("I click open Character browser on the writer index", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 39
+#line 44
  testRunner.Then("The resulting RedirectToRouteResult should be to controller \"CharacterBrowser\" ac" +
                     "tion \"Index\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -187,13 +198,13 @@ this.FeatureBackground();
         public virtual void NavigateToTheTimeEditor()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the Time editor", ((string[])(null)));
-#line 41
+#line 46
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 42
+#line 47
  testRunner.When("I click open Time editor on the writer index", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 43
+#line 48
  testRunner.Then("The resulting RedirectToRouteResult should be to controller \"Time\" action \"Index\"" +
                     "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -205,13 +216,13 @@ this.FeatureBackground();
         public virtual void NavigateToTheEventSequencer()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the Event Sequencer", ((string[])(null)));
-#line 45
+#line 50
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 46
+#line 51
  testRunner.When("I click open event sequencer on the writer index", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 47
+#line 52
  testRunner.Then("The resulting RedirectToRouteResult should be to controller \"EventSequencer\" acti" +
                     "on \"Index\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

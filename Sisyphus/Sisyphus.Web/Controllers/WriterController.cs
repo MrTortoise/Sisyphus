@@ -22,7 +22,7 @@ namespace Sisyphus.Web.Controllers
             var stories = controller.GetStories();
             var sessionService = new SessionService();
             var session = sessionService.GetSessionForUser(ContextWrapper.Instance.UserName);
-            var model = new WriterIndexViewModel() { Stories = stories, SelectedStory = null };
+            var model = new WriterIndexViewModel() { Stories = stories, SelectedStory = session.Story };
 
             return View(model);
         }
@@ -63,7 +63,7 @@ namespace Sisyphus.Web.Controllers
         [HttpPost]
         public ActionResult SelectStory(string storyName)
         {
-            var userName = System.Web.HttpContext.Current.User.Identity.GetUserName();
+            var userName = ContextWrapper.Instance.UserName;
             var sessionService = new SessionService();
 
             sessionService.CreateSession(userName, storyName);

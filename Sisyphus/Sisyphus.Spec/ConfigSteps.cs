@@ -1,6 +1,7 @@
 ﻿namespace Sisyphus.Spec
 {
     using System;
+    using System.Collections.Generic;
     using System.Configuration;
 
     using Sisyphus.Core;
@@ -15,11 +16,26 @@
         {
             Config.Source = new TestConfigSource();
         }
+
+        [Given(@"I set the config key ""(.*)"" to ""(.*)""")]
+        public void GivenISetTheConfigKeyTo(string key, string value)
+        {
+            var source = (TestConfigSource)Config.Source;
+            source.Set(key, value);
+        }
+
     }
 
     public class TestConfigSource : IConfigSource
     {
+        private readonly Dictionary<string,string> values = new Dictionary<string, string>();
+
         public const string SqlInstance = "SqlInstance";
+
+        public void Set(string key, string value)
+        {
+            this.values.Add(key, value);
+        }
 
         public string Get(string key)
         {
@@ -29,6 +45,11 @@
                 {
                     throw new InvalidOperationException("use connection string for connection strings");
                 }
+            }
+
+            if (values.ContainsKey(key))
+            {
+                return values[key];
             }
 
             throw new ArgumentOutOfRangeException("key", "didnt match any expected config values");
