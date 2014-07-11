@@ -1,4 +1,5 @@
-﻿@model Sisyphus.Web.Models.WriterIndexViewModel
+﻿@using Sisyphus.Core.Model
+@model Sisyphus.Web.Models.WriterIndexViewModel
 
 @{
     ViewBag.Title = "Writer Dashboard";
@@ -6,10 +7,57 @@
 }
 
 <h2>Writer Dashboard</h2>
+<p>
+   Create and select a story prior to continuing
+</p>
+
+@if (!string.IsNullOrWhiteSpace(Model.SelectedStoryName))
+{
+    <h3>Selected Story</h3>
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedStoryName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.LabelFor(m => m.SelectedStoryName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BackStory, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.LabelFor(m => m.BackStory, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    using (Html.BeginForm("SelectStory", "Writer", Model.SelectedStoryName,FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+    <h3>Select Story</h3>
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.LabelFor(model => model.SelectedStoryName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.SelectedStoryName, Model.StoryListItems)
+                </div>
+               
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Select Story" class="btn btn-default" />
+                    </div>
+              
+            </div>
+        </div>
+    }
+}
+
+@Html.Partial("_CreateStory",new Story())
+
+
 
 <ul>
-    <li>@Html.ActionLink("Time Editor","TimeEditor")</li>
-    <li>@Html.ActionLink("Places Editor","PlacesEditor")</li>
-    <li>@Html.ActionLink("Character Editor","CharacterBrowser")</li>
-    <li>@Html.ActionLink("Event Sequencer","EventSequencer")</li>
-</ul>
+            <li>@Html.ActionLink("Time Editor", "TimeEditor")</li>
+            <li>@Html.ActionLink("Places Editor", "PlacesEditor")</li>
+            <li>@Html.ActionLink("Character Editor", "CharacterBrowser")</li>
+            <li>@Html.ActionLink("Event Sequencer", "EventSequencer")</li>
+        </ul>

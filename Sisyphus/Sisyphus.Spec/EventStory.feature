@@ -10,9 +10,9 @@ Background:
 	| testPlace  | history1 |
 	| testPlace2 | history1 |
 	And I create the following characters
-	| name | backstory    | race | sex   | place     |
-	| jim  | is some dude | last | kinda | testPlace |
-	| jim2 | is some dude | last | kinda | testPlace |
+	| name | backstory    | race | sex   | 
+	| jim  | is some dude | last | kinda | 
+	| jim2 | is some dude | last | kinda | 
 	And I create the following events
 	| name      | Description                          | Outcomes            | Places               |Duration |
 	| testEvent | a test event to show how things work | passed, failed, war | testPlace,testPlace2 |3        |	
@@ -43,8 +43,8 @@ Scenario: Remove a character to an event
 
 Scenario: Add dialogue to an event
 	Given I create the following characters
-	| name | backstory    | race | sex   | place     |
-	| jim  | is some dude | last | kinda | testPlace |
+	| name | backstory    | race | sex   | 
+	| jim  | is some dude | last | kinda | 
 	And I open the view "EventEditor"
 	And I create the following events
 	| name      | Description                          | Outcomes            | Places               |Duration |
@@ -81,8 +81,8 @@ Scenario: Add dialogue to an event with multiple characters (dialogue is shared 
 
 Scenario: Add Narrative to an event
 	Given I create the following characters
-	| name | backstory    | race | sex   | place     |
-	| jim  | is some dude | last | kinda | testPlace |
+	| name | backstory    | race | sex   | 
+	| jim  | is some dude | last | kinda | 
 	And I open the view "EventEditor"
 	And I create the following events
 	| name      | Description                          | Outcomes            | Places               |Duration |
@@ -122,9 +122,9 @@ Scenario: Add Narrative to an event with 2 chars - but only 1 narrative (so both
 
 Scenario: Add narative and dialogue to an event with 2 chars - sequence test
 	Given I create the following characters
-	| name | backstory    | race | sex   | place     |
-	| jim  | is some dude | last | kinda | testPlace |
-	| jim2 | is some dude | last | kinda | testPlace |
+	| name | backstory    | race | sex   | 
+	| jim  | is some dude | last | kinda | 
+	| jim2 | is some dude | last | kinda | 
 	And I open the view "EventEditor"
 	And I create the following events
 	| name      | Description                          | Outcomes            | Places               |Duration |
@@ -155,9 +155,9 @@ Scenario: Add narative and dialogue to an event with 2 chars - sequence test
 
 Scenario: 2 characters shared dialog but unique narrative for both
 	Given I create the following characters
-	| name | backstory    | race | sex   | place     |
-	| jim  | is some dude | last | kinda | testPlace |
-	| jim2 | is some dude | last | kinda | testPlace |
+	| name | backstory    | race | sex   | 
+	| jim  | is some dude | last | kinda | 
+	| jim2 | is some dude | last | kinda | 
 	And I open the view "EventEditor"
 	And I create the following events
 	| name      | Description                          | Outcomes            | Places               |Duration |

@@ -18,7 +18,8 @@ namespace Sisyphus.Core.Services
             List<string> places,
             int duration,
             List<string> characters,
-            EventType eventType)
+            EventType eventType,
+            string userName)
         {
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
@@ -29,6 +30,8 @@ namespace Sisyphus.Core.Services
                     var characterEntities = context.Characters.Where(c => characters.Contains(c.Name)).ToList();
                     var outcomeEntities = outcomes.Select(o => new Outcome() { Name = o }).ToList();
 
+                    var session = context.GetSessionForUser(userName);
+
                     var gameEvent = new GameEvent()
                                     {
                                         Name = name,
@@ -37,7 +40,8 @@ namespace Sisyphus.Core.Services
                                         PlaceEntities = new HashSet<Place>(placeEntities),
                                         Duration = duration,
                                         CharacterEntities = new HashSet<Character>(characterEntities),
-                                        EventType = eventType
+                                        EventType = eventType,
+                                        Story = session.Story
                                     };
                     context.GameEvents.Add(gameEvent);
                     context.SaveChanges();

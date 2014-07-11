@@ -51,7 +51,7 @@ namespace Sisyphus.Web.Migrations
 
             using (var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context)))
             {
-                var user = new ApplicationUser { UserName = "Admin", Email = "test@test.com" };
+                var user = new ApplicationUser { UserName = "test@test.com", Email = "test@test.com" };
                 Task<IdentityResult> result = manager.CreateAsync(user);
                 Task.WaitAll(result);
                 context.SaveChanges();

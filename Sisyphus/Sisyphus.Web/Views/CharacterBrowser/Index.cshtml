@@ -1,8 +1,40 @@
-﻿@model dynamic
+﻿@model Sisyphus.Web.Models.CharacterBrowserIndexViewModel
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Character Browser";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>title</h2>
+<h2>Character Browser</h2>
+
+@Html.ActionLink("Create Character","Create","CharacterBrowser")
+
+<div>
+    
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Race</th>
+            <th>Sex</th>
+        </tr>
+        @foreach (var character in Model.Characters)
+        {
+            <tr>
+                <td>
+                    @character.Name
+                </td>
+                <td>
+                    @character.Race
+                </td>
+                <td>
+                    @character.Sex
+                </td>
+                <td>
+                    @Html.ActionLink("Edit Character", "Edit", "CharacterEditor", character.Name)
+                </td>
+            </tr>
+        }
+    </table>
+    
+</div>
+

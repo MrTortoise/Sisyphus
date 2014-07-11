@@ -9,8 +9,8 @@
 		| name  | history  |
 		| test1 | history1 |
 	And I create the following characters
-         | name | backstory | race | sex    | place     |
-         | jim  | none      | foot | rarley | somewhere |
+         | name | backstory | race | sex    | 
+         | jim  | none      | foot | rarley | 
 	And I create the following events
 		| name       | Description                          | Outcomes            | Places    | Duration | Characters | Event Type |
 		| testEvent  | a test event to show how things work |                     | testPlace | 3        | jim,jim3   | story      |

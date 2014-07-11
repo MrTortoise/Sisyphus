@@ -14,6 +14,10 @@ namespace Sisyphus.Core.Model
 
         public virtual Story Story { get; set; }
 
+        public int? StoryId { get; set; }
+
         public virtual ApplicationUser User { get; set; }
+
+        public int UserId { get; set; }
     }
 }

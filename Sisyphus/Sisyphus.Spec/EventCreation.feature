@@ -11,11 +11,11 @@ Background:
 		| testPlace  | history1 |
 		| testPlace2 | history1 |
 	And I create the following characters
-		| name | backstory | race | sex    | place      |
-		| jim  | none      | foot | rarley | testPlace  |
-		| jim2 | none      | foot | rarley | testPlace  |
-		| jim3 | none      | foot | rarley | testPlace2 |
-		| jim4 | none      | foot | rarley | testPlace2 |
+		| name | backstory | race | sex    |
+		| jim  | none      | foot | rarley |
+		| jim2 | none      | foot | rarley |
+		| jim3 | none      | foot | rarley |
+		| jim4 | none      | foot | rarley |
 
 Scenario: Open Event creation 
 	When I click create event in the event sequencer

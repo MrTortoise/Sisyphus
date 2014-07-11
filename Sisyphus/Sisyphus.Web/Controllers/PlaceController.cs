@@ -18,7 +18,7 @@
         public ActionResult Index()
         {
             var service = new PlaceService();
-            List<Place> items = service.Places(0, 20);
+            List<Place> items = service.Places(0, 20,ContextWrapper.Instance.UserName);
             return this.View(items);
         }
 
@@ -40,7 +40,8 @@
             if (this.ModelState.IsValid)
             {
                 var service = new PlaceService();
-                service.CreatePlace(placeModel);
+                string userName = ContextWrapper.Instance.UserName;
+                service.CreatePlace(placeModel, userName);
                 return this.RedirectToAction("Index");
             }
             return this.View(placeModel);
@@ -53,7 +54,7 @@
         public ActionResult List(int skip, int pageSize)
         {
             var service = new PlaceService();
-            List<Place> places = service.Places(skip, pageSize);
+            List<Place> places = service.Places(skip, pageSize, ContextWrapper.Instance.UserName);
             return this.View(places);
         }
 

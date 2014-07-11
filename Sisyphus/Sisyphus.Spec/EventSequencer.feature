@@ -11,11 +11,11 @@ Background:
 		| testPlace  | history1 |
 		| testPlace2 | history1 |
 	And I create the following characters
-		| name | backstory | race | sex    | place     |
-		| jim  | none      | foot | rarley | somewhere |
-		| jim2 | none      | foot | rarley | somewhere |
-		| jim3 | none      | foot | rarley | somewhere |
-		| jim4 | none      | foot | rarley | somewhere |
+		| name | backstory | race | sex    | 
+		| jim  | none      | foot | rarley | 
+		| jim2 | none      | foot | rarley | 
+		| jim3 | none      | foot | rarley | 
+		| jim4 | none      | foot | rarley | 
 	And I create the following events
 		| name       | Description                          | Outcomes            | Places    | Duration | Characters | Event Type |
 		| testEvent  | a test event to show how things work |                     | testPlace | 3        | jim,jim3   | story      |

@@ -48,8 +48,8 @@ Scenario: Take a character moving to a location and split journey into 2
 	| bit | bitvalue |
 	| 0   | 0        |
 	And I create the following characters
-	| name | backstory    | race | sex   | place     |
-	| jim  | is some dude | last | kinda | testPlace |
+	| name | backstory    | race | sex   |
+	| jim  | is some dude | last | kinda |
 	And I create a journey for character to place "testplace2" in time called "journey1" with description "a test journey"
 	| bit | bitvalue |
 	| 0   | 5        |

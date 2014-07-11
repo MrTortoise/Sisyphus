@@ -196,6 +196,13 @@
       <DependentUpon>ContextWrapper.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Race.cs" />
+    <Compile Include="RaceFeature.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RaceFeature.feature</DependentUpon>
+    </Compile>
+    <Compile Include="RaceFeatureSteps.cs" />
     <Compile Include="Session.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -288,6 +295,10 @@
     <None Include="ContextWrapper.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ContextWrapper.feature.cs</LastGenOutput>
+    </None>
+    <None Include="RaceFeature.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RaceFeature.feature.cs</LastGenOutput>
     </None>
     <None Include="Session.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

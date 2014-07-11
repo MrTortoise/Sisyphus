@@ -11,13 +11,15 @@
     {
         #region Public Methods and Operators
 
-        public Place CreatePlace(Place place)
+        public Place CreatePlace(Place place, string userName)
         {
             string conString = Config.GetConnectionString();
             var context = new SisyphusContext(conString);
             using (DbContextTransaction tran = context.Database.BeginTransaction())
             {
                 var placeRepository = new PlaceRepository(context);
+                var session = context.GetSessionForUser(userName);
+                place.Story = session.Story;
                 placeRepository.CreatePlace(place);
                 context.SaveChanges();
                 tran.Commit();
@@ -74,24 +76,31 @@
             return place;
         }
 
-        public List<Place> Places(int skip, int pageSize)
+        public List<Place> Places(int skip, int pageSize, string userName)
         {
             string conString = Config.GetConnectionString();
             using (var context = new SisyphusContext(conString))
             {
-                IQueryable<Place> places = context.Places.OrderBy(i => i.Name).Skip(skip).Take(pageSize);
+                var session = context.GetSessionForUser(userName);
+
+                IQueryable<Place> places =
+                    context.Places.Where(p => p.Story.Id == session.StoryId)
+                        .OrderBy(i => i.Name)
+                        .Skip(skip)
+                        .Take(pageSize);
                 return places.ToList();
             }
         }
 
         #endregion
 
-        public List<Place> GetPlaces()
+        public List<Place> GetPlaces(string userName)
         {
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
             {
-                var places = context.Places.ToList();
+                var session = context.GetSessionForUser(userName);
+                var places = context.Places.Where(p => p.StoryId == session.StoryId).ToList();
                 return places;
             }
         }

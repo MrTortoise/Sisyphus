@@ -4,7 +4,10 @@ using System.Web.Mvc;
 
 namespace Sisyphus.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Web.UI;
+
+    using Glimpse.Core.Extensions;
 
     using Microsoft.AspNet.Identity;
 
@@ -12,7 +15,6 @@ namespace Sisyphus.Web.Controllers
     using Sisyphus.Web.Models;
 
     [RequireHttps]
-    [AllowAnonymous]
     public class WriterController : Controller
     {
         // GET: Writer
@@ -22,7 +24,12 @@ namespace Sisyphus.Web.Controllers
             var stories = controller.GetStories();
             var sessionService = new SessionService();
             var session = sessionService.GetSessionForUser(ContextWrapper.Instance.UserName);
-            var model = new WriterIndexViewModel() { Stories = stories, SelectedStory = session.Story };
+            var model = new WriterIndexViewModel()
+                        {
+                            Stories = stories,
+                            SelectedStoryName = session.Story == null ? null : session.Story.Name,
+                            BackStory = session.Story == null ? null : session.Story.BackStory
+                        };
 
             return View(model);
         }
@@ -61,12 +68,12 @@ namespace Sisyphus.Web.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult SelectStory(string storyName)
+        public ActionResult SelectStory(string selectedStoryName)
         {
             var userName = ContextWrapper.Instance.UserName;
             var sessionService = new SessionService();
 
-            sessionService.CreateSession(userName, storyName);
+            sessionService.CreateSession(userName, selectedStoryName);
             return RedirectToAction("Index");
         }
     }

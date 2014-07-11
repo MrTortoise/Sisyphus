@@ -13,6 +13,7 @@
         {
             Config.Source = new AppConfigSource();
             ContextWrapper.Instance = new ContextWrapper();
+            SisyphusDateTime.DateTimeAdapter = new DateTimeAdapter();
             MigrationConfig.ConfigureMigration();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

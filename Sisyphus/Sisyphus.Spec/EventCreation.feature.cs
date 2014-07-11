@@ -89,32 +89,27 @@ namespace Sisyphus.Spec
                         "name",
                         "backstory",
                         "race",
-                        "sex",
-                        "place"});
+                        "sex"});
             table2.AddRow(new string[] {
                         "jim",
                         "none",
                         "foot",
-                        "rarley",
-                        "testPlace"});
+                        "rarley"});
             table2.AddRow(new string[] {
                         "jim2",
                         "none",
                         "foot",
-                        "rarley",
-                        "testPlace"});
+                        "rarley"});
             table2.AddRow(new string[] {
                         "jim3",
                         "none",
                         "foot",
-                        "rarley",
-                        "testPlace2"});
+                        "rarley"});
             table2.AddRow(new string[] {
                         "jim4",
                         "none",
                         "foot",
-                        "rarley",
-                        "testPlace2"});
+                        "rarley"});
 #line 13
  testRunner.And("I create the following characters", ((string)(null)), table2, "And ");
 #line hidden

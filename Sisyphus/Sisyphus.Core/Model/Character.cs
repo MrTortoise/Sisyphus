@@ -19,9 +19,6 @@ namespace Sisyphus.Core.Model
         public string Sex { get; set; }
 
         [Required]
-        public virtual Place Place { get; set; }
-
-        [Required]
         [Index("CharacterName",IsUnique = true)]
         [MaxLength(40,ErrorMessage = "Character name length has max of 40 characters")]
         [Column("CharacterName",TypeName = "nvarchar")]

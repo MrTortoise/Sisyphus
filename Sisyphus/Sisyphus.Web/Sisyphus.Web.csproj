@@ -176,7 +176,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CharacterBrowserController.cs" />
-    <Compile Include="Controllers\CharacterEditorController.cs" />
+    <Compile Include="Controllers\RaceController.cs" />
+    <Compile Include="Migrations\201407112224131_BetterForeignRelatinos.cs" />
+    <Compile Include="Migrations\201407112224131_BetterForeignRelatinos.Designer.cs">
+      <DependentUpon>201407112224131_BetterForeignRelatinos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CharacterBrowserIndexViewModel.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="IContextWrapper.cs" />
     <Compile Include="Migrations\201407061603102_GameEvent.cs" />
@@ -289,7 +294,6 @@
     <Content Include="Views\Admin\_userRoles.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Writer\Index.cshtml" />
-    <Content Include="Views\CharacterEditor\Index.cshtml" />
     <Content Include="Views\PlacesEditor\Index.cshtml" />
     <Content Include="Views\EventSequencer\Index.cshtml" />
     <Content Include="Views\CharacterBrowser\Index.cshtml" />
@@ -297,6 +301,8 @@
     <Content Include="Views\EventSequencer\CreateEvent.cshtml" />
     <Content Include="Views\Event\Create.cshtml" />
     <Content Include="Views\Event\Edit.cshtml" />
+    <Content Include="Views\Writer\_CreateStory.cshtml" />
+    <Content Include="Views\CharacterBrowser\_Character.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -313,6 +319,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CharacterEditor\" />
     <Folder Include="Views\Dashboard\" />
   </ItemGroup>
   <ItemGroup>
@@ -327,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407092228242_fixedUserSession.resx">
       <DependentUpon>201407092228242_fixedUserSession.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407112224131_BetterForeignRelatinos.resx">
+      <DependentUpon>201407112224131_BetterForeignRelatinos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

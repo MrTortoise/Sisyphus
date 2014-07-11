@@ -11,16 +11,12 @@ namespace Sisyphus.Core.Services
     {
         private const string ThePlaceDoesNotExist = "the place: {0} Does not exist";
 
-        public void CreateChraracter(string name, string backStory, string race, string sex, string place)
+        public void CreateChraracter(string name, string backStory, string race, string sex,  string userName)
         {
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
             {
-                var placeEntity = context.Places.SingleOrDefault(p => p.Name == place);
-                if (placeEntity == null)
-                {
-                    throw new ArgumentOutOfRangeException("place",string.Format(ThePlaceDoesNotExist, place));
-                }
+                var session = context.GetSessionForUser(userName);
 
                 using (var tran = context.Database.BeginTransaction())
                 {
@@ -30,7 +26,7 @@ namespace Sisyphus.Core.Services
                                         BackStory = backStory,
                                         Race = race,
                                         Sex = sex,
-                                        Place = placeEntity
+                                        Story = session.Story
                                     };
                     context.Characters.Add(character);
                     context.SaveChanges();
@@ -39,12 +35,15 @@ namespace Sisyphus.Core.Services
             }
         }
 
-        public List<Character> GetCharacters()
+        public List<Character> GetCharacters(string userName)
         {
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
             {
-                var characters = context.Characters.ToList();
+                var session = context.GetSessionForUser(userName);
+
+                var characters = context.Characters.Where(c => c.Story.Id == session.StoryId).ToList();
+
                 return characters;
             }
         }

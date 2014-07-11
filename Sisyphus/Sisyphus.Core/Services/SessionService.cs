@@ -39,13 +39,15 @@ namespace Sisyphus.Core.Services
                 if (session == null)
                 {
                     this.CreateSession(userName, null);
-                    session = GetLatestSession(userName, context); 
-                }else 
-                    if (session.Date.AddMinutes(timeoutMins) < SisyphusDateTime.DateTimeAdapter.Now)
-                {
-                    this.CreateSession(userName, session.Story.Name);
                     session = GetLatestSession(userName, context);
                 }
+                else
+
+                    if (session.Date.AddMinutes(timeoutMins) < SisyphusDateTime.DateTimeAdapter.Now)
+                    {
+                        this.CreateSession(userName, session.Story == null ? null : session.Story.Name);
+                        session = GetLatestSession(userName, context);
+                    }
 
                 return session;
             }
@@ -54,7 +56,12 @@ namespace Sisyphus.Core.Services
 
         private static Session GetLatestSession(string userName, SisyphusContext context)
         {
-            return context.Sessions.Include("User").Include("Story").Where(s => s.User.UserName == userName).OrderByDescending(s => s.Date).First();
+            return
+                context.Sessions.Include("User")
+                    .Include("Story")
+                    .Where(s => s.User.UserName == userName)
+                    .OrderByDescending(s => s.Date)
+                    .FirstOrDefault();
         }
     }
 }

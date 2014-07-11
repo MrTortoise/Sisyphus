@@ -51,6 +51,7 @@ namespace Sisyphus.Spec
             }
         }
 
+        [Given(@"I select the story ""(.*)""")]
         [When(@"I select the story ""(.*)""")]
         public void WhenISelectTheStory(string name)
         {
@@ -64,7 +65,7 @@ namespace Sisyphus.Spec
             var controller = (WriterController)ScenarioContext.Current[WriterControllerName];
             var result = (ViewResult)controller.Index();
             var model = (WriterIndexViewModel)result.Model;
-            Assert.AreEqual(storyName, model.SelectedStory.Name);
+            Assert.AreEqual(storyName, model.SelectedStoryName);
         }
 
 
