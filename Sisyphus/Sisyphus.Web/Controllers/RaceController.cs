@@ -1,6 +1,7 @@
 ﻿namespace Sisyphus.Web.Controllers
 {
     using System.Collections.Generic;
+    using System.Net;
     using System.Web.Mvc;
 
     using Sisyphus.Core.Model;
@@ -31,7 +32,7 @@
         {
             var userName = ContextWrapper.Instance.UserName;
             var service = new RaceService();
-            var race = service.GetRace(userName);
+            var race = service.GetRace(name,userName);
             return this.View(race);
         }
 
@@ -48,6 +49,42 @@
             var service = new RaceService();
             service.EditRace(race, userName);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var userName = ContextWrapper.Instance.UserName;
+            var service = new RaceService();
+            var race = service.GetRace(id.Value, userName);
+
+            if (race == null)
+            {
+                return this.HttpNotFound();
+            }
+
+            return this.View(race);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var userName = ContextWrapper.Instance.UserName;
+            var service = new RaceService();
+            Race race = service.GetRace(id.Value, userName);
+            if (race == null)
+            {
+                return this.HttpNotFound();
+            }
+
+            return this.View(race);
         }
     }
 }

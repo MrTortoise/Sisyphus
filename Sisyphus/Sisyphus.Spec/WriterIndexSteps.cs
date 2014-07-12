@@ -103,5 +103,23 @@ namespace Sisyphus.Spec
             var result = controller.EventSequencer();
             ScenarioContext.Current.Add(ActionStepsHelpers.ReturnedResult, result);
         }
+
+        [When(@"I click open race editor on the writer index")]
+        public void WhenIClickOpenRaceEditorOnTheWriterIndex()
+        {
+            var controller = (WriterController)ScenarioContext.Current[WriterControllerName];
+            var result = controller.RaceEditor();
+            ScenarioContext.Current.Add(ActionStepsHelpers.ReturnedResult, result);
+        }
+
+        [When(@"I click open sex editor on the writer index")]
+        public void WhenIClickOpenSexEditorOnTheWriterIndex()
+        {
+            var controller = (WriterController)ScenarioContext.Current[WriterControllerName];
+            var result = controller.SexEditor();
+            ScenarioContext.Current.Add(ActionStepsHelpers.ReturnedResult, result);
+        }
+
+
     }
 }

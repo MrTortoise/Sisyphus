@@ -81,5 +81,10 @@ namespace Sisyphus.Web.Controllers
         {
             return RedirectToAction("Index", "Race");
         }
+
+        public ActionResult SexEditor()
+        {
+            return RedirectToAction("Index", "Sex");
+        }
     }
 }

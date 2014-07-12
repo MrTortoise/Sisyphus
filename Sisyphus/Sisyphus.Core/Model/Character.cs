@@ -9,24 +9,25 @@ namespace Sisyphus.Core.Model
     {
         [Key]
         public int Id { get; set; }
-        
+
         public string BackStory { get; set; }
 
-        [MaxLength(40, ErrorMessage = "Race length has max of 40 characters")]
-        public string Race { get; set; }
+        public virtual Sex Sex { get; set; }
 
-        [MaxLength(40, ErrorMessage = "Sex length has max of 40 characters")]
-        public string Sex { get; set; }
+        public virtual Race Race { get; set; }
 
         [Required]
-        [Index("CharacterName",IsUnique = true)]
-        [MaxLength(40,ErrorMessage = "Character name length has max of 40 characters")]
-        [Column("CharacterName",TypeName = "nvarchar")]
+        [Index("CharacterUnique", 1, IsUnique = true)]
+        [MaxLength(40, ErrorMessage = "Character name length has max of 40 characters")]
+        [Column("CharacterName", TypeName = "nvarchar")]
         public string Name { get; set; }
 
         [Timestamp]
         public Byte[] TimeStamp { get; set; }
 
         public virtual Story Story { get; set; }
+
+        [Index("CharacterUnique", 2, IsUnique = true)]
+        public int StoryId { get; set; }
     }
 }

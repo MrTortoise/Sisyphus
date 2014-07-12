@@ -9,6 +9,7 @@ Background:
 	And I set ContextWrapper To use TestContextWrapper 
 	And I set the user Identity to "writer@admin.com"
 	And I have set SisyphusDateTime to TestDateTime
+		And I have set the date to year "2014" Month "7" Day "20" hour "19" minute "24" second "12" millisecond "123"
 	And I have created a test database called "placesTest"	
 	And I create a user with email "writer@admin.com" with password "testtest"
 	And I assign the following roles to user "writer@admin.com"
@@ -17,6 +18,7 @@ Background:
 		| Writer |
 		| Reader |
 	And I log in with the user "writer@admin.com" and password "testtest"
+		And I use the controller WriterHome
 	And I have created the stories
 	| name  | backStory                      |
 	| test1 | ooo itS BACK STORY             |

@@ -169,8 +169,8 @@ this.FeatureBackground();
 #line 39
  testRunner.When("I click open PlacesEditor on the writer index", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 40
- testRunner.Then("The resulting RedirectToRouteResult should be to controller \"PlacesEditor\" action" +
-                    " \"Index\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The resulting RedirectToRouteResult should be to controller \"Place\" action \"Index" +
+                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -225,6 +225,41 @@ this.FeatureBackground();
 #line 52
  testRunner.Then("The resulting RedirectToRouteResult should be to controller \"EventSequencer\" acti" +
                     "on \"Index\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Navigate to the Race Sequencer")]
+        public virtual void NavigateToTheRaceSequencer()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the Race Sequencer", ((string[])(null)));
+#line 54
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 55
+ testRunner.When("I click open race editor on the writer index", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 56
+ testRunner.Then("The resulting RedirectToRouteResult should be to controller \"Race\" action \"Index\"" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Navigate to the Sex Editor")]
+        public virtual void NavigateToTheSexEditor()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the Sex Editor", ((string[])(null)));
+#line 58
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 59
+ testRunner.When("I click open sex editor on the writer index", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 60
+ testRunner.Then("The resulting RedirectToRouteResult should be to controller \"Sex\" action \"Index\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

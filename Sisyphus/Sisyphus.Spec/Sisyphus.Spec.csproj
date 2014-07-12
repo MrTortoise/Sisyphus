@@ -208,6 +208,12 @@
       <DependentUpon>Session.feature</DependentUpon>
     </Compile>
     <Compile Include="SessionSteps.cs" />
+    <Compile Include="sex.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sex.feature</DependentUpon>
+    </Compile>
+    <Compile Include="SexSteps.cs" />
     <Compile Include="StageDatabase.cs" />
     <Compile Include="TestContextWrapper.cs" />
     <Compile Include="TestDateTimeAdapter.cs" />
@@ -302,6 +308,10 @@
     <None Include="Session.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Session.feature.cs</LastGenOutput>
+    </None>
+    <None Include="sex.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>sex.feature.cs</LastGenOutput>
     </None>
     <None Include="TheStory.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

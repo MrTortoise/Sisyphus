@@ -23,7 +23,7 @@
         ///     The name of the place
         /// </summary>
         [Required]
-        [Index(IsUnique = true)]
+        [Index("PlaceUniquw",1,IsUnique = true)]
         [Column("PlaceName", TypeName = "nvarchar")]
         [MaxLength(100)]
         public string Name { get; set; }
@@ -41,6 +41,7 @@
         /// <summary>
         /// The Id of the story the place belongs to
         /// </summary>
+        [Index("PlaceUniquw", 2, IsUnique = true)]
         public int StoryId { get; set; }
 
         [Timestamp]

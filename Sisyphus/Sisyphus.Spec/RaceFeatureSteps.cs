@@ -15,6 +15,7 @@ namespace Sisyphus.Spec
     [Binding]
     public class RaceFeatureSteps
     {
+        [Given(@"I create the following races")]
         [When(@"I create the following races")]
         public void WhenICreateTheFollowingRaces(Table table)
         {

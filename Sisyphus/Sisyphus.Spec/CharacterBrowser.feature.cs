@@ -195,6 +195,15 @@ namespace Sisyphus.Spec
 #line 39
  testRunner.And("I add the following characters to the event \"testEvent\"", ((string)(null)), table6, "And ");
 #line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "backstory"});
+            table7.AddRow(new string[] {
+                        "foot",
+                        "bulling you rleg"});
+#line 42
+ testRunner.And("I create the following races", ((string)(null)), table7, "And ");
+#line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
@@ -202,40 +211,40 @@ namespace Sisyphus.Spec
         public virtual void OpenCharacterBrowserAndLookAtCharacters()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open character browser and look at characters", ((string[])(null)));
-#line 43
+#line 46
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 44
+#line 47
  testRunner.Given("I open the view Character Browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
                         "backstory",
                         "race",
                         "sex"});
-            table7.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "jim",
                         "none",
                         "foot",
                         "rarley"});
-            table7.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "jim2",
                         "none",
                         "foot",
                         "rarley"});
-            table7.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "jim3",
                         "none",
                         "foot",
                         "rarley"});
-            table7.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "jim4",
                         "none",
                         "foot",
                         "rarley"});
-#line 45
- testRunner.Then("I expect the character browser to contain the following characters", ((string)(null)), table7, "Then ");
+#line 48
+ testRunner.Then("I expect the character browser to contain the following characters", ((string)(null)), table8, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -245,17 +254,17 @@ this.FeatureBackground();
         public virtual void OpenASpecificCharacterFromTheBrowser()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open a specific character from the browser", ((string[])(null)));
-#line 52
+#line 55
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 53
- testRunner.Given("I open the view Character Browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 54
- testRunner.When("I select the character \"jim\" in the character browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 55
- testRunner.Then("I expect to get the \"CharacterInformation\" view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 56
+ testRunner.Given("I open the view Character Browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 57
+ testRunner.When("I select the character \"jim\" in the character browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 58
+ testRunner.Then("I expect to get the \"CharacterInformation\" view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 59
  testRunner.And("I expect the chatacter \"jim\" to be the CharacterInformation views subject", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -266,28 +275,28 @@ this.FeatureBackground();
         public virtual void ViewASpecificCharactersInvolvementInEvents()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View a specific characters involvement in events", ((string[])(null)));
-#line 58
+#line 61
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 59
- testRunner.Given("I have chosen to start a story", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 60
- testRunner.And("I open the view \"CharacterBrowser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 61
- testRunner.And("I select the character \"jim\" in the character browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 62
- testRunner.When("I select view events in the character browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I have chosen to start a story", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 63
+ testRunner.And("I open the view \"CharacterBrowser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 64
+ testRunner.And("I select the character \"jim\" in the character browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 65
+ testRunner.When("I select view events in the character browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 66
  testRunner.Then("The resulting RedirectToRouteResult should be to controller \"CharacterEventBrowse" +
                     "r\" action \"Index\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "name"});
-            table8.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "testEvent"});
-#line 64
- testRunner.And("I expect the events in the events browser to be", ((string)(null)), table8, "And ");
+#line 67
+ testRunner.And("I expect the events in the events browser to be", ((string)(null)), table9, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -297,23 +306,14 @@ this.FeatureBackground();
         public virtual void AddCharactersToAFollowingList()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add characters to a following list", ((string[])(null)));
-#line 68
+#line 71
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 69
+#line 72
  testRunner.Given("I have chosen to start a story", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 70
+#line 73
  testRunner.And("I open the view \"CharacterBrowser\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table9.AddRow(new string[] {
-                        "jim"});
-            table9.AddRow(new string[] {
-                        "jim2"});
-#line 71
- testRunner.When("I select the following characters to be followed", ((string)(null)), table9, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                         "name"});
@@ -321,8 +321,17 @@ this.FeatureBackground();
                         "jim"});
             table10.AddRow(new string[] {
                         "jim2"});
-#line 75
- testRunner.Then("I expect the following characters to be followed", ((string)(null)), table10, "Then ");
+#line 74
+ testRunner.When("I select the following characters to be followed", ((string)(null)), table10, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name"});
+            table11.AddRow(new string[] {
+                        "jim"});
+            table11.AddRow(new string[] {
+                        "jim2"});
+#line 78
+ testRunner.Then("I expect the following characters to be followed", ((string)(null)), table11, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

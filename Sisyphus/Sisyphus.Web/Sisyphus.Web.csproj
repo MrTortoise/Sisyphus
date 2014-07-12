@@ -177,29 +177,14 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CharacterBrowserController.cs" />
     <Compile Include="Controllers\RaceController.cs" />
-    <Compile Include="Migrations\201407112224131_BetterForeignRelatinos.cs" />
-    <Compile Include="Migrations\201407112224131_BetterForeignRelatinos.Designer.cs">
-      <DependentUpon>201407112224131_BetterForeignRelatinos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407120628145_paddedRaceCharacter.cs" />
-    <Compile Include="Migrations\201407120628145_paddedRaceCharacter.Designer.cs">
-      <DependentUpon>201407120628145_paddedRaceCharacter.cs</DependentUpon>
+    <Compile Include="Controllers\SexController.cs" />
+    <Compile Include="Migrations\201407121513405_initial1.cs" />
+    <Compile Include="Migrations\201407121513405_initial1.Designer.cs">
+      <DependentUpon>201407121513405_initial1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CharacterBrowserIndexViewModel.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="IContextWrapper.cs" />
-    <Compile Include="Migrations\201407061603102_GameEvent.cs" />
-    <Compile Include="Migrations\201407061603102_GameEvent.Designer.cs">
-      <DependentUpon>201407061603102_GameEvent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407092219580_session.cs" />
-    <Compile Include="Migrations\201407092219580_session.Designer.cs">
-      <DependentUpon>201407092219580_session.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201407092228242_fixedUserSession.cs" />
-    <Compile Include="Migrations\201407092228242_fixedUserSession.Designer.cs">
-      <DependentUpon>201407092228242_fixedUserSession.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\CharacterCreateViewModel.cs" />
     <Compile Include="Models\CharacterEditViewModel.cs" />
     <Compile Include="Models\CreateEventViewModel.cs" />
@@ -316,6 +301,13 @@
     <Content Include="Views\CharacterBrowser\Edit.cshtml" />
     <Content Include="Views\Race\Create.cshtml" />
     <Content Include="Views\Race\EditRace.cshtml" />
+    <Content Include="Views\Race\Details.cshtml" />
+    <Content Include="Views\Race\Delete.cshtml" />
+    <Content Include="Views\Sex\Index.cshtml" />
+    <Content Include="Views\Sex\Create.cshtml" />
+    <Content Include="Views\Sex\Edit.cshtml" />
+    <Content Include="Views\Sex\details.cshtml" />
+    <Content Include="Views\Sex\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -339,20 +331,8 @@
     <EmbeddedResource Include="Migrations\201407060936547_initial.resx">
       <DependentUpon>201407060936547_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407061603102_GameEvent.resx">
-      <DependentUpon>201407061603102_GameEvent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407092219580_session.resx">
-      <DependentUpon>201407092219580_session.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407092228242_fixedUserSession.resx">
-      <DependentUpon>201407092228242_fixedUserSession.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407112224131_BetterForeignRelatinos.resx">
-      <DependentUpon>201407112224131_BetterForeignRelatinos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407120628145_paddedRaceCharacter.resx">
-      <DependentUpon>201407120628145_paddedRaceCharacter.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201407121513405_initial1.resx">
+      <DependentUpon>201407121513405_initial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

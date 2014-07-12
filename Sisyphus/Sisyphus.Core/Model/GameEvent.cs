@@ -12,7 +12,7 @@ namespace Sisyphus.Core.Model
         public int Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
+        [Index("GameEventUnique",1,IsUnique = true)]
         [Column("GameEventName", TypeName = "nvarchar")]
         [MaxLength(100)]
         public string Name { get; set; }
@@ -35,5 +35,8 @@ namespace Sisyphus.Core.Model
         public Byte[] TimeStamp { get; set; }
 
         public virtual Story Story { get; set; }
+
+        [Index("GameEventUnique", 2, IsUnique = true)]
+        public int StoryId { get; set; }
     }
 }

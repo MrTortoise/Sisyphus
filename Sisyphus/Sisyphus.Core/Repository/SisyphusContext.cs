@@ -35,6 +35,8 @@
 
         public DbSet<Race> Races { get; set; }
 
+        public DbSet<Sex> Sexes { get; set; }
+
         #endregion
 
         public static SisyphusContext Create()

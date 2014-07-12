@@ -32,7 +32,7 @@
                 <div class="form-group">
                     @Html.LabelFor(m => m.Character.Race, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(m => m.Character.Race, 10, 30, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.Character.Race, 10, 30, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Character.Race, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                 <div class="form-group">
                     @Html.LabelFor(m => m.Character.Sex, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(m => m.Character.Sex, 10, 30, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.Character.Sex, 10, 30, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Character.Sex, "", new { @class = "text-danger" })
                     </div>
                 </div>

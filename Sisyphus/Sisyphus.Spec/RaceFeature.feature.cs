@@ -79,8 +79,11 @@ namespace Sisyphus.Spec
 #line 11
  testRunner.And("I have set SisyphusDateTime to TestDateTime", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
- testRunner.And("I have created a test database called \"placesTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I have set the date to year \"2014\" Month \"7\" Day \"20\" hour \"19\" minute \"24\" secon" +
+                    "d \"12\" millisecond \"123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
+ testRunner.And("I have created a test database called \"placesTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
  testRunner.And("I create a user with email \"writer@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -91,10 +94,12 @@ namespace Sisyphus.Spec
                         "Writer"});
             table1.AddRow(new string[] {
                         "Reader"});
-#line 14
+#line 15
  testRunner.And("I assign the following roles to user \"writer@admin.com\"", ((string)(null)), table1, "And ");
-#line 19
+#line 20
  testRunner.And("I log in with the user \"writer@admin.com\" and password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+  testRunner.And("I use the controller WriterHome", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
@@ -105,9 +110,9 @@ namespace Sisyphus.Spec
             table2.AddRow(new string[] {
                         "test2",
                         "COR HE THINKS ITS A WEAL STOWY"});
-#line 20
+#line 22
  testRunner.And("I have created the stories", ((string)(null)), table2, "And ");
-#line 24
+#line 26
  testRunner.And("I select the story \"test1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
@@ -119,7 +124,7 @@ namespace Sisyphus.Spec
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create some races and verify they exist", new string[] {
                         "mytag"});
-#line 27
+#line 29
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
@@ -133,7 +138,7 @@ this.FeatureBackground();
             table3.AddRow(new string[] {
                         "slave",
                         "they are allegedly not human"});
-#line 28
+#line 30
  testRunner.When("I create the following races", ((string)(null)), table3, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -145,7 +150,7 @@ this.FeatureBackground();
             table4.AddRow(new string[] {
                         "slave",
                         "they are allegedly not human"});
-#line 32
+#line 34
  testRunner.Then("I expect the following races to exist", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();

@@ -20,12 +20,14 @@ namespace Sisyphus.Core.Services
 
                 using (var tran = context.Database.BeginTransaction())
                 {
+                    var R = context.Races.Single(r => r.Name == race && r.StoryId == session.StoryId);
+                    var S = context.Sexes.Single(s => s.Name == sex && s.StoryId == session.StoryId);
                     var character = new Character()
                                     {
                                         Name = name,
                                         BackStory = backStory,
-                                        Race = race,
-                                        Sex = sex,
+                                        Race = R,
+                                        Sex = S,
                                         Story = session.Story
                                     };
                     context.Characters.Add(character);
@@ -42,7 +44,7 @@ namespace Sisyphus.Core.Services
             {
                 var session = context.GetSessionForUser(userName);
 
-                var characters = context.Characters.Where(c => c.Story.Id == session.StoryId).ToList();
+                var characters = context.Characters.Include("Sex").Include("Race").Where(c => c.Story.Id == session.StoryId).ToList();
 
                 return characters;
             }
@@ -54,7 +56,7 @@ namespace Sisyphus.Core.Services
             using (var context = new SisyphusContext(conStr))
             {
                 var session = context.GetSessionForUser(userName);
-                var ch = context.Characters.SingleOrDefault(c => c.Name == character && c.Story.Id == session.StoryId);
+                var ch = context.Characters.Include("Sex").Include("Race").SingleOrDefault(c => c.Name == character && c.Story.Id == session.StoryId);
                 return ch;
             }
         }

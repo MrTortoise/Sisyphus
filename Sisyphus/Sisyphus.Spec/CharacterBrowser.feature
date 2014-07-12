@@ -39,6 +39,9 @@ Background:
 	And I add the following characters to the event "testEvent"
 		| name |
 		| jim  |
+	And I create the following races
+		| name | backstory        |
+		| foot | bulling you rleg |
 
 Scenario: Open character browser and look at characters
 	Given I open the view Character Browser

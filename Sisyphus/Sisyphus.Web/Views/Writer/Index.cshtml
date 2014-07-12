@@ -18,13 +18,13 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SelectedStoryName, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.LabelFor(m => m.SelectedStoryName, new { @class = "form-control" })
+                @Html.DisplayFor(m => m.SelectedStoryName, new { @class = "form-control" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.BackStory, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.LabelFor(m => m.BackStory, new { @class = "form-control" })
+                @Html.DisplayFor(m => m.BackStory, new { @class = "form-control" })
             </div>
         </div>
     </div>
@@ -61,4 +61,5 @@ else
     <li>@Html.ActionLink("Character Editor", "CharacterBrowser")</li>
     <li>@Html.ActionLink("Event Sequencer", "EventSequencer")</li>
     <li>@Html.ActionLink("Race Editor", "RaceEditor")</li>
+    <li>@Html.ActionLink("Sex Editor", "SexEditor")</li>
 </ul>

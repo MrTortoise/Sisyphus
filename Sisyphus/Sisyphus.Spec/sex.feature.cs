@@ -19,21 +19,21 @@ namespace Sisyphus.Spec
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Places")]
-    public partial class PlacesFeature
+    [NUnit.Framework.DescriptionAttribute("Sex")]
+    public partial class SexFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Places.feature"
+#line 1 "sex.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Places", "In order to have locations characters can interact in\r\nAs a writer\r\nI want to be " +
-                    "to manipulate places", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Sex", "In order to have characters of different sexes to explain differing social intera" +
+                    "ctinos\r\nAs a writer \r\nI want to be able to create sexes", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -118,136 +118,73 @@ namespace Sisyphus.Spec
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create a new place with a name and history")]
+        [NUnit.Framework.DescriptionAttribute("Create some sexes and verify they exist")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void CreateANewPlaceWithANameAndHistory()
+        public virtual void CreateSomeSexesAndVerifyTheyExist()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new place with a name and history", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create some sexes and verify they exist", new string[] {
                         "mytag"});
 #line 29
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 30
- testRunner.When("I create a place called \"test1\" with history \"history1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
-                        "history"});
+                        "BackStory"});
             table3.AddRow(new string[] {
-                        "test1",
-                        "history1"});
-#line 31
- testRunner.Then("I expect places to contain", ((string)(null)), table3, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create several places and return them")]
-        public virtual void CreateSeveralPlacesAndReturnThem()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create several places and return them", ((string[])(null)));
-#line 35
-this.ScenarioSetup(scenarioInfo);
-#line 6
-this.FeatureBackground();
+                        "male",
+                        "they are manly"});
+            table3.AddRow(new string[] {
+                        "femals",
+                        "they are girly"});
+#line 30
+ testRunner.When("I create the following sexes", ((string)(null)), table3, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
-                        "history"});
+                        "BackStory"});
             table4.AddRow(new string[] {
-                        "test1",
-                        "history1"});
+                        "male",
+                        "they are manly"});
             table4.AddRow(new string[] {
-                        "test2",
-                        "history2"});
-            table4.AddRow(new string[] {
-                        "test3",
-                        "history3"});
-            table4.AddRow(new string[] {
-                        "test4",
-                        "history4"});
-#line 36
- testRunner.When("I create the following places", ((string)(null)), table4, "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "history"});
-            table5.AddRow(new string[] {
-                        "test1",
-                        "history1"});
-            table5.AddRow(new string[] {
-                        "test2",
-                        "history2"});
-            table5.AddRow(new string[] {
-                        "test3",
-                        "history3"});
-            table5.AddRow(new string[] {
-                        "test4",
-                        "history4"});
-#line 42
- testRunner.Then("I expect places to contain", ((string)(null)), table5, "Then ");
+                        "femals",
+                        "they are girly"});
+#line 34
+ testRunner.Then("I expect the following sexes to exist", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create a list of places and return a page")]
-        public virtual void CreateAListOfPlacesAndReturnAPage()
+        [NUnit.Framework.DescriptionAttribute("Create a sex and then edit it changing all info")]
+        public virtual void CreateASexAndThenEditItChangingAllInfo()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a list of places and return a page", ((string[])(null)));
-#line 49
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a sex and then edit it changing all info", ((string[])(null)));
+#line 39
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "BackStory"});
+            table5.AddRow(new string[] {
+                        "male",
+                        "they are manly"});
+#line 40
+ testRunner.Given("I create the following sexes", ((string)(null)), table5, "Given ");
+#line 43
+ testRunner.When("I edit the sex \"male\" to have name \"female\" and description \"not male\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
-                        "history"});
+                        "BackStory"});
             table6.AddRow(new string[] {
-                        "test1",
-                        "history1"});
-            table6.AddRow(new string[] {
-                        "test2",
-                        "history2"});
-            table6.AddRow(new string[] {
-                        "test3",
-                        "history3"});
-            table6.AddRow(new string[] {
-                        "test4",
-                        "history4"});
-            table6.AddRow(new string[] {
-                        "test5",
-                        "history5"});
-            table6.AddRow(new string[] {
-                        "test6",
-                        "history6"});
-            table6.AddRow(new string[] {
-                        "test7",
-                        "history7"});
-            table6.AddRow(new string[] {
-                        "test8",
-                        "history8"});
-#line 50
- testRunner.Given("I create the following places", ((string)(null)), table6, "Given ");
-#line 60
- testRunner.When("I get 3 places skipping 3 and store them", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "history"});
-            table7.AddRow(new string[] {
-                        "test4",
-                        "history4"});
-            table7.AddRow(new string[] {
-                        "test5",
-                        "history5"});
-            table7.AddRow(new string[] {
-                        "test6",
-                        "history6"});
-#line 61
- testRunner.Then("I expect the stored places to contain the following", ((string)(null)), table7, "Then ");
+                        "female",
+                        "not male"});
+#line 44
+ testRunner.Then("I expect the following sexes to exist", ((string)(null)), table6, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

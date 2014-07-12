@@ -37,7 +37,7 @@ Scenario: Select a story verify that that story is the active story
 
 Scenario: Navigate to places page
 	When I click open PlacesEditor on the writer index	
-	Then The resulting RedirectToRouteResult should be to controller "PlacesEditor" action "Index"
+	Then The resulting RedirectToRouteResult should be to controller "Place" action "Index"
 
 Scenario: Navigate to chracter Browser 
 	When I click open Character browser on the writer index
@@ -50,3 +50,11 @@ Scenario: Navigate to the Time editor
 Scenario: Navigate to the Event Sequencer
 	When I click open event sequencer on the writer index
 	Then The resulting RedirectToRouteResult should be to controller "EventSequencer" action "Index"
+
+Scenario: Navigate to the Race Sequencer
+	When I click open race editor on the writer index
+	Then The resulting RedirectToRouteResult should be to controller "Race" action "Index"
+
+Scenario: Navigate to the Sex Editor
+	When I click open sex editor on the writer index
+	Then The resulting RedirectToRouteResult should be to controller "Sex" action "Index"
