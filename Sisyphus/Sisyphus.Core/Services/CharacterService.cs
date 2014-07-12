@@ -47,5 +47,16 @@ namespace Sisyphus.Core.Services
                 return characters;
             }
         }
+
+        public Character GetCharacter(string character, string userName)
+        {
+             var conStr = Config.GetConnectionString();
+            using (var context = new SisyphusContext(conStr))
+            {
+                var session = context.GetSessionForUser(userName);
+                var ch = context.Characters.SingleOrDefault(c => c.Name == character && c.Story.Id == session.StoryId);
+                return ch;
+            }
+        }
     }
 }

@@ -1,0 +1,19 @@
+﻿@model Sisyphus.Core.Model.Race
+
+<div class="form-group">
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        <div class="col-md-10">
+            @Html.DisplayFor(m => m.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.BackStory)
+        <div class="col-md-10">
+            @Html.DisplayFor(m => m.BackStory)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.ActionLink("Edit", "EditRace", "Race", new { Race = Model.Name })
+    </div>
+</div>

@@ -33,6 +33,8 @@
 
         public DbSet<Session> Sessions { get; set; }
 
+        public DbSet<Race> Races { get; set; }
+
         #endregion
 
         public static SisyphusContext Create()

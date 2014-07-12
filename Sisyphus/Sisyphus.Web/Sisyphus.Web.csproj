@@ -181,6 +181,10 @@
     <Compile Include="Migrations\201407112224131_BetterForeignRelatinos.Designer.cs">
       <DependentUpon>201407112224131_BetterForeignRelatinos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201407120628145_paddedRaceCharacter.cs" />
+    <Compile Include="Migrations\201407120628145_paddedRaceCharacter.Designer.cs">
+      <DependentUpon>201407120628145_paddedRaceCharacter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\CharacterBrowserIndexViewModel.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="IContextWrapper.cs" />
@@ -196,6 +200,8 @@
     <Compile Include="Migrations\201407092228242_fixedUserSession.Designer.cs">
       <DependentUpon>201407092228242_fixedUserSession.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CharacterCreateViewModel.cs" />
+    <Compile Include="Models\CharacterEditViewModel.cs" />
     <Compile Include="Models\CreateEventViewModel.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EventSequencerController.cs" />
@@ -223,6 +229,7 @@
     <Compile Include="Models\InstanceViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\ManageUserViewModel.cs" />
+    <Compile Include="Models\RaceEditViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\ResetPasswordViewModel.cs" />
     <Compile Include="Models\UserRoleViewModel.cs" />
@@ -303,6 +310,12 @@
     <Content Include="Views\Event\Edit.cshtml" />
     <Content Include="Views\Writer\_CreateStory.cshtml" />
     <Content Include="Views\CharacterBrowser\_Character.cshtml" />
+    <Content Include="Views\Race\Index.cshtml" />
+    <Content Include="Views\Race\_race.cshtml" />
+    <Content Include="Views\CharacterBrowser\Create.cshtml" />
+    <Content Include="Views\CharacterBrowser\Edit.cshtml" />
+    <Content Include="Views\Race\Create.cshtml" />
+    <Content Include="Views\Race\EditRace.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -337,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201407112224131_BetterForeignRelatinos.resx">
       <DependentUpon>201407112224131_BetterForeignRelatinos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407120628145_paddedRaceCharacter.resx">
+      <DependentUpon>201407120628145_paddedRaceCharacter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

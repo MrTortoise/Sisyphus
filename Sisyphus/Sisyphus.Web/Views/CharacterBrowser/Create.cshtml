@@ -1,0 +1,56 @@
+﻿@model Sisyphus.Web.Models.CharacterCreateViewModel
+
+@{
+    ViewBag.Title = "Create Character";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Character</h2>
+<div class="row">
+    <div class="col-lg-8">
+        <section id="createCharacter">
+            @using (Html.BeginForm("Create", "CharacterBrowser", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Character.Name, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Character.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Character.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Character.BackStory, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.Character.BackStory, 10, 30, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Character.BackStory, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Character.Race, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.Character.Race, 10, 30, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Character.Race, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Character.Sex, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => m.Character.Sex, 10, 30, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Character.Sex, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create Character" class="btn btn-default" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>

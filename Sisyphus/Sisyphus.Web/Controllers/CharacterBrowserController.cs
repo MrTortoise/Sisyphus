@@ -20,7 +20,11 @@
 
         public ActionResult Edit(string character)
         {
-            throw new System.NotImplementedException();
+            var service = new CharacterService();
+            var userName = ContextWrapper.Instance.UserName;
+            var c = service.GetCharacter(character, userName);
+            var viewModel = new CharacterEditViewModel() { Character = c };
+            return this.View(c);
         }
 
         [HttpPost]
@@ -39,7 +43,7 @@
         {
             var viewModel = new CharacterCreateViewModel();
             viewModel.Character = new Character();
-         
+            return this.View(viewModel);
         }
     }
 }

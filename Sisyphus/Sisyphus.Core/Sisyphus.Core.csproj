@@ -80,6 +80,7 @@
     <Compile Include="Services\IdentityService.cs" />
     <Compile Include="Services\PlaceService.cs" />
     <Compile Include="Repository\TimeRepository.cs" />
+    <Compile Include="Services\RaceService.cs" />
     <Compile Include="Services\SessionService.cs" />
     <Compile Include="Services\StoriesService.cs" />
     <Compile Include="Services\TimeService.cs" />

@@ -37,7 +37,7 @@ namespace Sisyphus.Web.Controllers
          [Authorize(Roles = "Writer")]
         public ActionResult PlacesEditor()
         {
-            return RedirectToAction("Index", "PlacesEditor");
+            return RedirectToAction("Index", "Place");
         }
 
         [Authorize(Roles = "Writer")]
@@ -75,6 +75,11 @@ namespace Sisyphus.Web.Controllers
 
             sessionService.CreateSession(userName, selectedStoryName);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult RaceEditor()
+        {
+            return RedirectToAction("Index", "Race");
         }
     }
 }

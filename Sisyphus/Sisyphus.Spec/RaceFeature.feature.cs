@@ -32,8 +32,8 @@ namespace Sisyphus.Spec
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "RaceFeature", "In order to have characters in different Races\nAs a writer adn reader\nI want to b" +
-                    "e abke to select and read about them", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "RaceFeature", "In order to have characters in different Races\r\nAs a writer adn reader\r\nI want to" +
+                    " be abke to select and read about them", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
