@@ -404,3 +404,4 @@ $RECYCLE.BIN/
 /Sisyphus/Sisyphus.Web/Migrations/201407051957032_oneContext.Designer.cs
 /Sisyphus/Sisyphus.Web/Migrations/201407051957032_oneContext.cs
 /Sisyphus/Sisyphus.Web/Migrations/201407051957032_oneContext.resx
+/Sisyphus/Sisyphus.Web/Properties/PublishProfiles/*.pubxml

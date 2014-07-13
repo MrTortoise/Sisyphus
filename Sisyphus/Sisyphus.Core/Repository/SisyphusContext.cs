@@ -2,6 +2,7 @@
 {
     using System;
     using System.Data.Entity;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -42,6 +43,14 @@
         public static SisyphusContext Create()
         {
             return new SisyphusContext(Config.GetConnectionString());
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

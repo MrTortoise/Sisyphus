@@ -23,13 +23,29 @@
             var service = new CharacterService();
             var userName = ContextWrapper.Instance.UserName;
             var c = service.GetCharacter(character, userName);
-            var viewModel = new CharacterEditViewModel() { Character = c };
-            return this.View(c);
+            
+            var sexService = new SexService();
+            var sexes = sexService.GetSexes(userName);
+
+            var raceService = new RaceService();
+            var races = raceService.GetRaces(userName);
+
+            var viewModel = new CharacterEditViewModel() { Character = c, Sexes = sexes, Races = races };
+            return this.View(viewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateCharacter(string name, string backStory, string race, string sex)
+        public ActionResult Edit(Character character)
+        {
+            var service = new CharacterService();
+            service.Update(character);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(string name, string backStory, string race, string sex)
         {
             var service = new CharacterService();
 
@@ -41,9 +57,43 @@
 
         public ActionResult Create()
         {
-            var viewModel = new CharacterCreateViewModel();
-            viewModel.Character = new Character();
+            var username = ContextWrapper.Instance.UserName;
+            var sexService = new SexService();
+            var sexes = sexService.GetSexes(username);
+
+            var raceService = new RaceService();
+            var races = raceService.GetRaces(username);
+
+            var viewModel = new CharacterCreateViewModel { Character = new Character(), Races = races, Sexes = sexes };
             return this.View(viewModel);
+        }
+
+        public ActionResult Details(string name)
+        {
+            var service = new CharacterService();
+            var userName = ContextWrapper.Instance.UserName;
+
+            var character = service.GetCharacter(name, userName);
+            return this.View(character);
+        }
+
+        public ActionResult Delete(string name)
+        {
+            var service = new CharacterService();
+            var userName = ContextWrapper.Instance.UserName;
+
+            var character = service.GetCharacter(name, userName);
+            return this.View(character);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            var service = new CharacterService();
+
+            service.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

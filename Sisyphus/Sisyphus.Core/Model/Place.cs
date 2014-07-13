@@ -36,12 +36,14 @@
         /// <summary>
         /// The story the place belongs to
         /// </summary>
+        [Required]
         public virtual Story Story { get; set; }
 
         /// <summary>
         /// The Id of the story the place belongs to
         /// </summary>
         [Index("PlaceUniquw", 2, IsUnique = true)]
+        [Required]
         public int StoryId { get; set; }
 
         [Timestamp]

@@ -13,7 +13,7 @@ namespace Sisyphus.Web.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201407060936547_initial"; }
+            get { return "201407132215394_initial"; }
         }
         
         string IMigrationMetadata.Source

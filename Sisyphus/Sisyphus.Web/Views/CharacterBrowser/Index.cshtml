@@ -30,7 +30,9 @@
                     @character.Sex
                 </td>
                 <td>
-                    @Html.ActionLink("Edit Character", "Edit", "CharacterEditor", character.Name)
+                    @Html.ActionLink("Edit", "Edit", new { name = character.Name }) |
+                    @Html.ActionLink("Details", "Details", new { name = character.Name }) |
+                    @Html.ActionLink("Delete","Delete" , new {id = character.Id })
                 </td>
             </tr>
         }

@@ -56,7 +56,7 @@ namespace Sisyphus.Web.Migrations
                 Task.WaitAll(result);
                 context.SaveChanges();
 
-                user = context.Users.Single(u => u.UserName == "Admin");
+                user = context.Users.Single(u => u.UserName == "test@test.com");
                 string pw = manager.PasswordHasher.HashPassword("test");
 
                 user.PasswordHash = pw;

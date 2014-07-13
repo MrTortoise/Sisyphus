@@ -12,9 +12,17 @@ namespace Sisyphus.Core.Model
 
         public string BackStory { get; set; }
 
+        [Required]
         public virtual Sex Sex { get; set; }
 
+        [Required]
+        public int SexId { get; set; }
+
+        [Required]
         public virtual Race Race { get; set; }
+
+        [Required]
+        public int RaceId { get; set; }
 
         [Required]
         [Index("CharacterUnique", 1, IsUnique = true)]
@@ -25,8 +33,10 @@ namespace Sisyphus.Core.Model
         [Timestamp]
         public Byte[] TimeStamp { get; set; }
 
+        [Required]
         public virtual Story Story { get; set; }
 
+        [Required]
         [Index("CharacterUnique", 2, IsUnique = true)]
         public int StoryId { get; set; }
     }

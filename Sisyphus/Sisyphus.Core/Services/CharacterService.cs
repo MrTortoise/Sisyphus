@@ -2,6 +2,7 @@ namespace Sisyphus.Core.Services
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
 
     using Sisyphus.Core.Model;
@@ -58,6 +59,26 @@ namespace Sisyphus.Core.Services
                 var session = context.GetSessionForUser(userName);
                 var ch = context.Characters.Include("Sex").Include("Race").SingleOrDefault(c => c.Name == character && c.Story.Id == session.StoryId);
                 return ch;
+            }
+        }
+
+        public void Delete(int id)
+        {
+            var conStr = Config.GetConnectionString();
+            using (var context = new SisyphusContext(conStr))
+            {
+                var character = context.Characters.Single(c => c.Id == id);
+                context.Characters.Remove(character);
+            }
+        }
+       
+        public void Update(Character character)
+        {
+            var conStr = Config.GetConnectionString();
+            using (var context = new SisyphusContext(conStr))
+            {
+                context.Entry(character).State = EntityState.Modified;
+                context.SaveChanges();
             }
         }
     }

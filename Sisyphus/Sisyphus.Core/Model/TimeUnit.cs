@@ -49,9 +49,11 @@
         [Index("bitValue", 2, IsUnique = true)]
         public int Value { get; set; }
 
+        [Required]
         public virtual Story Story { get; set; }
 
         [Index("bitValue", 3, IsUnique = true)]
+        [Required]
         public int StoryId { get; set; }
 
         #endregion

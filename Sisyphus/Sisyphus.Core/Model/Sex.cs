@@ -17,13 +17,16 @@ namespace Sisyphus.Core.Model
         [MaxLength(25)]
         [Column("SexName")]
         [Index("SexUnique", 1, IsUnique = true)]
+        [Required]
         public string Name { get; set; }
 
         public string Description { get; set; }
 
+        [Required]
         public virtual Story Story { get; set; }
 
         [Index("SexUnique", 2, IsUnique = true)]
+        [Required]
         public int StoryId { get; set; }
     }
 }

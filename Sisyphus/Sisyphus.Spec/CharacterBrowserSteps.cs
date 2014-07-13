@@ -21,7 +21,7 @@ namespace Sisyphus.Spec
                 var race = tableRow[2];
                 var sex = tableRow[3];
 
-                controller.CreateCharacter(name, backStory, race, sex);
+                controller.Create(name, backStory, race, sex);
             }
         }
 

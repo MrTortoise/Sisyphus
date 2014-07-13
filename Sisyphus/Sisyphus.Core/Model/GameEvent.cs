@@ -34,9 +34,11 @@ namespace Sisyphus.Core.Model
         [Timestamp]
         public Byte[] TimeStamp { get; set; }
 
+        [Required]
         public virtual Story Story { get; set; }
 
         [Index("GameEventUnique", 2, IsUnique = true)]
+        [Required]
         public int StoryId { get; set; }
     }
 }
