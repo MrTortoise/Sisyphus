@@ -17,22 +17,22 @@
             <th>Race</th>
             <th>Sex</th>
         </tr>
-        @foreach (var character in Model.Characters)
+        @for(int i = 0; i<Model.Characters.Count();i++)
         {
             <tr>
                 <td>
-                    @character.Name
+                    @Html.DisplayFor(m=>m.Characters[i].Name)
                 </td>
                 <td>
-                    @character.Race
+                    @Html.DisplayFor(m=>m.Characters[i].Race.Name)
                 </td>
                 <td>
-                    @character.Sex
+                    @Html.DisplayFor(m => m.Characters[i].Sex.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { name = character.Name }) |
-                    @Html.ActionLink("Details", "Details", new { name = character.Name }) |
-                    @Html.ActionLink("Delete","Delete" , new {id = character.Id })
+                    @Html.ActionLink("Edit", "Edit", new { name = Model.Characters[i].Name }) |
+                    @Html.ActionLink("Details", "Details", new { name = Model.Characters[i].Name }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = Model.Characters[i].Id })
                 </td>
             </tr>
         }

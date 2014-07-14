@@ -12,7 +12,7 @@ namespace Sisyphus.Core.Services
     {
         private const string ThePlaceDoesNotExist = "the place: {0} Does not exist";
 
-        public void CreateChraracter(string name, string backStory, string race, string sex,  string userName)
+        public void CreateChraracter(string name, string backStory, int raceId, int sexId, string userName)
         {
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
@@ -21,8 +21,8 @@ namespace Sisyphus.Core.Services
 
                 using (var tran = context.Database.BeginTransaction())
                 {
-                    var R = context.Races.Single(r => r.Name == race && r.StoryId == session.StoryId);
-                    var S = context.Sexes.Single(s => s.Name == sex && s.StoryId == session.StoryId);
+                    var R = context.Races.Single(r => r.Id == raceId && r.StoryId == session.StoryId);
+                    var S = context.Sexes.Single(s => s.Id == sexId && s.StoryId == session.StoryId);
                     var character = new Character()
                                     {
                                         Name = name,
@@ -45,7 +45,8 @@ namespace Sisyphus.Core.Services
             {
                 var session = context.GetSessionForUser(userName);
 
-                var characters = context.Characters.Include("Sex").Include("Race").Where(c => c.Story.Id == session.StoryId).ToList();
+                var characters =
+                    context.Characters.Include("Sex").Include("Race").Include("Story").Where(c => c.Story.Id == session.StoryId).ToList();
 
                 return characters;
             }
@@ -53,11 +54,15 @@ namespace Sisyphus.Core.Services
 
         public Character GetCharacter(string character, string userName)
         {
-             var conStr = Config.GetConnectionString();
+            var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
             {
                 var session = context.GetSessionForUser(userName);
-                var ch = context.Characters.Include("Sex").Include("Race").SingleOrDefault(c => c.Name == character && c.Story.Id == session.StoryId);
+                var ch =
+                    context.Characters.Include("Sex")
+                        .Include("Race")
+                        .Include("Story")
+                        .SingleOrDefault(c => c.Name == character && c.Story.Id == session.StoryId);
                 return ch;
             }
         }
@@ -71,12 +76,18 @@ namespace Sisyphus.Core.Services
                 context.Characters.Remove(character);
             }
         }
-       
+
         public void Update(Character character)
         {
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
             {
+                var R = context.Races.Single(r => r.Id == character.RaceId);
+                var S = context.Sexes.Single(s => s.Id == character.SexId);
+                var story = context.Stories.Single(s => s.Id == character.StoryId);
+                character.Race = R;
+                character.Sex = S;
+                character.Story = story;
                 context.Entry(character).State = EntityState.Modified;
                 context.SaveChanges();
             }

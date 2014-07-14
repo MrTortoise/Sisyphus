@@ -20,8 +20,8 @@ namespace Sisyphus.Spec
                 var backStory = tableRow[1];
                 var race = tableRow[2];
                 var sex = tableRow[3];
-
-                controller.Create(name, backStory, race, sex);
+                throw new NotImplementedException();
+             //   controller.Create(name, backStory, race, sex);
             }
         }
 

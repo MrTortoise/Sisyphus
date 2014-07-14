@@ -1,6 +1,5 @@
 ﻿namespace Sisyphus.Web.Controllers
 {
-    using System;
     using System.Web.Mvc;
 
     using Sisyphus.Core.Model;
@@ -14,15 +13,16 @@
             var userName = ContextWrapper.Instance.UserName;
             var service = new CharacterService();
             var charcaters = service.GetCharacters(userName);
-            var viewModel = new CharacterBrowserIndexViewModel() { Characters = charcaters };
+            var viewModel = new CharacterBrowserIndexViewModel { Characters = charcaters };
             return this.View(viewModel);
         }
 
-        public ActionResult Edit(string character)
+        [Authorize(Roles = "Writer")]
+        public ActionResult Edit(string name)
         {
             var service = new CharacterService();
             var userName = ContextWrapper.Instance.UserName;
-            var c = service.GetCharacter(character, userName);
+            var c = service.GetCharacter(name, userName);
             
             var sexService = new SexService();
             var sexes = sexService.GetSexes(userName);
@@ -30,12 +30,13 @@
             var raceService = new RaceService();
             var races = raceService.GetRaces(userName);
 
-            var viewModel = new CharacterEditViewModel() { Character = c, Sexes = sexes, Races = races };
+            var viewModel = new CharacterEditViewModel { Character = c, Sexes = sexes, Races = races };
             return this.View(viewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Writer")]
         public ActionResult Edit(Character character)
         {
             var service = new CharacterService();
@@ -45,16 +46,23 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string name, string backStory, string race, string sex)
+        [Authorize(Roles = "Writer")]
+        public ActionResult Create(Character character)
         {
             var service = new CharacterService();
 
             string userName = ContextWrapper.Instance.UserName;
-            service.CreateChraracter(name, backStory, race, sex, userName);
+            service.CreateChraracter(
+                character.Name,
+                character.BackStory,
+                character.RaceId,
+                character.SexId,
+                userName);
 
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Writer")]
         public ActionResult Create()
         {
             var username = ContextWrapper.Instance.UserName;
@@ -77,6 +85,7 @@
             return this.View(character);
         }
 
+        [Authorize(Roles = "Writer")]
         public ActionResult Delete(string name)
         {
             var service = new CharacterService();
@@ -88,6 +97,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Writer")]
         public ActionResult Delete(int id)
         {
             var service = new CharacterService();
