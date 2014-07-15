@@ -22,6 +22,8 @@
 
         private const string AllRoles = "allRoles";
 
+        public const string LoggedInUser = "userName";
+
         [When(@"I create a user with email ""(.*)"" with password ""(.*)""")]
         [When(@"I have created a user ""(.*)"" with password ""(.*)""")]
         [Given(@"I create a user with email ""(.*)"" with password ""(.*)""")]
@@ -54,6 +56,8 @@
                 new LoginViewModel { Email = userName, Password = password },
                 "none");
             Assert.IsFalse(controller.ModelState.ContainsKey(""));
+
+            ScenarioContext.Current.Add(LoggedInUser,userName);
         }
 
         [When(@"I get the user list")]

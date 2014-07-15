@@ -15,7 +15,7 @@ Scenario: Create a player
 	| user                   | instance |
 	| adminfeature@admin.com | test     |
 	Then I expect the current time value to be
-         | bit | bitvalue |
-         | 0   | 0        |
+		 | bit | bitvalue |
+		 | 0   | 0        |
 
 

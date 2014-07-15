@@ -19,22 +19,21 @@ namespace Sisyphus.Spec
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("CharacterBrowser")]
-    public partial class CharacterBrowserFeature
+    [NUnit.Framework.DescriptionAttribute("CharacterBrowserWriter")]
+    public partial class CharacterBrowserWriterFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "CharacterBrowser.feature"
+#line 1 "CharacterBrowserWriter.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CharacterBrowser", "In order to view a story from a character centric perspective or just explore a c" +
-                    "haracter\r\nAs a consumer \r\nI want to select and view a character to see its histo" +
-                    "ry", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CharacterBrowserWriter", "In order to view a story from a character centric perspective or just explore a c" +
+                    "haracter\r\nAs a writer \r\nI want to Create and edit characters", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -179,48 +178,6 @@ namespace Sisyphus.Spec
 #line 37
  testRunner.And("I create the following characters", ((string)(null)), table6, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "Description",
-                        "Outcomes",
-                        "Places",
-                        "Duration",
-                        "Characters",
-                        "Event Type"});
-            table7.AddRow(new string[] {
-                        "testEvent",
-                        "a test event to show how things work",
-                        "passed, failed, war",
-                        "testPlace,testPlace2",
-                        "3",
-                        "jim,jim3",
-                        "story"});
-            table7.AddRow(new string[] {
-                        "testEvent",
-                        "a test event to show how things work",
-                        "passed, failed, war",
-                        "testPlace,testPlace2",
-                        "4",
-                        "jim,jim3",
-                        "story"});
-            table7.AddRow(new string[] {
-                        "StoryStart",
-                        "the start of the story",
-                        "started",
-                        "testPlace,testPlace2",
-                        "5",
-                        "jim,jim3",
-                        "story"});
-#line 43
- testRunner.And("I create the following events", ((string)(null)), table7, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table8.AddRow(new string[] {
-                        "jim"});
-#line 48
- testRunner.And("I add the following characters to the event \"testEvent\"", ((string)(null)), table8, "And ");
-#line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
@@ -228,40 +185,40 @@ namespace Sisyphus.Spec
         public virtual void OpenCharacterBrowserAndLookAtCharacters()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open character browser and look at characters", ((string[])(null)));
-#line 53
+#line 44
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 54
- testRunner.Given("I open the view Character Browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 45
+ testRunner.When("I open the view Character Browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
                         "backstory",
                         "race",
                         "sex"});
-            table9.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "jim",
                         "none",
                         "foot",
                         "rarley"});
-            table9.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "jim2",
                         "none",
                         "foot",
                         "bannanas"});
-            table9.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "jim3",
                         "none",
                         "foot",
                         "rarley"});
-            table9.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "jim4",
                         "none",
                         "foot",
                         "bannanas"});
-#line 55
- testRunner.Then("I expect the character browser to contain the following characters", ((string)(null)), table9, "Then ");
+#line 46
+ testRunner.Then("I expect the character browser to contain the following characters", ((string)(null)), table7, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -271,18 +228,16 @@ this.FeatureBackground();
         public virtual void OpenASpecificCharacterFromTheBrowser()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open a specific character from the browser", ((string[])(null)));
-#line 62
+#line 53
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 63
+#line 54
  testRunner.Given("I open the view Character Browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 64
+#line 55
  testRunner.When("I select the character \"jim\" in the character browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 65
- testRunner.Then("I expect to get the \"CharacterInformation\" view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 66
- testRunner.And("I expect the chatacter \"jim\" to be the CharacterInformation views subject", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 56
+ testRunner.Then("I expect the chatacter \"jim\" to be the Character Details views subject", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

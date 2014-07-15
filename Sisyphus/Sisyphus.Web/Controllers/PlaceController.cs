@@ -98,7 +98,7 @@
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Writer")]
-        public ActionResult Edit([Bind(Include = "Id,Name,History")] Place place)
+        public ActionResult Edit([Bind(Include = "Id,Name,History,StoryId,TimeStamp")] Place place)
         {
             if (this.ModelState.IsValid)
             {

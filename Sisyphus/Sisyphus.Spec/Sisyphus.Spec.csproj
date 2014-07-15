@@ -146,6 +146,11 @@
       <DependentUpon>CharacterBrowser.feature</DependentUpon>
     </Compile>
     <Compile Include="CharacterBrowserSteps.cs" />
+    <Compile Include="CharacterBrowserWriter.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CharacterBrowserWriter.feature</DependentUpon>
+    </Compile>
     <Compile Include="ConfigSteps.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="ContextWrapperSteps.cs" />
@@ -267,6 +272,10 @@
     <None Include="CharacterBrowser.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CharacterBrowser.feature.cs</LastGenOutput>
+    </None>
+    <None Include="CharacterBrowserWriter.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CharacterBrowserWriter.feature.cs</LastGenOutput>
     </None>
     <None Include="DateTime.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

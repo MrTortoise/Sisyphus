@@ -9,124 +9,107 @@
 //      the code is regenerated.
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-
 #region Designer generated code
-
-
 #pragma warning disable
-
 namespace Sisyphus.Spec
 {
     using TechTalk.SpecFlow;
-
+    
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Player")]
     public partial class PlayerFeature
     {
+        
         private static TechTalk.SpecFlow.ITestRunner testRunner;
-
+        
 #line 1 "Player.feature"
 #line hidden
-
+        
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            var featureInfo = new TechTalk.SpecFlow.FeatureInfo(
-                new System.Globalization.CultureInfo("en-US"),
-                "Player",
-                "In order to record decisions, and track progress\r\nAs a player\r\nI want to be bale "
-                + "to record progress",
-                ProgrammingLanguage.CSharp,
-                ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Player", "In order to record decisions, and track progress\r\nAs a player\r\nI want to be bale " +
+                    "to record progress", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
-
+        
         [NUnit.Framework.TestFixtureTearDownAttribute()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
-
+        
         [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
-
+        
         [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
         }
-
+        
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
         }
-
+        
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
-
+        
         public virtual void FeatureBackground()
         {
 #line 6
 #line 7
-            testRunner.Given(
-                "I have set up configuration to use testConfig",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "Given ");
+ testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
-            testRunner.And(
-                "I have created a test database called \"playerTest\"",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "And ");
+ testRunner.And("I have created a test database called \"playerTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
-            testRunner.And(
-                "I create a user with email \"adminfeature@admin.com\" with password \"testtest\"",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "And ");
+ testRunner.And("I create a user with email \"adminfeature@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
-
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create a player")]
         public virtual void CreateAPlayer()
         {
-            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a player", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a player", ((string[])(null)));
 #line 11
-            this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
 #line 6
-            this.FeatureBackground();
+this.FeatureBackground();
 #line 13
-            testRunner.Given(
-                "I remove all player instances for user \"adminfeature@admin.com\"",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "Given ");
+ testRunner.Given("I remove all player instances for user \"adminfeature@admin.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            var table1 = new TechTalk.SpecFlow.Table(new string[] { "user", "instance" });
-            table1.AddRow(new string[] { "adminfeature@admin.com", "test" });
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "user",
+                        "instance"});
+            table1.AddRow(new string[] {
+                        "adminfeature@admin.com",
+                        "test"});
 #line 14
-            testRunner.When("I have created the following player instances", ((string)(null)), table1, "When ");
+ testRunner.When("I have created the following player instances", ((string)(null)), table1, "When ");
 #line hidden
-            var table2 = new TechTalk.SpecFlow.Table(new string[] { "bit", "bitvalue" });
-            table2.AddRow(new string[] { "0", "0" });
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "bit",
+                        "bitvalue"});
+            table2.AddRow(new string[] {
+                        "0",
+                        "0"});
 #line 17
-            testRunner.Then("I expect the current time value to be", ((string)(null)), table2, "Then ");
+ testRunner.Then("I expect the current time value to be", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
     }
 }
-
 #pragma warning restore
-
 #endregion

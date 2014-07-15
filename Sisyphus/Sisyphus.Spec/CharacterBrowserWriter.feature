@@ -1,7 +1,7 @@
-﻿Feature: CharacterBrowser
+﻿Feature: CharacterBrowserWriter
 	In order to view a story from a character centric perspective or just explore a character
-	As a consumer 
-	I want to select and view a character to see its history
+	As a writer 
+	I want to Create and edit characters
 
 Background: 
 	Given I have set up configuration to use testConfig
@@ -35,34 +35,22 @@ Background:
 		| rarley   | nto often   |
 		| bannanas | yellowZ     |
 	And I create the following characters
-        | name | backstory | race | sex      | place     |
-        | jim  | none      | foot | rarley   | somewhere |
-        | jim2 | none      | foot | bannanas | somewhere |
-        | jim3 | none      | foot | rarley   | somewhere |
-        | jim4 | none      | foot | bannanas | somewhere |
-	And I create the following events
-		| name       | Description                          | Outcomes            | Places               | Duration | Characters | Event Type |
-		| testEvent  | a test event to show how things work | passed, failed, war | testPlace,testPlace2 | 3        | jim,jim3   | story      |
-		| testEvent  | a test event to show how things work | passed, failed, war | testPlace,testPlace2 | 4        | jim,jim3   | story      |
-		| StoryStart | the start of the story               | started             | testPlace,testPlace2 | 5        | jim,jim3   | story      |
-	And I add the following characters to the event "testEvent"
-		| name |
-		| jim  |
-
+		| name | backstory | race | sex      | place     |
+		| jim  | none      | foot | rarley   | somewhere |
+		| jim2 | none      | foot | bannanas | somewhere |
+		| jim3 | none      | foot | rarley   | somewhere |
+		| jim4 | none      | foot | bannanas | somewhere |
 
 Scenario: Open character browser and look at characters
-	Given I open the view Character Browser
+	When I open the view Character Browser
 	Then I expect the character browser to contain the following characters
-         | name | backstory | race | sex      |
-         | jim  | none      | foot | rarley   |
-         | jim2 | none      | foot | bannanas |
-         | jim3 | none      | foot | rarley   |
-         | jim4 | none      | foot | bannanas |
+		 | name | backstory | race | sex      |
+		 | jim  | none      | foot | rarley   |
+		 | jim2 | none      | foot | bannanas |
+		 | jim3 | none      | foot | rarley   |
+		 | jim4 | none      | foot | bannanas |
 
 Scenario: Open a specific character from the browser
 	Given I open the view Character Browser
-	When I select the character "jim" in the character browser
-	Then I expect to get the "CharacterInformation" view
-	And I expect the chatacter "jim" to be the CharacterInformation views subject
-
-
+	When I select the character "jim" in the character browser	
+	Then I expect the chatacter "jim" to be the Character Details views subject
