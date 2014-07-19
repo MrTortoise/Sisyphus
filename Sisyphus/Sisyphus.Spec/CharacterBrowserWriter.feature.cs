@@ -241,6 +241,86 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open a character in the editor")]
+        public virtual void OpenACharacterInTheEditor()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open a character in the editor", ((string[])(null)));
+#line 58
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 59
+ testRunner.Given("I open the character editor with \"jim\" selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "backstory",
+                        "race",
+                        "sex"});
+            table8.AddRow(new string[] {
+                        "jim",
+                        "none",
+                        "foot",
+                        "rarley"});
+#line 60
+ testRunner.Then("I expect the following character to be int he editor", ((string)(null)), table8, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "backstory"});
+            table9.AddRow(new string[] {
+                        "foot",
+                        "bulling you rleg"});
+#line 63
+ testRunner.And("I expect the races to be the following", ((string)(null)), table9, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "description"});
+            table10.AddRow(new string[] {
+                        "rarley",
+                        "nto often"});
+            table10.AddRow(new string[] {
+                        "bannanas",
+                        "yellowZ"});
+#line 66
+ testRunner.And("I expect the sexes to the be the following", ((string)(null)), table10, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Edit a character, save and confirm changtes")]
+        public virtual void EditACharacterSaveAndConfirmChangtes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Edit a character, save and confirm changtes", ((string[])(null)));
+#line 71
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 72
+ testRunner.Given("I open the character editor with \"jim\" selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 73
+ testRunner.When("I save that character with info name \"test\" backstory \"test\" raceid \"1\" and sexid" +
+                    " \"2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "backstory",
+                        "race",
+                        "sex"});
+            table11.AddRow(new string[] {
+                        "test",
+                        "test",
+                        "foot",
+                        "bannanas"});
+#line 74
+ testRunner.Then("I expect the following characters to exist", ((string)(null)), table11, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

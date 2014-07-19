@@ -54,3 +54,23 @@ Scenario: Open a specific character from the browser
 	Given I open the view Character Browser
 	When I select the character "jim" in the character browser	
 	Then I expect the chatacter "jim" to be the Character Details views subject
+
+Scenario: Open a character in the editor
+	Given I open the character editor with "jim" selected
+	Then I expect the following character to be int he editor
+		| name | backstory | race | sex    |
+		| jim  | none      | foot | rarley |
+	And I expect the races to be the following
+		| name | backstory        |
+		| foot | bulling you rleg |
+	And I expect the sexes to the be the following
+		| name     | description |
+		| rarley   | nto often   |
+		| bannanas | yellowZ     |
+
+Scenario: Edit a character, save and confirm changtes
+	Given I open the character editor with "jim" selected
+	When I save that character with info name "test" backstory "test" raceid "1" and sexid "2"
+	Then I expect the following characters to exist
+         | name | backstory | race | sex      |
+         | test | test      | foot | bannanas |

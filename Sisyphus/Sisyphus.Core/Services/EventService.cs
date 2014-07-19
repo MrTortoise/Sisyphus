@@ -5,6 +5,7 @@ namespace Sisyphus.Core.Services
     using System.Linq;
     using System.Linq.Expressions;
     using System.Security.Cryptography;
+    using System.Security.Policy;
 
     using Sisyphus.Core.Model;
     using Sisyphus.Core.Repository;
@@ -36,10 +37,10 @@ namespace Sisyphus.Core.Services
                                     {
                                         Name = name,
                                         Description = description,
-                                        OutcomeEntities = new HashSet<Outcome>(outcomeEntities),
-                                        PlaceEntities = new HashSet<Place>(placeEntities),
+                                        Outcomes = new HashSet<Outcome>(outcomeEntities),
+                                        Places = new HashSet<Place>(placeEntities),
                                         Duration = duration,
-                                        CharacterEntities = new HashSet<Character>(characterEntities),
+                                        Characters = new HashSet<Character>(characterEntities),
                                         EventType = eventType,
                                         Story = session.Story
                                     };
@@ -61,7 +62,7 @@ namespace Sisyphus.Core.Services
                 {
                     var character = context.Characters.SingleOrDefault(c => c.Name == characterName);
                     context.GameEvents.Attach(gameEvent);
-                    gameEvent.CharacterEntities.Add(character);
+                    gameEvent.Characters.Add(character);
                     context.Entry(gameEvent).State = EntityState.Modified;
                     context.SaveChanges();
                     tran.Commit();
@@ -70,18 +71,72 @@ namespace Sisyphus.Core.Services
             }
         }
 
-        public GameEvent GetEvent(string eventName)
+        public GameEvent GetEvent(string eventName, string userName)
         {
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
             {
+                var session = context.GetSessionForUser(userName);
                 var retVal =
-                    context.GameEvents.Where(e => e.Name == eventName)
-                        .Include(e => e.OutcomeEntities)
-                        .Include(e => e.PlaceEntities)
-                        .Include(e => e.CharacterEntities)
+                    context.GameEvents.Where(e => e.Name == eventName && e.StoryId == session.StoryId)
+                        .Include(e => e.Outcomes)
+                        .Include(e => e.Places)
+                        .Include(e => e.Characters)
                         .SingleOrDefault();
                 return retVal;
+            }
+        }
+
+        public List<GameEvent> GetEvents(string userName)
+        {
+            var conStr = Config.GetConnectionString();
+            using (var context = new SisyphusContext(conStr))
+            {
+                var session = context.GetSessionForUser(userName);
+                var events =
+                    context.GameEvents.Where(e => e.StoryId == session.StoryId)
+                        .Include(e => e.Outcomes)
+                        .Include(e => e.Places)
+                        .Include(e => e.Characters)
+                        .OrderBy(e => e.Name);
+                return events.ToList();
+            }
+        }
+
+        public void Delete(string name, string userName)
+        {
+            var conStr = Config.GetConnectionString();
+            using (var context = new SisyphusContext(conStr))
+            {
+                using (var tran = context.Database.BeginTransaction())
+                {
+                    var session = context.GetSessionForUser(userName);
+                    var gameEvent = context.GameEvents.Single(e => e.Name == name && session.StoryId == e.StoryId);
+                    var outcomes = gameEvent.Outcomes.ToList();
+                    foreach (var outcome in outcomes)
+                    {
+                        gameEvent.Outcomes.Remove(outcome);
+                        context.Outcomes.Remove(outcome);
+                    }
+
+                    context.Entry(gameEvent).State = EntityState.Deleted;
+                    context.SaveChanges();
+                    tran.Commit();
+                }
+            }
+        }
+
+        public void Delete(GameEvent model)
+        {
+            var conStr = Config.GetConnectionString();
+            using (var context = new SisyphusContext(conStr))
+            {
+                using (var tran = context.Database.BeginTransaction())
+                {
+                    context.Entry(model).State = EntityState.Deleted;
+                    context.SaveChanges();
+                    tran.Commit();
+                }
             }
         }
     }

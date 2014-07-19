@@ -46,7 +46,11 @@ namespace Sisyphus.Core.Services
                 var session = context.GetSessionForUser(userName);
 
                 var characters =
-                    context.Characters.Include("Sex").Include("Race").Include("Story").Where(c => c.Story.Id == session.StoryId).ToList();
+                    context.Characters.Include(c => c.Sex)
+                        .Include(c => c.Race)
+                        .Include(c => c.Story)
+                        .Where(c => c.Story.Id == session.StoryId)
+                        .ToList();
 
                 return characters;
             }
@@ -59,9 +63,9 @@ namespace Sisyphus.Core.Services
             {
                 var session = context.GetSessionForUser(userName);
                 var ch =
-                    context.Characters.Include("Sex")
-                        .Include("Race")
-                        .Include("Story")
+                    context.Characters.Include(c => c.Sex)
+                        .Include(c => c.Race)
+                        .Include(c => c.Story)
                         .SingleOrDefault(c => c.Name == character && c.Story.Id == session.StoryId);
                 return ch;
             }

@@ -19,14 +19,14 @@ namespace Sisyphus.Core.Model
 
         public string Description { get; set; }
 
-        public virtual ICollection<Outcome> OutcomeEntities { get; set; }
+        public virtual ICollection<Outcome> Outcomes { get; set; }
 
-        public virtual ICollection<Place> PlaceEntities { get; set; }
+        public virtual ICollection<Place> Places { get; set; }
 
         [Required]
         public int Duration { get; set; }
 
-        public virtual ICollection<Character> CharacterEntities { get; set; }
+        public virtual ICollection<Character> Characters { get; set; }
 
         [Required]
         public EventType EventType { get; set; }
@@ -34,7 +34,6 @@ namespace Sisyphus.Core.Model
         [Timestamp]
         public Byte[] TimeStamp { get; set; }
 
-        [Required]
         public virtual Story Story { get; set; }
 
         [Index("GameEventUnique", 2, IsUnique = true)]

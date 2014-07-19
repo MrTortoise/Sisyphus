@@ -9,133 +9,119 @@
 //      the code is regenerated.
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-
 #region Designer generated code
-
-
 #pragma warning disable
-
 namespace Sisyphus.Spec
 {
     using TechTalk.SpecFlow;
-
+    
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("PlayerDashboard")]
     public partial class PlayerDashboardFeature
     {
+        
         private static TechTalk.SpecFlow.ITestRunner testRunner;
-
+        
 #line 1 "PlayerDashboard.feature"
 #line hidden
-
+        
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            var featureInfo = new TechTalk.SpecFlow.FeatureInfo(
-                new System.Globalization.CultureInfo("en-US"),
-                "PlayerDashboard",
-                "In order to go back and follow on old stories and curent ones\r\nAs a reader\r\nI wan"
-                + "t to a dashboard so i can list my previous adventurings",
-                ProgrammingLanguage.CSharp,
-                ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "PlayerDashboard", "In order to go back and follow on old stories and curent ones\r\nAs a reader\r\nI wan" +
+                    "t to a dashboard so i can list my previous adventurings", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
-
+        
         [NUnit.Framework.TestFixtureTearDownAttribute()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
-
+        
         [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
-
+        
         [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
         }
-
+        
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
         }
-
+        
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
-
+        
         public virtual void FeatureBackground()
         {
 #line 6
 #line 7
-            testRunner.Given(
-                "I have set up configuration to use testConfig",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "Given ");
+ testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
-            testRunner.And(
-                "I have created a test database called \"adminTest\"",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "And ");
+ testRunner.And("I have created a test database called \"adminTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
-            testRunner.And(
-                "I create a user with email \"adminfeature@admin.com\" with password \"testtest\"",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "And ");
+ testRunner.And("I create a user with email \"adminfeature@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
-
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Log in and be presented with the dashboard")]
         [NUnit.Framework.CategoryAttribute("mytag")]
         public virtual void LogInAndBePresentedWithTheDashboard()
         {
-            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(
-                "Log in and be presented with the dashboard",
-                new string[] { "mytag" });
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Log in and be presented with the dashboard", new string[] {
+                        "mytag"});
 #line 12
-            this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
 #line 6
-            this.FeatureBackground();
+this.FeatureBackground();
 #line hidden
-            var table1 = new TechTalk.SpecFlow.Table(new string[] { "user", "instance" });
-            table1.AddRow(new string[] { "adminfeature@admin.com", "test" });
-            table1.AddRow(new string[] { "adminfeature@admin.com", "test2" });
-            table1.AddRow(new string[] { "adminfeature@admin.com", "test2" });
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "user",
+                        "instance"});
+            table1.AddRow(new string[] {
+                        "adminfeature@admin.com",
+                        "test"});
+            table1.AddRow(new string[] {
+                        "adminfeature@admin.com",
+                        "test2"});
+            table1.AddRow(new string[] {
+                        "adminfeature@admin.com",
+                        "test2"});
 #line 13
-            testRunner.Given("have created the following player instances", ((string)(null)), table1, "Given ");
+ testRunner.Given("have created the following player instances", ((string)(null)), table1, "Given ");
 #line 18
-            testRunner.And("I open the view \"Login\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I open the view \"Login\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
-            testRunner.When(
-                "I click open PLayerDashboard",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "When ");
+ testRunner.When("I click open PLayerDashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            var table2 = new TechTalk.SpecFlow.Table(new string[] { "instances" });
-            table2.AddRow(new string[] { "test" });
-            table2.AddRow(new string[] { "test2" });
-            table2.AddRow(new string[] { "test3" });
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "instances"});
+            table2.AddRow(new string[] {
+                        "test"});
+            table2.AddRow(new string[] {
+                        "test2"});
+            table2.AddRow(new string[] {
+                        "test3"});
 #line 20
-            testRunner.Then("I expect the list of instances to include", ((string)(null)), table2, "Then ");
+ testRunner.Then("I expect the list of instances to include", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
     }
 }
-
 #pragma warning restore
-
 #endregion

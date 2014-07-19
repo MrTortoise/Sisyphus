@@ -1,5 +1,6 @@
 namespace Sisyphus.Core.Services
 {
+    using System.Data.Entity;
     using System.Linq;
 
     using Microsoft.AspNet.Identity;
@@ -57,9 +58,10 @@ namespace Sisyphus.Core.Services
         private static Session GetLatestSession(string userName, SisyphusContext context)
         {
             return
-                context.Sessions.Include("User")
-                    .Include("Story")
+                context.Sessions
                     .Where(s => s.User.UserName == userName)
+                    .Include(s=>s.User)
+                    .Include(s=>s.Story)
                     .OrderByDescending(s => s.Date)
                     .FirstOrDefault();
         }

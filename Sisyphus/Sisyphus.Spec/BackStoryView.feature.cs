@@ -9,149 +9,108 @@
 //      the code is regenerated.
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-
 #region Designer generated code
-
-
 #pragma warning disable
-
 namespace Sisyphus.Spec
 {
     using TechTalk.SpecFlow;
-
+    
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("BackStoryView")]
     public partial class BackStoryViewFeature
     {
+        
         private static TechTalk.SpecFlow.ITestRunner testRunner;
-
+        
 #line 1 "BackStoryView.feature"
 #line hidden
-
+        
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            var featureInfo = new TechTalk.SpecFlow.FeatureInfo(
-                new System.Globalization.CultureInfo("en-US"),
-                "BackStoryView",
-                "In order to decide how and where i want to start the story from\nAs a consumer\nI w"
-                + "ant to be able to disseminate the back story",
-                ProgrammingLanguage.CSharp,
-                ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BackStoryView", "In order to decide how and where i want to start the story from\nAs a consumer\nI w" +
+                    "ant to be able to disseminate the back story", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
-
+        
         [NUnit.Framework.TestFixtureTearDownAttribute()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
-
+        
         [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
-
+        
         [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
         }
-
+        
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
         }
-
+        
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
-
+        
         public virtual void FeatureBackground()
         {
 #line 6
 #line 7
-            testRunner.Given(
-                "I have created a test database called \"backstoryTest\"",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "Given ");
+ testRunner.Given("I have created a test database called \"backstoryTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
-            testRunner.And(
-                "I have set the world narrative to \"this is the world backstory\"",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "And ");
+ testRunner.And("I have set the world narrative to \"this is the world backstory\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
-
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Browse the narrative of the world")]
         public virtual void BrowseTheNarrativeOfTheWorld()
         {
-            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(
-                "Browse the narrative of the world",
-                ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Browse the narrative of the world", ((string[])(null)));
 #line 10
-            this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
 #line 6
-            this.FeatureBackground();
+this.FeatureBackground();
 #line 11
-            testRunner.Given(
-                "I have chosen to start a story",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "Given ");
+ testRunner.Given("I have chosen to start a story", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 12
-            testRunner.Then(
-                "I expect the BAckStoryView to have the narrative \"this is the world backstory\"",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "Then ");
+ testRunner.Then("I expect the BAckStoryView to have the narrative \"this is the world backstory\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
-
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open the character browser from the BAck story view")]
         public virtual void OpenTheCharacterBrowserFromTheBAckStoryView()
         {
-            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo(
-                "Open the character browser from the BAck story view",
-                ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open the character browser from the BAck story view", ((string[])(null)));
 #line 14
-            this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
 #line 6
-            this.FeatureBackground();
+this.FeatureBackground();
 #line 15
-            testRunner.Given(
-                "I have chosen to start a story",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "Given ");
+ testRunner.Given("I have chosen to start a story", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 16
-            testRunner.When(
-                "I click open Character browser",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "When ");
+ testRunner.When("I click open Character browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 17
-            testRunner.Then(
-                "I expect to get the \"CharacterBrowser\" view",
-                ((string)(null)),
-                ((TechTalk.SpecFlow.Table)(null)),
-                "Then ");
+ testRunner.Then("I expect to get the \"CharacterBrowser\" view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
     }
 }
-
 #pragma warning restore
-
 #endregion
