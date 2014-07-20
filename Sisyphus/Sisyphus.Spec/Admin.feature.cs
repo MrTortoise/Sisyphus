@@ -67,11 +67,20 @@ namespace Sisyphus.Spec
         public virtual void FeatureBackground()
         {
 #line 6
- #line 7
+#line 7
  testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("I have created a test database called \"adminTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I set the config key \"SessionTimeout\" to \"15\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
+ testRunner.And("I set ContextWrapper To use TestContextWrapper", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.And("I have set SisyphusDateTime to TestDateTime", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("I have set the date to year \"2014\" Month \"7\" Day \"20\" hour \"19\" minute \"24\" secon" +
+                    "d \"12\" millisecond \"123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.And("I have created a test database called \"adminTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
  testRunner.And("I create a user with email \"adminfeature@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
@@ -81,13 +90,13 @@ namespace Sisyphus.Spec
         public virtual void CreateAUser()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a user", ((string[])(null)));
-#line 11
+#line 15
 this.ScenarioSetup(scenarioInfo);
 #line 6
- this.FeatureBackground();
-#line 12
+this.FeatureBackground();
+#line 16
  testRunner.Then("I expect the user \"adminfeature@admin.com\" to exist", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 13
+#line 17
  testRunner.And("I log in with the user \"adminfeature@admin.com\" and password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -98,18 +107,18 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ViewUserList()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View user list", ((string[])(null)));
-#line 15
+#line 19
 this.ScenarioSetup(scenarioInfo);
 #line 6
- this.FeatureBackground();
-#line 16
+this.FeatureBackground();
+#line 20
  testRunner.When("I get the user list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "name"});
             table1.AddRow(new string[] {
                         "adminfeature@admin.com"});
-#line 17
+#line 21
  testRunner.Then("I expect the followign users to be in the user list", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -120,11 +129,11 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void INeedToViewAllRolesSoICanAssignOneOtAUser()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I need to view all roles so i can assign one ot a user", ((string[])(null)));
-#line 21
+#line 25
 this.ScenarioSetup(scenarioInfo);
 #line 6
- this.FeatureBackground();
-#line 22
+this.FeatureBackground();
+#line 26
  testRunner.When("I get the role list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -135,7 +144,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Writer"});
             table2.AddRow(new string[] {
                         "Admin"});
-#line 23
+#line 27
  testRunner.Then("I expect there to be the following roles", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -146,10 +155,10 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void AssignRolesToUser()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Assign roles to user", ((string[])(null)));
-#line 29
+#line 33
 this.ScenarioSetup(scenarioInfo);
 #line 6
- this.FeatureBackground();
+this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "role"});
@@ -159,7 +168,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Writer"});
             table3.AddRow(new string[] {
                         "Reader"});
-#line 30
+#line 34
  testRunner.When("I assign the following roles to user \"adminfeature@admin.com\"", ((string)(null)), table3, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -170,7 +179,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Writer"});
             table4.AddRow(new string[] {
                         "Reader"});
-#line 35
+#line 39
  testRunner.Then("I expect the user \"adminfeature@admin.com\" to have the following roles", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();

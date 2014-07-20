@@ -3,13 +3,20 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Security.Claims;
     using System.Threading.Tasks;
     using System.Web.Mvc;
+
+    using Microsoft.AspNet.Identity.Owin;
+    using Microsoft.Owin.Security;
+
+    using Moq;
 
     using NUnit.Framework;
 
     using Sisyphus.Core.Model;
     using Sisyphus.Core.Services;
+    using Sisyphus.Web;
     using Sisyphus.Web.Controllers;
     using Sisyphus.Web.Models;
 
@@ -49,12 +56,25 @@
 
         [Given(@"I log in with the user ""(.*)"" and password ""(.*)""")]
         [Then(@"I log in with the user ""(.*)"" and password ""(.*)""")]
+        [When(@"I log in with the user ""(.*)"" and password ""(.*)""")]
         public void ThenIExpectToBeAbleToLogInWithTheUserAndPassword(string userName, string password)
         {
             var controller = new AccountController();
+
+            var am = new Mock<IAuthenticationManager>();
+            am.Setup(m => m.SignIn(It.IsAny<AuthenticationProperties>(), It.IsAny<ClaimsIdentity>()));
+            am.Setup(m => m.SignOut());
+
+            var wrapper = (TestContextWrapper)ContextWrapper.Instance;
+            wrapper.AuthenticationManager = am.Object;
+
+            controller.UserManager = ApplicationUserManager.Create(
+                new IdentityFactoryOptions<ApplicationUserManager>(),
+                null);
             Task<ActionResult> result = controller.Login(
                 new LoginViewModel { Email = userName, Password = password },
                 "none");
+            result.Wait();
             Assert.IsFalse(controller.ModelState.ContainsKey(""));
 
             ScenarioContext.Current.Add(LoggedInUser,userName);

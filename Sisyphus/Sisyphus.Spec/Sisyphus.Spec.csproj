@@ -220,6 +220,12 @@
     </Compile>
     <Compile Include="SexSteps.cs" />
     <Compile Include="StageDatabase.cs" />
+    <Compile Include="StoryCreation.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoryCreation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="StoryCreationSteps.cs" />
     <Compile Include="TestContextWrapper.cs" />
     <Compile Include="TestDateTimeAdapter.cs" />
     <Compile Include="TheStory.feature.cs">
@@ -233,11 +239,6 @@
       <DependentUpon>Time.feature</DependentUpon>
     </Compile>
     <Compile Include="TimeSteps.cs" />
-    <Compile Include="UserRegistration.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserRegistration.feature</DependentUpon>
-    </Compile>
     <Compile Include="WriterIndex.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -322,6 +323,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>sex.feature.cs</LastGenOutput>
     </None>
+    <None Include="StoryCreation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StoryCreation.feature.cs</LastGenOutput>
+    </None>
     <None Include="TheStory.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>TheStory.feature.cs</LastGenOutput>
@@ -329,10 +334,6 @@
     <None Include="Time.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Time.feature.cs</LastGenOutput>
-    </None>
-    <None Include="UserRegistration.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>UserRegistration.feature.cs</LastGenOutput>
     </None>
     <None Include="WriterIndex.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

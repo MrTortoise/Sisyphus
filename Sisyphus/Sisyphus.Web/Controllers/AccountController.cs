@@ -34,7 +34,7 @@
             {
                 return this._userManager ?? this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
-            private set
+            set
             {
                 this._userManager = value;
             }
@@ -62,6 +62,10 @@
                 if (user != null)
                 {
                     await this.SignInAsync(user, model.RememberMe);
+
+                    var sessionService = new SessionService();
+                    sessionService.CreateSession(user.UserName);
+
                     return this.RedirectToDashboard();
                 }
                 this.ModelState.AddModelError("", "Invalid username or password.");
@@ -491,7 +495,7 @@
         {
             get
             {
-                return this.HttpContext.GetOwinContext().Authentication;
+                return ContextWrapper.Instance.GetAuthenticationManager(this);
             }
         }
 

@@ -73,15 +73,19 @@ namespace Sisyphus.Spec
 #line 8
  testRunner.And("I set the config key \"SessionTimeout\" to \"15\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.And("I have set SisyphusDateTime to TestDateTime", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I set ContextWrapper To use TestContextWrapper", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
+ testRunner.And("I have set SisyphusDateTime to TestDateTime", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("I set the user Identity to \"adminfeature@admin.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
  testRunner.And("I have set the date to year \"2014\" Month \"7\" Day \"20\" hour \"19\" minute \"24\" secon" +
                     "d \"12\" millisecond \"123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 11
- testRunner.And("I have created a test database called \"sessionTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 12
- testRunner.And("I create a user with email \"adminfeature@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
+ testRunner.And("I have created a test database called \"sessionTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+ testRunner.And("I create a user with email \"adminfeature@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
  testRunner.And("I log in with the user \"adminfeature@admin.com\" and password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -93,7 +97,7 @@ namespace Sisyphus.Spec
             table1.AddRow(new string[] {
                         "test2",
                         "COR HE THINKS ITS A WEAL STOWY"});
-#line 14
+#line 16
  testRunner.And("I have created the stories", ((string)(null)), table1, "And ");
 #line hidden
         }
@@ -105,13 +109,13 @@ namespace Sisyphus.Spec
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a session", new string[] {
                         "mytag"});
-#line 20
+#line 22
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 21
+#line 23
  testRunner.When("I create a session for user \"adminfeature@admin.com\" on story \"test1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 22
+#line 24
  testRunner.Then("I expect the current session for user \"adminfeature@admin.com\" to be for story \"t" +
                     "est1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -123,18 +127,18 @@ this.FeatureBackground();
         public virtual void CreateASessionWait16MinsGetSessionAndVerifyThatItsANewSession()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a session, wait 16 mins get session and verify that its a new session", ((string[])(null)));
-#line 24
+#line 26
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 25
+#line 27
 testRunner.Given("I create a session for user \"adminfeature@admin.com\" on story \"test1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 26
+#line 28
 testRunner.When("I increment THe datetime by year \"0\" month \"0\" day \"0\" hour \"0\" minute \"16\" secon" +
                     "d \"0\" millisecond \"0\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 27
+#line 29
 testRunner.And("I get the current session for user \"adminfeature@admin.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 28
+#line 30
 testRunner.Then("i expect the second session to be diferent from the first.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

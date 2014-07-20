@@ -11,6 +11,13 @@
     public class ApplicationUser : IdentityUser
     {
         public virtual ICollection<Session> Sessions { get; set; }
+        public virtual ICollection<Story> Stories { get; set; }
+
+        public ApplicationUser()
+        {
+            Sessions = new HashSet<Session>();
+            Stories = new HashSet<Story>();
+        }
 
         #region Public Methods and Operators
 

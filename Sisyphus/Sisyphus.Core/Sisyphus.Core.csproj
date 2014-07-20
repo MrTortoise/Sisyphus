@@ -85,6 +85,7 @@
     <Compile Include="Services\SessionService.cs" />
     <Compile Include="Services\SexService.cs" />
     <Compile Include="Services\StoriesService.cs" />
+    <Compile Include="Services\StoryService.cs" />
     <Compile Include="Services\TimeService.cs" />
     <Compile Include="SisyphusDateTime.cs" />
   </ItemGroup>

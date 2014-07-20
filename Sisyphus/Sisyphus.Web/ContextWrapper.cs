@@ -13,5 +13,11 @@ namespace Sisyphus.Web
                 return HttpContext.Current.User.Identity.Name;
             }
         }
+
+
+        public Microsoft.Owin.Security.IAuthenticationManager GetAuthenticationManager(System.Web.Mvc.Controller controller)
+        {
+            return controller.HttpContext.GetOwinContext().Authentication;
+        }
     }
 }

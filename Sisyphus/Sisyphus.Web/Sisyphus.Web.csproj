@@ -198,6 +198,7 @@
     <Compile Include="Controllers\CharacterBrowserController.cs" />
     <Compile Include="Controllers\RaceController.cs" />
     <Compile Include="Controllers\SexController.cs" />
+    <Compile Include="Controllers\StoryController.cs" />
     <Compile Include="Controllers\testController.cs" />
     <Compile Include="Migrations\201407132215394_initial.cs" />
     <Compile Include="Migrations\201407132215394_initial.Designer.cs">
@@ -332,6 +333,11 @@
     <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\Event\Delete.cshtml" />
+    <Content Include="Views\Story\Index.cshtml" />
+    <Content Include="Views\Story\Create.cshtml" />
+    <Content Include="Views\Story\Details.cshtml" />
+    <Content Include="Views\Story\Edit.cshtml" />
+    <Content Include="Views\Story\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

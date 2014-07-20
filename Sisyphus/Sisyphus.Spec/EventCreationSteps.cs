@@ -115,8 +115,8 @@ namespace Sisyphus.Spec
                 var places = tableRow[3].Split(',').ToList();
                 var duration = tableRow[4].AsInt();
                 var characters = tableRow[5].Split(',').ToList();
-                var eventTypeInt = tableRow[6].AsInt();
-                var eventType = (EventType)eventTypeInt;
+                var eventTypeString = tableRow[6];
+                var eventType = Enum.Parse(typeof(EventType), eventTypeString);
 
                 Assert.Contains(name, model.Events.Select(e => e.Name).ToList());
                 var gameEvent = model.Events.Single(e => e.Name == name);
@@ -126,17 +126,24 @@ namespace Sisyphus.Spec
                 Assert.AreEqual(duration, gameEvent.Duration);
                 Assert.AreEqual(eventType, gameEvent.EventType);
 
-                foreach (var outcome in outcomes)
+                foreach (var outcome in outcomes.Where(s=>!string.IsNullOrWhiteSpace(s)))
                 {
                     Assert.IsTrue(gameEvent.Outcomes.Any(o => o.Name == outcome));
                 }
-                foreach (var place in places)
+                foreach (var place in places.Where(s => !string.IsNullOrWhiteSpace(s)))
                 {
                     Assert.IsTrue(gameEvent.Places.Any(p => p.Name == place));
                 }
-                foreach (var character in characters)
+                foreach (var character in characters.Where(s => !string.IsNullOrWhiteSpace(s)))
                 {
                     Assert.IsTrue(gameEvent.Characters.Any(c => c.Name == character));
+                }
+
+                if (tableRow.ContainsKey("Story"))
+                {
+                    var story = tableRow[7];
+                    Assert.AreEqual(story, gameEvent.Story.Name);
+
                 }
             }
         }

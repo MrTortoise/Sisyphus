@@ -24,17 +24,7 @@ namespace Sisyphus.Spec
             ScenarioContext.Current.Add(WriterControllerName, controller);
         }
 
-        [Given(@"I have created the stories")]
-        public void GivenIHaveCreatedTheStories(Table table)
-        {
-            var controller = new WriterController();
-            foreach (var row in table.Rows)
-            {
-                var name = row[0];
-                var backstory = row[1];
-                controller.CreateStory(name, backstory);
-            }
-        }
+
 
         [Then(@"I expect the WriterHome controller to have the following stories available")]
         public void ThenIExpectTheWriterHomeControllerToHaveTheFollowingStoriesAvailable(Table table)

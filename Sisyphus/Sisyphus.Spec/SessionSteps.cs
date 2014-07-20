@@ -17,7 +17,8 @@ namespace Sisyphus.Spec
         public void GivenICreateASessionForUserOnStory(string userName, string storyName)
         {
             var cont = new SessionService();
-            var session = cont.CreateSession(userName, storyName);
+            var session = cont.CreateSession(userName);
+            cont.SelectStoryForSession(userName, storyName);
             ScenarioContext.Current.Add("createdSession", session);
         }
 

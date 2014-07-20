@@ -46,7 +46,6 @@ Scenario: Open Event creation
 	When I click create event in the event sequencer
 	Then The resulting RedirectToRouteResult should be to controller "Event" action "Create"
 
-
 Scenario: open event creation - verify the viewmodel
 	When I call create on Event controller
 	Then  I expect event creation to have the following places 
@@ -62,8 +61,8 @@ Scenario: open event creation - verify the viewmodel
 
 Scenario: Create an event
 	Given I create the following events
-		| name      | Description                          | Outcomes           |  Places               | Duration | Characters | Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war|  testPlace,testPlace2 | 3        | jim,jim3   | Story      |
+		| name      | Description                          | Outcomes            | Places               | Duration | Characters | Event Type | 
+		| testEvent | a test event to show how things work | passed, failed, war | testPlace,testPlace2 | 3        | jim,jim3   | Story      | 
 	When I open the event controller
 	Then I expec the eventIndexViewModel to contain the following events
 		| name      | Description                          | Outcomes            | Places               | Duration | Characters | Event Type |
@@ -111,9 +110,9 @@ Scenario: click delete event in index expect to get delete event view
 
 Scenario: Delete an event
 	Given I create the following events
-		| name       | Description                          | Outcomes            | Places               | Duration | Characters | Event Type |
-		| testEvent  | a test event to show how things work | passed, failed, war | testPlace,testPlace2 | 3        | jim,jim3   | Story      |
-		| testEvent2 | a test event to show how things work | passed              | testPlace            | 3        | jim        | Story      |
+		| name       | Description                          | Outcomes            | Places               | Duration | Characters | Event Type | 
+		| testEvent  | a test event to show how things work | passed, failed, war | testPlace,testPlace2 | 3        | jim,jim3   | Story      | 
+		| testEvent2 | a test event to show how things work | passed              | testPlace            | 3        | jim        | Story      | 
 	When I delete event "testEvent"
 	Then I expect the following events to exist
 		| name       | Description                          | Outcomes | Places    | Duration | Characters | Event Type |

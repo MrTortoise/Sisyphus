@@ -72,8 +72,7 @@ namespace Sisyphus.Web.Controllers
         {
             var userName = ContextWrapper.Instance.UserName;
             var sessionService = new SessionService();
-
-            sessionService.CreateSession(userName, selectedStoryName);
+            sessionService.SelectStoryForSession(userName, selectedStoryName);
             return RedirectToAction("Index");
         }
 

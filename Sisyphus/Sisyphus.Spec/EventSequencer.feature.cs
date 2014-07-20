@@ -70,49 +70,119 @@ namespace Sisyphus.Spec
         {
 #line 7
 #line 8
- testRunner.Given("I have created a test database called \"eventsTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 9
+ testRunner.And("I set the config key \"SessionTimeout\" to \"15\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.And("I set ContextWrapper To use TestContextWrapper", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("I set the user Identity to \"writer@admin.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.And("I have set SisyphusDateTime to TestDateTime", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.And("I have set the date to year \"2014\" Month \"7\" Day \"20\" hour \"19\" minute \"24\" secon" +
+                    "d \"12\" millisecond \"123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+ testRunner.And("I have created a test database called \"eventsTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+ testRunner.And("I create a user with email \"writer@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "history"});
+                        "role"});
             table1.AddRow(new string[] {
-                        "testPlace",
-                        "history1"});
+                        "Admin"});
             table1.AddRow(new string[] {
-                        "testPlace2",
-                        "history1"});
-#line 9
- testRunner.And("I create the following places", ((string)(null)), table1, "And ");
+                        "Writer"});
+            table1.AddRow(new string[] {
+                        "Reader"});
+#line 16
+ testRunner.And("I assign the following roles to user \"writer@admin.com\"", ((string)(null)), table1, "And ");
+#line 21
+ testRunner.And("I log in with the user \"writer@admin.com\" and password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+ testRunner.And("I use the controller WriterHome", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
+                        "backStory"});
+            table2.AddRow(new string[] {
+                        "test1",
+                        "ooo itS BACK STORY"});
+            table2.AddRow(new string[] {
+                        "test2",
+                        "COR HE THINKS ITS A WEAL STOWY"});
+#line 23
+ testRunner.And("I have created the stories", ((string)(null)), table2, "And ");
+#line 27
+ testRunner.And("I select the story \"test1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "history"});
+            table3.AddRow(new string[] {
+                        "testPlace",
+                        "history1"});
+            table3.AddRow(new string[] {
+                        "testPlace2",
+                        "history2"});
+#line 28
+ testRunner.And("I create the following places", ((string)(null)), table3, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "backstory"});
+            table4.AddRow(new string[] {
+                        "foot",
+                        "bulling you rleg"});
+#line 32
+ testRunner.And("I create the following races", ((string)(null)), table4, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "description"});
+            table5.AddRow(new string[] {
+                        "rarley",
+                        "nto often"});
+            table5.AddRow(new string[] {
+                        "bannanas",
+                        "yellowZ"});
+#line 35
+ testRunner.And("I create the following sexes", ((string)(null)), table5, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
                         "backstory",
                         "race",
-                        "sex"});
-            table2.AddRow(new string[] {
+                        "sex",
+                        "place"});
+            table6.AddRow(new string[] {
                         "jim",
                         "none",
                         "foot",
-                        "rarley"});
-            table2.AddRow(new string[] {
+                        "rarley",
+                        "somewhere"});
+            table6.AddRow(new string[] {
                         "jim2",
                         "none",
                         "foot",
-                        "rarley"});
-            table2.AddRow(new string[] {
+                        "bannanas",
+                        "somewhere"});
+            table6.AddRow(new string[] {
                         "jim3",
                         "none",
                         "foot",
-                        "rarley"});
-            table2.AddRow(new string[] {
+                        "rarley",
+                        "somewhere"});
+            table6.AddRow(new string[] {
                         "jim4",
                         "none",
                         "foot",
-                        "rarley"});
-#line 13
- testRunner.And("I create the following characters", ((string)(null)), table2, "And ");
+                        "bannanas",
+                        "somewhere"});
+#line 39
+ testRunner.And("I create the following characters", ((string)(null)), table6, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
                         "Description",
                         "Outcomes",
@@ -120,7 +190,7 @@ namespace Sisyphus.Spec
                         "Duration",
                         "Characters",
                         "Event Type"});
-            table3.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "",
@@ -128,7 +198,7 @@ namespace Sisyphus.Spec
                         "3",
                         "jim,jim3",
                         "story"});
-            table3.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "testEvent2",
                         "a test event to show how things work",
                         "",
@@ -136,7 +206,7 @@ namespace Sisyphus.Spec
                         "3",
                         "jim,jim4",
                         "story"});
-            table3.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "testEvent3",
                         "decision event",
                         "passed, failed, war",
@@ -144,7 +214,7 @@ namespace Sisyphus.Spec
                         "3",
                         "jim,jim4",
                         "decision"});
-            table3.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "testEvent4",
                         "decision event",
                         "passed, failed, war",
@@ -152,9 +222,31 @@ namespace Sisyphus.Spec
                         "3",
                         "jim,jim4",
                         "decision"});
-#line 19
- testRunner.And("I create the following events", ((string)(null)), table3, "And ");
+#line 45
+ testRunner.And("I create the following events", ((string)(null)), table7, "And ");
 #line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open the event sequencer before anything has been chained should have start node " +
+            "and all events available for selection")]
+        public virtual void OpenTheEventSequencerBeforeAnythingHasBeenChainedShouldHaveStartNodeAndAllEventsAvailableForSelection()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open the event sequencer before anything has been chained should have start node " +
+                    "and all events available for selection", ((string[])(null)));
+#line 52
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 53
+ testRunner.When("I open the Event Sequencer Index", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Name"});
+#line 54
+ testRunner.Then("I expect the Sequence nodes to contain", ((string)(null)), table8, "Then ");
+#line hidden
+            this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
@@ -162,15 +254,15 @@ namespace Sisyphus.Spec
         public virtual void OpenEventSequencerAndSelectAnEvent()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open event sequencer and select an event", ((string[])(null)));
-#line 26
+#line 57
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 27
+#line 58
  testRunner.Given("I open the view \"EventSequencer\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
+#line 59
  testRunner.When("I select the event \"testEvent\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 29
+#line 60
  testRunner.Then("I expect the event sequencer to have the event \"testEvent\" selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -181,19 +273,19 @@ this.FeatureBackground();
         public virtual void OpenTheEventEditorWithTheCorrectEvent()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open the event editor with the correct event", ((string[])(null)));
-#line 31
+#line 62
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 32
+#line 63
  testRunner.Given("I open the view \"EventSequencer\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 33
+#line 64
  testRunner.And("I select the event \"testEvent\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 34
+#line 65
  testRunner.When("I click open EventEditor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 35
+#line 66
  testRunner.Then("I expect to get the \"EventEditor\" view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 36
+#line 67
  testRunner.And("I expect the event editor to have the event \"testEvent\" selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -204,17 +296,17 @@ this.FeatureBackground();
         public virtual void SelectAStoryEventAndChooseToChainAnotherStoryEventFromIt()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a story event and choose to chain another story event from it", ((string[])(null)));
-#line 38
+#line 69
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 39
+#line 70
  testRunner.Given("I open the view \"EventSequencer\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 40
+#line 71
  testRunner.And("I select the event \"testEvent\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
+#line 72
  testRunner.When("I select the event \"testEvent2\" to chain and click chain event", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 42
+#line 73
  testRunner.Then("I expect the event \"testEvent2\" to be chained from event \"testEvent\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -225,17 +317,17 @@ this.FeatureBackground();
         public virtual void SelectADecisionEventChooseAnOutcomeAndAssignAStoryEventToIt()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a decision event, choose an outcome and assign a story event to it", ((string[])(null)));
-#line 44
+#line 75
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 45
+#line 76
  testRunner.Given("I open the view \"EventSequencer\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 46
+#line 77
  testRunner.And("I select the event \"testEvent3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 47
+#line 78
  testRunner.When("I select the outcome \"passed\", story event \"testEvent\" and click chain", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 48
+#line 79
  testRunner.Then("I expect the event \"TestEvent\" to be chained from the event \"testEvent3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -246,15 +338,15 @@ this.FeatureBackground();
         public virtual void FailToChainADecisionEventToADecisionEvent()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Fail to chain a decision event to a decision event", ((string[])(null)));
-#line 50
+#line 81
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 51
+#line 82
  testRunner.Given("I open the view \"EventSequencer\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 52
+#line 83
  testRunner.And("I select the event \"testEvent3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 53
+#line 84
  testRunner.Then("I expect an exception when I select the outcome \"passed\", story event \"testEvent4" +
                     "\" and click chain", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
