@@ -24,7 +24,7 @@ namespace Sisyphus.Web.Migrations
 
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Sisyphus.Core.Repository.SisyphusContext context)

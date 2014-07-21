@@ -28,3 +28,70 @@ Scenario: Create a story and verify its initialisation state
 	Then I expect the following events to exist
 		| name        | Description | Outcomes | Places | Duration | Characters | Event Type | Story |
 		| Story Start | Story Start |          |        | 0        |            | StoryStart | test1 |
+
+Scenario: Create some stories and verify they are in the index
+	Given I have created the stories
+		| name  | backStory          |
+		| test1 | ooo itS BACK STORY |
+		| test2 | ooo itS BACK STORY |
+		| test3 | ooo itS BACK STORY |
+	When I open the story controller index
+	Then I expect the following stories to exist
+		| name  | backStory          |
+		| test1 | ooo itS BACK STORY |
+		| test2 | ooo itS BACK STORY |
+		| test3 | ooo itS BACK STORY |
+
+Scenario: view a stories details
+	Given I have created the stories
+		| name  | backStory          |
+		| test1 | ooo itS BACK STORY |
+		| test2 | ooo itS BACK STORY |
+		| test3 | ooo itS BACK STORY |
+	When I view details of the story "test1"
+	Then I expect the story in details to be called "test1" and its backstory to be "ooo itS BACK STORY"
+
+Scenario: Select a story to edit
+	Given I have created the stories
+		| name  | backStory          |
+		| test1 | ooo itS BACK STORY |
+		| test2 | ooo itS BACK STORY |
+		| test3 | ooo itS BACK STORY |
+	When I click edit story "test1"
+	Then I expect the story editor to have story "test1" with backstory "ooo itS BACK STORY" to be selected
+
+Scenario: Edit a story, save it and verify it has changed
+	Given I have created the stories
+		| name  | backStory          |
+		| test1 | ooo itS BACK STORY |
+		| test2 | ooo itS BACK STORY |
+		| test3 | ooo itS BACK STORY |
+	And I click edit story "test1"
+	When I set the story name to "edited" and the backstory to "edited" and save the edit
+	And I open the story controller index
+	Then I expect the following stories to exist
+		| name   | backStory |
+		| edited | edited    |
+
+#Scenario: Select a story to delete
+#	Given I have created the stories
+#		| name  | backStory          |
+#		| test1 | ooo itS BACK STORY |
+#		| test2 | ooo itS BACK STORY |
+#		| test3 | ooo itS BACK STORY |
+#	When I click delete story "test1"
+#	Then I expect the story deleter to have story "test1" with backstory "ooo itS BACK STORY" to be selected
+
+#Scenario: Delete a story and verify that it no longer exists
+#	Given I have created the stories
+#		| name  | backStory          |
+#		| test1 | ooo itS BACK STORY |
+#		| test2 | ooo itS BACK STORY |
+#		| test3 | ooo itS BACK STORY |
+#	And I click delete story "test1"
+#	When I delete the selected story
+#	And I open the story controller index
+#	Then I expect the followign stories to not exist
+#		| name  | backStory          |
+#		| test1 | ooo itS BACK STORY |
+

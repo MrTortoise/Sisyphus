@@ -143,7 +143,6 @@ namespace Sisyphus.Spec
                 {
                     var story = tableRow[7];
                     Assert.AreEqual(story, gameEvent.Story.Name);
-
                 }
             }
         }

@@ -57,21 +57,21 @@ namespace Sisyphus.Web.Controllers
             return this.View(story);
         }
 
-        public ActionResult Delete(string name)
-        {
-            var userName = ContextWrapper.Instance.UserName;
-            var service = new StoryService();
-            var story = service.GetStory(name, userName);
-            return this.View(story);
-        }
+        //public ActionResult Delete(string name)
+        //{
+        //    var userName = ContextWrapper.Instance.UserName;
+        //    var service = new StoryService();
+        //    var story = service.GetStory(name, userName);
+        //    return this.View(story);
+        //}
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(Story story)
-        {
-            var service = new StoryService();
-            service.Delete(story);
-            return RedirectToAction("Index");
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Delete(Story story)
+        //{
+        //    var service = new StoryService();
+        //    service.Delete(story);
+        //    return RedirectToAction("Index");
+        //}
     }
 }

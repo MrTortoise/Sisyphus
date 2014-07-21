@@ -1,5 +1,6 @@
 namespace Sisyphus.Core.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
@@ -70,14 +71,30 @@ namespace Sisyphus.Core.Services
             }
         }
 
-        public void Delete(Story story)
-        {
-            var conStr = Config.GetConnectionString();
-            using (var context = new SisyphusContext(conStr))
-            {
-                context.Entry(story).State = EntityState.Deleted;
-                context.SaveChanges();
-            }
-        }
+        //public void Delete(Story story)
+        //{
+        //    var conStr = Config.GetConnectionString();
+        //    using (var context = new SisyphusContext(conStr))
+        //    {
+        //        var eventCount = context.GameEvents.Count(e => e.StoryId == story.Id);
+        //        if (eventCount > 1)
+        //        {
+        //            throw new InvalidOperationException("Events must be removed from story before deletion");
+        //        }
+
+        //        if (eventCount == 1)
+        //        {
+        //            var storyStartEvent =
+        //                context.GameEvents.SingleOrDefault(e => e.Name == StoryStartString && e.StoryId == story.Id);
+        //            if (storyStartEvent != null)
+        //            {
+        //                context.GameEvents.Remove(storyStartEvent);
+        //            }
+        //        }
+
+        //        context.Entry(story).State = EntityState.Deleted;
+        //        context.SaveChanges();
+        //    }
+        //}
     }
 }
