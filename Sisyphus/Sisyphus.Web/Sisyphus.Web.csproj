@@ -337,7 +337,6 @@
     <Content Include="Views\Story\Create.cshtml" />
     <Content Include="Views\Story\Details.cshtml" />
     <Content Include="Views\Story\Edit.cshtml" />
-    <Content Include="Views\Story\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -263,6 +263,24 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Navigate to the Story Editor")]
+        public virtual void NavigateToTheStoryEditor()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to the Story Editor", ((string[])(null)));
+#line 62
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 63
+ testRunner.When("I click open story editor on the writer index", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 64
+ testRunner.Then("The resulting RedirectToRouteResult should be to controller \"Story\" action \"Index" +
+                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

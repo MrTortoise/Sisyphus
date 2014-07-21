@@ -58,3 +58,7 @@ Scenario: Navigate to the Race Sequencer
 Scenario: Navigate to the Sex Editor
 	When I click open sex editor on the writer index
 	Then The resulting RedirectToRouteResult should be to controller "Sex" action "Index"
+
+Scenario: Navigate to the Story Editor
+	When I click open story editor on the writer index
+	Then The resulting RedirectToRouteResult should be to controller "Story" action "Index"

@@ -45,17 +45,13 @@ else
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Select Story" class="btn btn-default" />
                 </div>
-
             </div>
         </div>
     }
 }
 
-@Html.Partial("_CreateStory", new Story())
-
-
-
 <ul>
+    <li>@Html.ActionLink("Story Editor", "StoryEditor")</li>
     <li>@Html.ActionLink("Time Editor", "TimeEditor")</li>
     <li>@Html.ActionLink("Places Editor", "PlacesEditor")</li>
     <li>@Html.ActionLink("Character Editor", "CharacterBrowser")</li>

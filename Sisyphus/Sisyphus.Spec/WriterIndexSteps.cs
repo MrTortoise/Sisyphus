@@ -110,6 +110,15 @@ namespace Sisyphus.Spec
             ScenarioContext.Current.Add(ActionStepsHelpers.ReturnedResult, result);
         }
 
+        [When(@"I click open story editor on the writer index")]
+        public void WhenIClickOpenStoryEditorOnTheWriterIndex()
+        {
+            var controller = (WriterController)ScenarioContext.Current[WriterControllerName];
+            var result = controller.StoryEditor();
+            ScenarioContext.Current.Add(ActionStepsHelpers.ReturnedResult, result);
+        }
+
+
 
     }
 }

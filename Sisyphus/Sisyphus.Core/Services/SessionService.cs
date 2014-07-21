@@ -74,11 +74,11 @@ namespace Sisyphus.Core.Services
                     {
                         var newSession = CreateSession(userName, context);
                         context.SaveChanges();
-                        if (session.Story != null)
-                        {
-                            SetStoryOnSession(session.Story.Name, context, newSession);
-                            context.SaveChanges();
-                        }
+                        //if (session.Story != null)
+                        //{
+                        //    SetStoryOnSession(session.Story.Name, context, newSession);
+                        //    context.SaveChanges();
+                        //}
 
                         session = GetLatestSession(userName, context);
                     }
