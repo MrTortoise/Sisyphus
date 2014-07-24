@@ -41,3 +41,5 @@ Scenario: Assign roles to user
 		| Admin  |
 		| Writer |
 		| Reader |
+
+Scenario: Add User to a story
