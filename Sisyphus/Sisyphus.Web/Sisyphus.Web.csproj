@@ -196,6 +196,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CharacterBrowserController.cs" />
+    <Compile Include="Controllers\EventStoryController.cs" />
     <Compile Include="Controllers\RaceController.cs" />
     <Compile Include="Controllers\SexController.cs" />
     <Compile Include="Controllers\StoryController.cs" />

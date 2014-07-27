@@ -25,16 +25,16 @@
 		| testEvent2 |         | testEvent4 |
 		| testEvent3 | failed  | testEvent5 |
 	And I add to the event "testEvent3" from perspective of "jim" the following Narrative 
-		| eventStepId | narrative           |
+		| eventStepIndex | narrative           |
 		| 0           | look its some story |
 	And I add to the event "testEvent3" from perspective of "jim" the following lines of dialogue 
-		| eventStepId | dialog                                         |
+		| eventStepIndex | dialog                                         |
 		| 1           | Jim says "Its awfully lonley in this scenario" |
 	And I add to the event "testEvent3" from perspective of "jim" the following Narrative 
-		| eventStepId | narrative                |
+		| eventStepIndex | narrative                |
 		| 2           | look its some more story |
 	And I add to the event "testEvent5" from perspective of "jim" the following Narrative 
-		| eventStepId | narrative                  |
+		| eventStepIndex | narrative                  |
 		| 0           | boom we made it a long way |
 	And I create a time system with the following members
 		| bit | bitValue | bitText |
@@ -72,7 +72,7 @@ Scenario: Ask storyNavigator for next set to interactions
         | 0   | 3        |
 	And I expect the current event to be "testEvent3"
 	And Then I expect "jim" to have the following story
-		| eventStepId | story lines                                    |
+		| eventStepIndex | story lines                                    |
 		| 0           | look its some story                            |
 		| 1           | Jim says "Its awfully lonley in this scenario" |
 		| 2           | look its some more story                       |
@@ -94,7 +94,7 @@ Scenario: Get to first decision make decision wait 3 verify at next event
          | 0   | 6        |  
 	And I expect the current event to be "testEvent5"
 	And I expect "jim" to have the following story
-         | eventStepId | story lines                |
+         | eventStepIndex | story lines                |
          | 0           | Boom we made it a long way |
 	
 

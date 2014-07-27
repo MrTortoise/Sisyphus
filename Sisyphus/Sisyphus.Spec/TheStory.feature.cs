@@ -169,7 +169,7 @@ namespace Sisyphus.Spec
  testRunner.And("I chain the following events", ((string)(null)), table4, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+                        "eventStepIndex",
                         "narrative"});
             table5.AddRow(new string[] {
                         "0",
@@ -179,7 +179,7 @@ namespace Sisyphus.Spec
                     "", ((string)(null)), table5, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+                        "eventStepIndex",
                         "dialog"});
             table6.AddRow(new string[] {
                         "1",
@@ -189,7 +189,7 @@ namespace Sisyphus.Spec
                     "dialogue", ((string)(null)), table6, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+                        "eventStepIndex",
                         "narrative"});
             table7.AddRow(new string[] {
                         "2",
@@ -199,7 +199,7 @@ namespace Sisyphus.Spec
                     "", ((string)(null)), table7, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+                        "eventStepIndex",
                         "narrative"});
             table8.AddRow(new string[] {
                         "0",
@@ -329,7 +329,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.And("I expect the current event to be \"testEvent3\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+                        "eventStepIndex",
                         "story lines"});
             table13.AddRow(new string[] {
                         "0",
@@ -394,7 +394,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.And("I expect the current event to be \"testEvent5\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+                        "eventStepIndex",
                         "story lines"});
             table17.AddRow(new string[] {
                         "0",

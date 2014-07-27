@@ -70,124 +70,140 @@ namespace Sisyphus.Spec
         {
 #line 6
 #line 7
- testRunner.Given("I have created a test database called \"eventsTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have set up configuration to use testConfig", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.And("I set the config key \"SessionTimeout\" to \"15\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 9
+ testRunner.And("I set ContextWrapper To use TestContextWrapper", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.And("I set the user Identity to \"writer@admin.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("I have set SisyphusDateTime to TestDateTime", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.And("I have set the date to year \"2014\" Month \"7\" Day \"20\" hour \"19\" minute \"24\" secon" +
+                    "d \"12\" millisecond \"123\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.And("I have created a test database called \"eventCreation\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+ testRunner.And("I create a user with email \"writer@admin.com\" with password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "history"});
+                        "role"});
             table1.AddRow(new string[] {
-                        "testPlace",
-                        "history1"});
+                        "Admin"});
             table1.AddRow(new string[] {
-                        "testPlace2",
-                        "history1"});
-#line 8
- testRunner.And("I create the following places", ((string)(null)), table1, "And ");
+                        "Writer"});
+            table1.AddRow(new string[] {
+                        "Reader"});
+#line 15
+ testRunner.And("I assign the following roles to user \"writer@admin.com\"", ((string)(null)), table1, "And ");
+#line 20
+ testRunner.And("I log in with the user \"writer@admin.com\" and password \"testtest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+ testRunner.And("I use the controller WriterHome", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
-                        "backstory",
-                        "race",
-                        "sex"});
+                        "backStory"});
             table2.AddRow(new string[] {
-                        "jim",
-                        "is some dude",
-                        "last",
-                        "kinda"});
+                        "test1",
+                        "ooo itS BACK STORY"});
             table2.AddRow(new string[] {
-                        "jim2",
-                        "is some dude",
-                        "last",
-                        "kinda"});
-#line 12
- testRunner.And("I create the following characters", ((string)(null)), table2, "And ");
+                        "test2",
+                        "COR HE THINKS ITS A WEAL STOWY"});
+#line 22
+ testRunner.And("I have created the stories", ((string)(null)), table2, "And ");
+#line 26
+ testRunner.And("I select the story \"test1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "name",
+                        "history"});
+            table3.AddRow(new string[] {
+                        "testPlace",
+                        "history1"});
+            table3.AddRow(new string[] {
+                        "testPlace2",
+                        "history2"});
+#line 27
+ testRunner.And("I create the following places", ((string)(null)), table3, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "backstory"});
+            table4.AddRow(new string[] {
+                        "foot",
+                        "bulling you rleg"});
+#line 31
+ testRunner.And("I create the following races", ((string)(null)), table4, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "description"});
+            table5.AddRow(new string[] {
+                        "rarley",
+                        "nto often"});
+            table5.AddRow(new string[] {
+                        "bannanas",
+                        "yellowZ"});
+#line 34
+ testRunner.And("I create the following sexes", ((string)(null)), table5, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
+                        "backstory",
+                        "race",
+                        "sex",
+                        "place"});
+            table6.AddRow(new string[] {
+                        "jim",
+                        "none",
+                        "foot",
+                        "rarley",
+                        "somewhere"});
+            table6.AddRow(new string[] {
+                        "jim2",
+                        "none",
+                        "foot",
+                        "bannanas",
+                        "somewhere"});
+            table6.AddRow(new string[] {
+                        "jim3",
+                        "none",
+                        "foot",
+                        "rarley",
+                        "somewhere"});
+            table6.AddRow(new string[] {
+                        "jim4",
+                        "none",
+                        "foot",
+                        "bannanas",
+                        "somewhere"});
+#line 38
+ testRunner.And("I create the following characters", ((string)(null)), table6, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "name",
                         "Description",
                         "Outcomes",
-                        "Places",
                         "Duration"});
-            table3.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "testPlace,testPlace2",
                         "3"});
-#line 16
- testRunner.And("I create the following events", ((string)(null)), table3, "And ");
-#line hidden
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add a character to an event")]
-        public virtual void AddACharacterToAnEvent()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add a character to an event", ((string[])(null)));
-#line 20
-this.ScenarioSetup(scenarioInfo);
-#line 6
-this.FeatureBackground();
-#line 21
- testRunner.Given("I select the Event \"testEvent\" in the EventSequencer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 22
- testRunner.When("I open the view \"EventEditor\" with event \"testEvent\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table4.AddRow(new string[] {
-                        "jim"});
-#line 23
- testRunner.And("I add the following characters to the event \"testEvent\"", ((string)(null)), table4, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table5.AddRow(new string[] {
-                        "jim"});
-#line 26
- testRunner.Then("I expect the event \"testEvent\" to contain the following characters", ((string)(null)), table5, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Remove a character to an event")]
-        public virtual void RemoveACharacterToAnEvent()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Remove a character to an event", ((string[])(null)));
-#line 30
-this.ScenarioSetup(scenarioInfo);
-#line 6
-this.FeatureBackground();
-#line 31
- testRunner.Given("I select the Event \"testEvent\" in the EventSequencer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 32
- testRunner.When("I open the view \"EventEditor\" with event \"testEvent\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table6.AddRow(new string[] {
-                        "jim"});
-            table6.AddRow(new string[] {
-                        "jim2"});
-#line 33
- testRunner.And("I add the following characters to the event \"testEvent\"", ((string)(null)), table6, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table7.AddRow(new string[] {
-                        "jim"});
-#line 37
- testRunner.And("I remove the following characters from the event \"testEvent\"", ((string)(null)), table7, "And ");
+#line 44
+ testRunner.And("I create the following events", ((string)(null)), table7, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "name"});
             table8.AddRow(new string[] {
-                        "jim2"});
-#line 40
- testRunner.Then("I expect the event \"testEvent\" to contain the following characters", ((string)(null)), table8, "Then ");
+                        "jim"});
+            table8.AddRow(new string[] {
+                        "jim3"});
+#line 47
+ testRunner.And("I add the following characters to the event \"testEvent\"", ((string)(null)), table8, "And ");
 #line hidden
-            this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
@@ -195,66 +211,29 @@ this.FeatureBackground();
         public virtual void AddDialogueToAnEvent()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add dialogue to an event", ((string[])(null)));
-#line 44
+#line 52
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "backstory",
-                        "race",
-                        "sex"});
-            table9.AddRow(new string[] {
-                        "jim",
-                        "is some dude",
-                        "last",
-                        "kinda"});
-#line 45
- testRunner.Given("I create the following characters", ((string)(null)), table9, "Given ");
-#line 48
- testRunner.And("I open the view \"EventEditor\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "Description",
-                        "Outcomes",
-                        "Places",
-                        "Duration"});
-            table10.AddRow(new string[] {
-                        "testEvent",
-                        "a test event to show how things work",
-                        "passed, failed, war",
-                        "testPlace,testPlace2",
-                        "3"});
-#line 49
- testRunner.And("I create the following events", ((string)(null)), table10, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table11.AddRow(new string[] {
-                        "jim"});
-#line 52
- testRunner.And("I add the following characters to the event \"testEvent\"", ((string)(null)), table11, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+                        "eventStepIndex",
                         "dialog"});
-            table12.AddRow(new string[] {
-                        "0",
-                        "look its some story"});
-#line 55
- testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" the following lines of d" +
-                    "ialogue", ((string)(null)), table12, "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
-                        "story lines"});
-            table13.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "0",
                         "Jim says \"Its awfully lonley in this scenario\""});
-#line 58
- testRunner.Then("I expect \"jim\" to have the following story", ((string)(null)), table13, "Then ");
+#line 53
+ testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" the following lines of d" +
+                    "ialogue", ((string)(null)), table9, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
+                        "story lines"});
+            table10.AddRow(new string[] {
+                        "0",
+                        "Jim says \"Its awfully lonley in this scenario\""});
+#line 56
+ testRunner.Then("I expect \"jim\" to have the following story for the event \"testEvent\"", ((string)(null)), table10, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -266,66 +245,38 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add dialogue to an event with multiple characters (dialogue is shared (objective)" +
                     ")", ((string[])(null)));
-#line 62
+#line 60
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 63
- testRunner.Given("", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 64
- testRunner.And("I open the view \"EventEditor\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "Description",
-                        "Outcomes",
-                        "Places",
-                        "Duration"});
-            table14.AddRow(new string[] {
-                        "testEvent",
-                        "a test event to show how things work",
-                        "passed, failed, war",
-                        "testPlace,testPlace2",
-                        "3"});
-#line 65
- testRunner.And("I create the following events", ((string)(null)), table14, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table15.AddRow(new string[] {
-                        "jim"});
-            table15.AddRow(new string[] {
-                        "jim2"});
-#line 68
- testRunner.And("I add the following characters to the event \"testEvent\"", ((string)(null)), table15, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "dialog"});
-            table16.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "0",
                         "Jim says \"Its awfully lonley in this scenario\""});
-#line 72
+#line 61
  testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" the following lines of d" +
-                    "ialogue", ((string)(null)), table16, "When ");
+                    "ialogue", ((string)(null)), table11, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "story lines"});
-            table17.AddRow(new string[] {
+            table12.AddRow(new string[] {
                         "0",
                         "Jim says \"Its awfully lonley in this scenario\""});
-#line 75
- testRunner.Then("I expect \"jim\" to have the following story", ((string)(null)), table17, "Then ");
+#line 64
+ testRunner.Then("I expect \"jim\" to have the following story for event \"testEvent\"", ((string)(null)), table12, "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "story lines"});
-            table18.AddRow(new string[] {
+            table13.AddRow(new string[] {
                         "0",
                         "Jim says \"Its awfully lonley in this scenario\""});
-#line 78
- testRunner.And("I expect \"jim2\" to have the following story", ((string)(null)), table18, "And ");
+#line 67
+ testRunner.And("I expect \"jim3\" to have the following story for event \"testEvent\"", ((string)(null)), table13, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -335,65 +286,28 @@ this.FeatureBackground();
         public virtual void AddNarrativeToAnEvent()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Narrative to an event", ((string[])(null)));
-#line 82
+#line 71
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "backstory",
-                        "race",
-                        "sex"});
-            table19.AddRow(new string[] {
-                        "jim",
-                        "is some dude",
-                        "last",
-                        "kinda"});
-#line 83
- testRunner.Given("I create the following characters", ((string)(null)), table19, "Given ");
-#line 86
- testRunner.And("I open the view \"EventEditor\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "Description",
-                        "Outcomes",
-                        "Places",
-                        "Duration"});
-            table20.AddRow(new string[] {
-                        "testEvent",
-                        "a test event to show how things work",
-                        "passed, failed, war",
-                        "testPlace,testPlace2",
-                        "3"});
-#line 87
- testRunner.And("I create the following events", ((string)(null)), table20, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table21.AddRow(new string[] {
-                        "jim"});
-#line 90
- testRunner.And("I add the following characters to the event \"testEvent\"", ((string)(null)), table21, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "narrative"});
-            table22.AddRow(new string[] {
+            table14.AddRow(new string[] {
                         "0",
                         "look its some story"});
-#line 93
- testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table22, "When ");
+#line 72
+ testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table14, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "story lines"});
-            table23.AddRow(new string[] {
+            table15.AddRow(new string[] {
                         "0",
                         "look its some story"});
-#line 96
- testRunner.Then("I expect \"jim\" to have the following story", ((string)(null)), table23, "Then ");
+#line 75
+ testRunner.Then("I expect \"jim\" to have the following story for event \"testEvent\"", ((string)(null)), table15, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -405,84 +319,37 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Narrative to an event with 2 chars - but only 1 narrative (so both get that n" +
                     "arrative as a convinience)", ((string[])(null)));
-#line 100
+#line 79
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "backstory",
-                        "race",
-                        "sex",
-                        "place"});
-            table24.AddRow(new string[] {
-                        "jim",
-                        "is some dude",
-                        "last",
-                        "kinda",
-                        "testPlace"});
-            table24.AddRow(new string[] {
-                        "jim2",
-                        "is some dude",
-                        "last",
-                        "kinda",
-                        "testPlace"});
-#line 101
- testRunner.Given("I create the following characters", ((string)(null)), table24, "Given ");
-#line 105
- testRunner.And("I open the view \"EventEditor\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "Description",
-                        "Outcomes",
-                        "Places",
-                        "Duration"});
-            table25.AddRow(new string[] {
-                        "testEvent",
-                        "a test event to show how things work",
-                        "passed, failed, war",
-                        "testPlace,testPlace2",
-                        "3"});
-#line 106
- testRunner.And("I create the following events", ((string)(null)), table25, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table26.AddRow(new string[] {
-                        "jim"});
-            table26.AddRow(new string[] {
-                        "jim2"});
-#line 109
- testRunner.And("I add the following characters to the event \"testEvent\"", ((string)(null)), table26, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "narrative"});
-            table27.AddRow(new string[] {
+            table16.AddRow(new string[] {
                         "0",
                         "look its some story"});
-#line 113
- testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table27, "When ");
+#line 80
+ testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table16, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "story lines"});
-            table28.AddRow(new string[] {
+            table17.AddRow(new string[] {
                         "0",
                         "look its some story"});
-#line 116
- testRunner.Then("I expect \"jim\" to have the following story", ((string)(null)), table28, "Then ");
+#line 83
+ testRunner.Then("I expect \"jim\" to have the following story for event \"testEvent\"", ((string)(null)), table17, "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "story lines"});
-            table29.AddRow(new string[] {
+            table18.AddRow(new string[] {
                         "0",
                         "look its some story"});
-#line 119
- testRunner.And("I expect \"jim\" to have the following story", ((string)(null)), table29, "And ");
+#line 86
+ testRunner.And("I expect \"jim3\" to have the following story for event \"testEvent\"", ((string)(null)), table18, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -492,112 +359,68 @@ this.FeatureBackground();
         public virtual void AddNarativeAndDialogueToAnEventWith2Chars_SequenceTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add narative and dialogue to an event with 2 chars - sequence test", ((string[])(null)));
-#line 123
+#line 90
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "backstory",
-                        "race",
-                        "sex"});
-            table30.AddRow(new string[] {
-                        "jim",
-                        "is some dude",
-                        "last",
-                        "kinda"});
-            table30.AddRow(new string[] {
-                        "jim2",
-                        "is some dude",
-                        "last",
-                        "kinda"});
-#line 124
- testRunner.Given("I create the following characters", ((string)(null)), table30, "Given ");
-#line 128
- testRunner.And("I open the view \"EventEditor\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "Description",
-                        "Outcomes",
-                        "Places",
-                        "Duration"});
-            table31.AddRow(new string[] {
-                        "testEvent",
-                        "a test event to show how things work",
-                        "passed, failed, war",
-                        "testPlace,testPlace2",
-                        "3"});
-#line 129
- testRunner.And("I create the following events", ((string)(null)), table31, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table32.AddRow(new string[] {
-                        "jim"});
-            table32.AddRow(new string[] {
-                        "jim2"});
-#line 132
- testRunner.And("I add the following characters to the event \"testEvent\"", ((string)(null)), table32, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "narrative"});
-            table33.AddRow(new string[] {
+            table19.AddRow(new string[] {
                         "0",
                         "look its some story"});
-#line 136
- testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table33, "When ");
+#line 91
+ testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table19, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "dialog"});
-            table34.AddRow(new string[] {
+            table20.AddRow(new string[] {
                         "1",
                         "Jim says \"Its awfully lonley in this scenario\""});
-#line 139
+#line 94
  testRunner.And("I add to the event \"testEvent\" from perspective of \"jim\" the following lines of d" +
-                    "ialogue", ((string)(null)), table34, "And ");
+                    "ialogue", ((string)(null)), table20, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "narrative"});
-            table35.AddRow(new string[] {
+            table21.AddRow(new string[] {
                         "2",
                         "look its some more story"});
-#line 142
- testRunner.And("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table35, "And ");
+#line 97
+ testRunner.And("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table21, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "story lines"});
-            table36.AddRow(new string[] {
+            table22.AddRow(new string[] {
                         "0",
                         "look its some story"});
-            table36.AddRow(new string[] {
+            table22.AddRow(new string[] {
                         "1",
                         "Jim says \"Its awfully lonley in this scenario\""});
-            table36.AddRow(new string[] {
+            table22.AddRow(new string[] {
                         "2",
                         "look its some more story"});
-#line 145
- testRunner.Then("I expect \"jim\" to have the following story", ((string)(null)), table36, "Then ");
+#line 100
+ testRunner.Then("I expect \"jim\" to have the following story for event \"testEvent\"", ((string)(null)), table22, "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "story lines"});
-            table37.AddRow(new string[] {
+            table23.AddRow(new string[] {
                         "0",
                         "look its some story"});
-            table37.AddRow(new string[] {
+            table23.AddRow(new string[] {
                         "1",
                         "Jim says \"Its awfully lonley in this scenario\""});
-            table37.AddRow(new string[] {
+            table23.AddRow(new string[] {
                         "2",
                         "look its some more story"});
-#line 150
- testRunner.And("I expect \"jim2\" to have the following story", ((string)(null)), table37, "And ");
+#line 105
+ testRunner.And("I expect \"jim3\" to have the following story for event \"testEvent\"", ((string)(null)), table23, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -607,119 +430,75 @@ this.FeatureBackground();
         public virtual void _2CharactersSharedDialogButUniqueNarrativeForBoth()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 characters shared dialog but unique narrative for both", ((string[])(null)));
-#line 156
+#line 111
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "backstory",
-                        "race",
-                        "sex"});
-            table38.AddRow(new string[] {
-                        "jim",
-                        "is some dude",
-                        "last",
-                        "kinda"});
-            table38.AddRow(new string[] {
-                        "jim2",
-                        "is some dude",
-                        "last",
-                        "kinda"});
-#line 157
- testRunner.Given("I create the following characters", ((string)(null)), table38, "Given ");
-#line 161
- testRunner.And("I open the view \"EventEditor\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "Description",
-                        "Outcomes",
-                        "Places",
-                        "Duration"});
-            table39.AddRow(new string[] {
-                        "testEvent",
-                        "a test event to show how things work",
-                        "passed, failed, war",
-                        "testPlace,testPlace2",
-                        "3"});
-#line 162
- testRunner.And("I create the following events", ((string)(null)), table39, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name"});
-            table40.AddRow(new string[] {
-                        "jim"});
-            table40.AddRow(new string[] {
-                        "jim2"});
-#line 165
- testRunner.And("I add the following characters to the event \"testEvent\"", ((string)(null)), table40, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table41 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "narrative"});
-            table41.AddRow(new string[] {
+            table24.AddRow(new string[] {
                         "0",
                         "look its some story"});
-#line 169
- testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table41, "When ");
+#line 112
+ testRunner.When("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table24, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "narrative"});
-            table42.AddRow(new string[] {
+            table25.AddRow(new string[] {
                         "1",
                         "look its some other story"});
-#line 172
- testRunner.And("I add to the event \"testEvent\" from perspective of \"jim2\" the following Narrative" +
-                    "", ((string)(null)), table42, "And ");
+#line 115
+ testRunner.And("I add to the event \"testEvent\" from perspective of \"jim3\" the following Narrative" +
+                    "", ((string)(null)), table25, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "dialog"});
-            table43.AddRow(new string[] {
+            table26.AddRow(new string[] {
                         "2",
                         "Jim says \"Its awfully lonley in this scenario\""});
-#line 175
+#line 118
  testRunner.And("I add to the event \"testEvent\" from perspective of \"jim\" the following lines of d" +
-                    "ialogue", ((string)(null)), table43, "And ");
+                    "ialogue", ((string)(null)), table26, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table44 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "narrative"});
-            table44.AddRow(new string[] {
+            table27.AddRow(new string[] {
                         "3",
                         "look its some more story"});
-#line 178
- testRunner.And("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table44, "And ");
+#line 121
+ testRunner.And("I add to the event \"testEvent\" from perspective of \"jim\" the following Narrative", ((string)(null)), table27, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "story lines"});
-            table45.AddRow(new string[] {
+            table28.AddRow(new string[] {
                         "0",
                         "look its some story"});
-            table45.AddRow(new string[] {
+            table28.AddRow(new string[] {
                         "2",
                         "Jim says \"Its awfully lonley in this scenario\""});
-            table45.AddRow(new string[] {
+            table28.AddRow(new string[] {
                         "3",
                         "look its some more story"});
-#line 181
- testRunner.Then("I expect \"jim\" to have the following story", ((string)(null)), table45, "Then ");
+#line 124
+ testRunner.Then("I expect \"jim\" to have the following story for event \"testEvent\"", ((string)(null)), table28, "Then ");
 #line hidden
-            TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
-                        "eventStepId",
+            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+                        "eventStepIndex",
                         "story lines"});
-            table46.AddRow(new string[] {
+            table29.AddRow(new string[] {
                         "1",
                         "look its some other story"});
-            table46.AddRow(new string[] {
+            table29.AddRow(new string[] {
                         "2",
                         "Jim says \"Its awfully lonley in this scenario\""});
-#line 186
- testRunner.And("I expect \"jim2\" to have the following story", ((string)(null)), table46, "And ");
+#line 129
+ testRunner.And("I expect \"jim3\" to have the following story for event \"testEvent\"", ((string)(null)), table29, "And ");
 #line hidden
             this.ScenarioCleanup();
         }

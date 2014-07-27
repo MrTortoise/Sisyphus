@@ -42,6 +42,8 @@ namespace Sisyphus.Core.Model
         [Required]
         public int StoryId { get; set; }
 
+        public virtual ICollection<StoryItem> StoryItems { get; set; }
+
         public GameEvent()
         {
             Outcomes=new HashSet<Outcome>();
