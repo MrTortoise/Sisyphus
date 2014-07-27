@@ -18,7 +18,7 @@
         public ActionResult Index()
         {
             var service = new PlaceService();
-            List<Place> items = service.Places(0, 20,ContextWrapper.Instance.UserName);
+            List<Place> items = service.Places(0, 20, ContextWrapper.Instance.UserName);
             return this.View(items);
         }
 
@@ -66,7 +66,8 @@
             }
 
             var service = new PlaceService();
-            Place item = service.GetPlace(id.Value);
+            string userName = ContextWrapper.Instance.UserName;
+            Place item = service.GetPlace(id.Value, userName);
 
             if (item == null)
             {
@@ -85,7 +86,8 @@
             }
 
             var service = new PlaceService();
-            Place item = service.GetPlace(id.Value);
+            string userName = ContextWrapper.Instance.UserName;
+            Place item = service.GetPlace(id.Value, userName);
 
             if (item == null)
             {
@@ -118,7 +120,8 @@
             }
 
             var service = new PlaceService();
-            Place place = service.GetPlace(id.Value);
+            string userName = ContextWrapper.Instance.UserName;
+            Place place = service.GetPlace(id.Value, userName);
             if (place == null)
             {
                 return this.HttpNotFound();
@@ -134,7 +137,8 @@
         public ActionResult DeleteConfirmed(int id)
         {
             var service = new PlaceService();
-            Place place = service.GetPlace(id);
+            string userName = ContextWrapper.Instance.UserName;
+            Place place = service.GetPlace(id, userName);
             service.Delete(place);
             return this.RedirectToAction("Index");
         }

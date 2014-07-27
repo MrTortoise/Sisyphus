@@ -1,8 +1,12 @@
-﻿@model Sisyphus.Web.Models.EventIndexViewModel
+﻿@using System.Text
+@using Microsoft.Ajax.Utilities
+@using WebGrease.Css.Extensions
+@model Sisyphus.Web.Models.EventIndexViewModel
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -14,10 +18,17 @@
         <th>
             @Html.DisplayNameFor(model => model.Events.FirstOrDefault().Duration)
         </th>
+        <th>
+            @Html.DisplayNameFor(model=>model.Events.FirstOrDefault().EventType)
+        </th>
+        <th>
+            Outcomes
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model.Events) {
+  
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -29,8 +40,15 @@
             @Html.DisplayFor(modelItem => item.Duration)
         </td>
         <td>
+            @Html.DisplayFor(modelItem=> item.EventType)
+        </td>
+        <td>
+            @Html.DisplayFor(m=> Model.OutcomeStrings[item.Name])
+           
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { name=item.Name}) |
-            @Html.ActionLink("Details", "Details", new { nane=item.Name }) |
+            @Html.ActionLink("Details", "Details", new { name=item.Name }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>

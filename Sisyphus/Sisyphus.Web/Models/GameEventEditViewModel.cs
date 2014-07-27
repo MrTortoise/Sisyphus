@@ -28,6 +28,8 @@
                 return new SelectList(Places, "Id", "Name");
             }
         }
+
+        public string OutComes { get; set; }
       
     }
 }

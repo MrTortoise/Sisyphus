@@ -1,4 +1,6 @@
-﻿namespace Sisyphus.Spec
+﻿using Sisyphus.Web;
+
+namespace Sisyphus.Spec
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -32,7 +34,8 @@
             foreach (TableRow row in table.Rows)
             {
                 var place = new Place(){Name = row[0],History = row[1]};
-                Place item = placeService.GetPlace(place.Name);
+                string userName = ContextWrapper.Instance.UserName;
+                Place item = placeService.GetPlace(place.Name, userName);
 
                 Assert.IsNotNull(item);
                 Assert.AreEqual(place.Name, item.Name);

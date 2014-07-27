@@ -90,5 +90,10 @@ namespace Sisyphus.Web.Controllers
         {
             return RedirectToAction("Index", "Story");
         }
+
+        public ActionResult EventEditor()
+        {
+            return RedirectToAction("Index", "Event");
+        }
     }
 }

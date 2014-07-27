@@ -18,9 +18,6 @@ namespace Sisyphus.Core.Model
 
         public virtual GameEvent GameEvent { get; set; }
 
-        public Outcome()
-        {
-            
-        }
+        public int GameEventId { get; set; }
     }
 }

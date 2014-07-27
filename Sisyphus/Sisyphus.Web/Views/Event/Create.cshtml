@@ -1,4 +1,6 @@
-﻿@model Sisyphus.Web.Models.CreateEventViewModel
+﻿@using Microsoft.Ajax.Utilities
+@using Sisyphus.Core.Model
+@model Sisyphus.Web.Models.CreateEventViewModel
 
 @{
     ViewBag.Title = "Create Event";
@@ -6,3 +8,64 @@
 }
 
 <h2>Create Event</h2>
+<div class="row">
+    <div class="col-lg-8">
+        <section id="createEvent">
+            @using (Html.BeginForm("Create", "Event", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                var name = Model.Event.Name;
+                var description = Model.Event.Description;
+                var duration = Model.Event.Duration;
+                var eventType = Model.Event.EventType;
+                string outcomes = string.Empty;
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => name, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+
+                        @Html.TextBoxFor(m => name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Event.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Event.Description, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(m => description, 10, 30, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Event.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Event.Duration, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => duration, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Event.Duration, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Event.EventType, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EnumDropDownListFor(m => eventType)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Outcomes", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => outcomes, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create Event" class="btn btn-default" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>

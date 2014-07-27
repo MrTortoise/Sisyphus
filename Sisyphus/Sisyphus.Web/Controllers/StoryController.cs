@@ -7,9 +7,10 @@ namespace Sisyphus.Web.Controllers
 
     public class StoryController : Controller
     {
+        [Authorize(Roles = "Writer")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateStory(string name, string backstory)
+        public ActionResult Create(string name, string backstory)
         {
             var userName = ContextWrapper.Instance.UserName;
             var service = new StoryService();
@@ -27,11 +28,13 @@ namespace Sisyphus.Web.Controllers
             return this.View(stories);
         }
 
+        [Authorize(Roles = "Writer")]
         public ActionResult Create()
         {
             return this.View();
         }
 
+        [Authorize(Roles = "Writer")]
         public ActionResult Edit(string name)
         {
             var userName = ContextWrapper.Instance.UserName;
@@ -40,6 +43,7 @@ namespace Sisyphus.Web.Controllers
             return this.View(story);
         }
 
+        [Authorize(Roles = "Writer")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Story story)

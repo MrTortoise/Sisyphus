@@ -1,9 +1,9 @@
 ﻿@model Sisyphus.Core.Model.Story
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create","Story"))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Story</h4>
         <hr />

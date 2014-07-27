@@ -26,7 +26,7 @@ namespace Sisyphus.Spec
             {
                 var name = row[0];
                 var backstory = row[1];
-                controller.CreateStory(name, backstory);
+                controller.Create(name, backstory);
             }
         }
 

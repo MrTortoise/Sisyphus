@@ -54,24 +54,28 @@
             }
         }
 
-        public Place GetPlace(string name)
+        public Place GetPlace(string name,string userName)
         {
             string conString = Config.GetConnectionString();
             Place place;
             using (var context = new SisyphusContext(conString))
             {
-                place = context.Places.SingleOrDefault(p => p.Name.ToLower().Equals(name.ToLower()));
+                var session = context.GetSessionForUser(userName);
+                place =
+                    context.Places.SingleOrDefault(
+                        p => p.Name.ToLower().Equals(name.ToLower()) && p.StoryId == session.StoryId);
             }
             return place;
         }
 
-        public Place GetPlace(int id)
+        public Place GetPlace(int id, string userName)
         {
             string conString = Config.GetConnectionString();
             Place place;
             using (var context = new SisyphusContext(conString))
             {
-                place = context.Places.SingleOrDefault(p => p.Id == id);
+                var session = context.GetSessionForUser(userName);
+                place = context.Places.SingleOrDefault(p => p.Id == id && p.StoryId == session.StoryId);
             }
             return place;
         }

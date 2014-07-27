@@ -12,6 +12,7 @@
     {
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Writer")]
         public ActionResult CreateRace(string name, string backStory)
         {
             var userName = ContextWrapper.Instance.UserName;
@@ -28,14 +29,16 @@
             return this.View(races);
         }
 
+        [Authorize(Roles = "Writer")]
         public ActionResult EditRace(string name)
         {
             var userName = ContextWrapper.Instance.UserName;
             var service = new RaceService();
-            var race = service.GetRace(name,userName);
+            var race = service.GetRace(name, userName);
             return this.View(race);
         }
 
+        [Authorize(Roles = "Writer")]
         public ActionResult Create()
         {
             return this.View();
@@ -43,6 +46,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Writer")]
         public ActionResult Edit(Race race)
         {
             var userName = ContextWrapper.Instance.UserName;
@@ -70,6 +74,7 @@
             return this.View(race);
         }
 
+        [Authorize(Roles = "Writer")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

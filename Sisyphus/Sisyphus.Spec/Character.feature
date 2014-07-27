@@ -3,14 +3,31 @@
 	As a writer
 	I want to be able to create and make characters interact
 
-Scenario: Create a Character with a back story
-	Given I have created a test database called "characterTest"	
-	When I create the following characters
-	| name | backstory    | race | sex   | 
-	| jim  | is some dude | last | kinda | 
-	Then I expect the following characters to exist
-	| name | backstory    | race | sex   |
-	| jim  | is some dude | last | kinda |	
+Background: 
+	Given I have set up configuration to use testConfig
+	And I set the config key "SessionTimeout" to "15"
+	And I set ContextWrapper To use TestContextWrapper 
+	And I set the user Identity to "writer@admin.com"
+	And I have set SisyphusDateTime to TestDateTime
+	And I have set the date to year "2014" Month "7" Day "20" hour "19" minute "24" second "12" millisecond "123"
+	And I have created a test database called "characterTest"
+	And I create a user with email "writer@admin.com" with password "testtest"
+	And I assign the following roles to user "writer@admin.com"
+		| role   |
+		| Admin  |
+		| Writer |
+		| Reader |
+	And I log in with the user "writer@admin.com" and password "testtest"
+	And I use the controller WriterHome
+	And I have created the stories
+	| name  | backStory                      |
+	| test1 | ooo itS BACK STORY             |
+	| test2 | COR HE THINKS ITS A WEAL STOWY |
+	And I select the story "test1"
+	And I create the following places
+	| name       | history  |
+	| testPlace  | history1 |
+	| testPlace2 | history1 |	
 
 Scenario: Move a character to a location
 	Given I have created a test database called "characterTest"	

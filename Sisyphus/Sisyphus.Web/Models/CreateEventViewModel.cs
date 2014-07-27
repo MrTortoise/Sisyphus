@@ -9,5 +9,7 @@ namespace Sisyphus.Web.Models
         public List<Place> Places { get; set; }
 
         public List<Character> Characters { get; set; }
+
+        public GameEvent Event { get; set; }
     }
 }

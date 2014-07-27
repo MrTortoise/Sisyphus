@@ -37,9 +37,52 @@
             @Html.DisplayFor(model => model.StoryId)
         </dd>
 
+        <dt>Outcomes</dt>
+        <dd>
+            @Html.Display(Model.ConstructOutcomeString())
+        </dd>
     </dl>
 
-    @using (Html.BeginForm()) {
+    <div>
+        <h5>Characters</h5>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Race</th>
+                <th>Sex</th>
+            </tr>
+
+            @foreach (var c in Model.Characters)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => c.Name)</td>
+                    <td>@Html.DisplayFor(m => c.Race.Name)</td>
+                    <td>@Html.DisplayFor(m => c.Sex.Name)</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div>
+        <h5>Places</h5>
+
+        <table>
+            <tr>
+                <th>Name</th>
+            </tr>
+
+            @foreach (var p in Model.Places)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => p.Name)</td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

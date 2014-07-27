@@ -18,6 +18,7 @@ namespace Sisyphus.Core.Model
         [Column("SexName")]
         [Index("SexUnique", 1, IsUnique = true)]
         [Required]
+        [Display(Name = "Name of Sex")]
         public string Name { get; set; }
 
         public string Description { get; set; }

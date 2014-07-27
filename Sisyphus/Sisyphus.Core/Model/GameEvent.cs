@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Sisyphus.Core.Model
 {
     using System;
@@ -12,7 +14,7 @@ namespace Sisyphus.Core.Model
         public int Id { get; set; }
 
         [Required]
-        [Index("GameEventUnique",1,IsUnique = true)]
+        [Index("GameEventUnique", 1, IsUnique = true)]
         [Column("GameEventName", TypeName = "nvarchar")]
         [MaxLength(100)]
         public string Name { get; set; }
@@ -39,5 +41,25 @@ namespace Sisyphus.Core.Model
         [Index("GameEventUnique", 2, IsUnique = true)]
         [Required]
         public int StoryId { get; set; }
+
+        public GameEvent()
+        {
+            Outcomes=new HashSet<Outcome>();
+            Places = new HashSet<Place>();
+            Characters=new HashSet<Character>();
+        }
+
+        public string ConstructOutcomeString()
+        {
+            var sb = new StringBuilder();
+            Outcomes.ToList().ForEach(o => sb.Append(o.Name + ", "));
+            var outcomeString = sb.ToString();
+            if (!string.IsNullOrWhiteSpace(outcomeString))
+            {
+                outcomeString = outcomeString.Substring(0, outcomeString.Length - 2);
+            }
+
+            return outcomeString;
+        }
     }
 }

@@ -27,10 +27,56 @@
         <dd>
             @Html.DisplayFor(model => model.Duration)
         </dd>
+        
+        <dt>Outcomes</dt>
+        <dd>
+            <ul>
+                @foreach (var o in Model.Outcomes)
+                {
+                    <li>@Html.DisplayFor(m=>o.Name)</li>
+                }
+            </ul>
+        </dd>
+
+        <dt>
+            Characters
+        </dt>
+        <dd>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Sex</th>
+                    <th>Race</th>
+                </tr>
+                @foreach (var c in Model.Characters)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => c.Name)</td>
+                        <td>@Html.DisplayFor(m => c.Sex.Name)</td>
+                        <td>@Html.DisplayFor(m => c.Race.Name)</td>
+                    </tr>
+
+                }
+            </table>
+        </dd>
+        <dt>
+            Places
+        </dt>
+        <dd>
+            <table>
+                <tr><th>Name</th></tr>
+                @foreach (var p in Model.Places)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m=>p.Name)</td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { name = Model.Name}) |
+    @Html.ActionLink("Edit", "Edit", new { name = Model.Name }) |
     @Html.ActionLink("Delete", "Delete", new { name = Model.Name }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

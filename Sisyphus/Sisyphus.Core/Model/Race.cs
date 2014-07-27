@@ -10,8 +10,9 @@ namespace Sisyphus.Core.Model
 
         [MaxLength(25)]
         [Column("RaceName")]
-        [Index("SexUnique", 1, IsUnique = true)]
+        [Index("RaceUnique", 1, IsUnique = true)]
         [Required]
+        [Display(Name = "Name of Race")]
         public string Name { get; set; }
 
         public string BackStory { get; set; }
@@ -19,7 +20,7 @@ namespace Sisyphus.Core.Model
         [Required]
         public virtual Story Story { get; set; }
 
-        [Index("SexUnique", 2, IsUnique = true)]
+        [Index("RaceUnique", 2, IsUnique = true)]
         [Required]
         public int StoryId { get; set; }
     }

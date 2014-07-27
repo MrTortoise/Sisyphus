@@ -1,4 +1,5 @@
-﻿@model Sisyphus.Web.Models.GameEventEditViewModel
+﻿@using Sisyphus.Core.Model
+@model Sisyphus.Web.Models.GameEventEditViewModel
 
 @{
     ViewBag.Title = "Edit Event";
@@ -14,17 +15,22 @@
 
     @using (Html.BeginForm("Edit", "Event"))
     {
+
+        var outcomes = Model.OutComes;
+        var gameEventId = Model.GameEvent.Id;
+        var name = Model.GameEvent.Name;
+        var description = Model.GameEvent.Description;
+        var duration = Model.GameEvent.Duration;
+        var eventType = Model.GameEvent.EventType;
+
         @Html.AntiForgeryToken()
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.GameEvent.Id)
-        @Html.HiddenFor(model => model.GameEvent.StoryId)
-        @Html.HiddenFor(model => model.GameEvent.TimeStamp)
-
+        @Html.HiddenFor(m => gameEventId)
         <div class="form-group">
             @Html.LabelFor(model => model.GameEvent.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.GameEvent.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GameEvent.Name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -32,7 +38,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.GameEvent.Description, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.GameEvent.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GameEvent.Description, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -40,8 +46,22 @@
         <div class="form-group">
             @Html.LabelFor(model => model.GameEvent.Duration, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.GameEvent.Duration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => duration, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GameEvent.Duration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GameEvent.EventType, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(m => eventType)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Outcomes", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => outcomes, new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
 
@@ -51,19 +71,136 @@
             </div>
         </div>
     }
+    
+    <div>
+        <h4>Remove characters</h4>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayFor(m => (new Character()).Name)
+                </th>
+                <th></th>
+            </tr>
 
-    @using (Html.BeginForm("AddCharacterToEvent", "Event"))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.GameEvent.Id)
-        @Html.HiddenFor(model => model.GameEvent.StoryId)
-        @Html.HiddenFor(model => model.GameEvent.TimeStamp)
+            @foreach (var character in Model.GameEvent.Characters)
+            {
+                using (Html.BeginForm("RemoveCharacterFromEvent", "Event"))
+                {
+                    var eventId = Model.GameEvent.Id;
+                    var characterId = character.Id;
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => eventId)
+                    @Html.HiddenFor(m => characterId)
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => character.Name)
+                        </td>
+                        <td>
+                            <input type="submit" value="Remove from event" class="btn btn-default" />
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    
+    <div>
+        <h4>Add characters</h4>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayFor(m => (new Character()).Name)
+                </th>
+                <th></th>
+            </tr>
 
+            @foreach (var character in Model.Characters)
+            {
+                using (Html.BeginForm("AddCharacterToEvent", "Event"))
+                {
+                    var eventId = Model.GameEvent.Id;
+                    var characterId = character.Id;
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => eventId)
+                    @Html.HiddenFor(m => characterId)
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => character.Name)
+                        </td>
+                        <td>
+                            <input type="submit" value="Add to event" class="btn btn-default" />
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    
+    <div>
+        <h4>Remove Places</h4>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayFor(m => (new Place()).Name)
+                </th>
+                <th></th>
+            </tr>
 
-    }
+            @foreach (var place in Model.GameEvent.Places)
+            {
+                using (Html.BeginForm("RemovePlaceFromEvent", "Event"))
+                {
+                    var eventId = Model.GameEvent.Id;
+                    var placeId = place.Id;
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => eventId)
+                    @Html.HiddenFor(m => placeId)
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => place.Name)
+                        </td>
+                        <td>
+                            <input type="submit" value="Remove from event" class="btn btn-default" />
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    
+    <div>
+        <h4>Add Places</h4>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayFor(m => (new Place()).Name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var place in Model.Places)
+            {
+                using (Html.BeginForm("AddPlaceToEvent", "Event"))
+                {
+                    var eventId = Model.GameEvent.Id;
+                    var placeId = place.Id;
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => eventId)
+                    @Html.HiddenFor(m => placeId)
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => place.Name)
+                        </td>
+                        <td>
+                            <input type="submit" value="Add to event" class="btn btn-default" />
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
 </div>
-}
+
 
 
 

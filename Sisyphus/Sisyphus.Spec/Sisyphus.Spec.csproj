@@ -207,6 +207,7 @@
       <DependentUpon>RaceFeature.feature</DependentUpon>
     </Compile>
     <Compile Include="RaceFeatureSteps.cs" />
+    <Compile Include="ScenarioContextExtensions.cs" />
     <Compile Include="Session.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

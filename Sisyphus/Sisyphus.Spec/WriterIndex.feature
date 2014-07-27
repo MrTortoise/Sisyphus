@@ -47,6 +47,10 @@ Scenario: Navigate to the Time editor
 	When I click open Time editor on the writer index
 	Then The resulting RedirectToRouteResult should be to controller "Time" action "Index"
 
+Scenario: Navigate to the Event Editor
+	When I click open event Editor on the writer index
+	Then The resulting RedirectToRouteResult should be to controller "Event" action "Index"
+
 Scenario: Navigate to the Event Sequencer
 	When I click open event sequencer on the writer index
 	Then The resulting RedirectToRouteResult should be to controller "EventSequencer" action "Index"

@@ -94,6 +94,15 @@ namespace Sisyphus.Spec
             ScenarioContext.Current.Add(ActionStepsHelpers.ReturnedResult, result);
         }
 
+        [When(@"I click open event Editor on the writer index")]
+        public void WhenIClickOpenEventEditorOnTheWriterIndex()
+        {
+            var controller = (WriterController)ScenarioContext.Current[WriterControllerName];
+            var result = controller.EventEditor();
+            ScenarioContext.Current.Add(ActionStepsHelpers.ReturnedResult, result);
+        }
+
+
         [When(@"I click open race editor on the writer index")]
         public void WhenIClickOpenRaceEditorOnTheWriterIndex()
         {
