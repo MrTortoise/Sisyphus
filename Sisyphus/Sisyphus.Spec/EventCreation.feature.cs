@@ -252,14 +252,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table9.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 63
  testRunner.Given("I create the following events", ((string)(null)), table9, "Given ");
 #line 66
@@ -269,14 +267,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table10.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 67
  testRunner.Then("I expec the eventIndexViewModel to contain the following events", ((string)(null)), table10, "Then ");
 #line hidden
@@ -284,14 +280,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table11.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 70
  testRunner.Then("I expect the following events to exist", ((string)(null)), table11, "Then ");
 #line hidden
@@ -312,14 +306,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table12.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 75
  testRunner.Given("I create the following events", ((string)(null)), table12, "Given ");
 #line 78
@@ -329,14 +321,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table13.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 79
  testRunner.Then("I expect to see the following event in Event Details", ((string)(null)), table13, "Then ");
 #line hidden
@@ -359,14 +349,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table14.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 85
  testRunner.Given("I create the following events", ((string)(null)), table14, "Given ");
 #line 88
@@ -398,14 +386,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table17.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 99
  testRunner.And("I expect the event editor to have the following Event selected", ((string)(null)), table17, "And ");
 #line hidden
@@ -426,14 +412,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table18.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 104
  testRunner.Given("I create the following events", ((string)(null)), table18, "Given ");
 #line 107
@@ -488,14 +472,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table21.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 117
  testRunner.Given("I create the following events", ((string)(null)), table21, "Given ");
 #line hidden
@@ -536,14 +518,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table24.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 132
  testRunner.Given("I create the following events", ((string)(null)), table24, "Given ");
 #line hidden
@@ -589,14 +569,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table28.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 149
  testRunner.Given("I create the following events", ((string)(null)), table28, "Given ");
 #line hidden
@@ -637,14 +615,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table31.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 163
  testRunner.Given("I create the following events", ((string)(null)), table31, "Given ");
 #line hidden
@@ -690,14 +666,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table35.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 180
  testRunner.Given("I create the following events", ((string)(null)), table35, "Given ");
 #line 183
@@ -707,14 +681,12 @@ this.FeatureBackground();
                         "name",
                         "Description",
                         "Outcomes",
-                        "Duration",
-                        "Event Type"});
+                        "Duration"});
             table36.AddRow(new string[] {
                         "testEvent",
                         "a test event to show how things work",
                         "passed, failed, war",
-                        "3",
-                        "Story"});
+                        "3"});
 #line 184
  testRunner.Then("I expect the delete event view to have the following event selected", ((string)(null)), table36, "Then ");
 #line hidden

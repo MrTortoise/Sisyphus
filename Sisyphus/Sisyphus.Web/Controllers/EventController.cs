@@ -37,14 +37,14 @@ namespace Sisyphus.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string name, string description, int duration, EventType eventType, string outcomes)
+        public ActionResult Create(string name, string description, int duration, string outcomes)
         {
             var eventService = new EventService();
 
             var outcomeList = outcomes.Split(',').ToList();
 
             var userName = ContextWrapper.Instance.UserName;
-            var ge = eventService.CreateEvent(name, description, duration, eventType, outcomeList, userName);
+            var ge = eventService.CreateEvent(name, description, duration, outcomeList, userName);
 
             return RedirectToAction("Edit", "Event", new {name = ge.Name});
         }

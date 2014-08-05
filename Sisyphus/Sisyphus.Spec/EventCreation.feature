@@ -61,30 +61,30 @@ Scenario: open event creation - verify the viewmodel
 
 Scenario: Create an event
 	Given I create the following events
-		| name      | Description                          | Outcomes            | Duration | Event Type | 
-		| testEvent | a test event to show how things work | passed, failed, war | 3        | Story      | 
+		| name      | Description                          | Outcomes            | Duration | 
+		| testEvent | a test event to show how things work | passed, failed, war | 3        | 
 	When I open the event controller
 	Then I expec the eventIndexViewModel to contain the following events
-		| name      | Description                          | Outcomes            | Duration | Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war | 3        | Story      |
+		| name      | Description                          | Outcomes            | Duration | 
+		| testEvent | a test event to show how things work | passed, failed, war | 3        | 
 	Then I expect the following events to exist
-		| name      | Description                          | Outcomes            | Duration | Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war | 3        | Story      |
+		| name      | Description                          | Outcomes            | Duration | 
+		| testEvent | a test event to show how things work | passed, failed, war | 3        | 
 
 Scenario: Click view event details in the list of events
 	Given I create the following events
-		| name      | Description                          | Outcomes           |   Duration | Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war|   3        | Story      |
+		| name      | Description                          | Outcomes           |   Duration |
+		| testEvent | a test event to show how things work | passed, failed, war|   3        |
 	When I click view event details for event "testEvent"
 	Then I expect to see the following event in Event Details
-		| name      | Description                          | Outcomes           |   Duration | Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war|   3        | Story      |
+		| name      | Description                          | Outcomes           |   Duration |
+		| testEvent | a test event to show how things work | passed, failed, war|   3        |
 
 
 Scenario: Click edit Event - require viewmodel to contain list of all places and characters 
 	Given I create the following events
-		| name      | Description                          | Outcomes           |   Duration |  Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war|   3        |  Story      |
+		| name      | Description                          | Outcomes           |   Duration | 
+		| testEvent | a test event to show how things work | passed, failed, war|   3        | 
 	When I edit the Event "testEvent"
 	Then I expect event event editor to have the following places
 		| name       |
@@ -97,13 +97,13 @@ Scenario: Click edit Event - require viewmodel to contain list of all places and
 		| jim3 |
 		| jim4 |
 	And I expect the event editor to have the following Event selected
-		| name      | Description                          | Outcomes            |  Duration | Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war |  3        | Story      |
+		| name      | Description                          | Outcomes            |  Duration | 
+		| testEvent | a test event to show how things work | passed, failed, war |  3        | 
 
 Scenario: Edit an event, save it and verify the changes took
 	Given I create the following events
-		| name      | Description                          | Outcomes           |   Duration |  Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war|   3        |  Story      |
+		| name      | Description                          | Outcomes           |   Duration |  
+		| testEvent | a test event to show how things work | passed, failed, war|   3        |  
 	And I click view event details for event "testEvent"
 	When I set the values in that event to the following
 		| name         | Description | Outcomes | Duration | Event Type |
@@ -115,8 +115,8 @@ Scenario: Edit an event, save it and verify the changes took
 
 Scenario: Edit an event, add a character to it
 	Given I create the following events
-		| name      | Description                          | Outcomes           |   Duration |  Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war|   3        |  Story      |
+		| name      | Description                          | Outcomes           |   Duration | 
+		| testEvent | a test event to show how things work | passed, failed, war|   3        | 
 	When I add the following characters to the event "testEvent"
          | name |
          | jim  |
@@ -130,8 +130,8 @@ Scenario: Edit an event, add a character to it
 
 Scenario: Edit an event, remove some added characters.
 	Given I create the following events
-		| name      | Description                          | Outcomes           |   Duration |  Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war|   3        |  Story      |
+		| name      | Description                          | Outcomes           |   Duration | 
+		| testEvent | a test event to show how things work | passed, failed, war|   3        | 
 	And I add the following characters to the event "testEvent"
          | name |
          | jim  |
@@ -147,8 +147,8 @@ Scenario: Edit an event, remove some added characters.
 
 Scenario: Edit an event, add some places to it
 	Given I create the following events
-		| name      | Description                          | Outcomes           |   Duration |  Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war|   3        |  Story      |
+		| name      | Description                          | Outcomes           |   Duration | 
+		| testEvent | a test event to show how things work | passed, failed, war|   3        | 
 	When I add the following places to the event "testEvent"
          | name       |
          | testPlace  |
@@ -161,8 +161,8 @@ Scenario: Edit an event, add some places to it
 
 Scenario: Edit an event, remove some added places.
 	Given I create the following events
-		| name      | Description                          | Outcomes           |   Duration |  Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war|   3        |  Story      |
+		| name      | Description                          | Outcomes           |   Duration | 
+		| testEvent | a test event to show how things work | passed, failed, war|   3        | 
 	And I add the following places to the event "testEvent"
          | name       |
          | testPlace  |
@@ -178,12 +178,12 @@ Scenario: Edit an event, remove some added places.
 
 Scenario: click delete event in index expect to get delete event view
 	Given I create the following events
-		| name      | Description                          | Outcomes           |   Duration | Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war|   3        | Story      |
+		| name      | Description                          | Outcomes           |   Duration |
+		| testEvent | a test event to show how things work | passed, failed, war|   3        |
 	When I click delete event "testEvent" in Index
 	Then I expect the delete event view to have the following event selected
-		| name      | Description                          | Outcomes           |   Duration | Event Type |
-		| testEvent | a test event to show how things work | passed, failed, war|   3        | Story      |
+		| name      | Description                          | Outcomes           |   Duration |
+		| testEvent | a test event to show how things work | passed, failed, war|   3        |
 
 Scenario: Delete an event
 	Given I create the following events

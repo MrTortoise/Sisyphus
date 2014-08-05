@@ -201,15 +201,10 @@
     <Compile Include="Controllers\SexController.cs" />
     <Compile Include="Controllers\StoryController.cs" />
     <Compile Include="Controllers\testController.cs" />
-    <Compile Include="Migrations\201407132215394_initial.cs" />
-    <Compile Include="Migrations\201407132215394_initial.Designer.cs">
-      <DependentUpon>201407132215394_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201408052219483_initial.cs" />
+    <Compile Include="Migrations\201408052219483_initial.Designer.cs">
+      <DependentUpon>201408052219483_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407271043579_outcomeTweak.cs" />
-    <Compile Include="Migrations\201407271043579_outcomeTweak.Designer.cs">
-      <DependentUpon>201407271043579_outcomeTweak.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration - Copy.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CharacterBrowserIndexViewModel.cs" />
     <Compile Include="Controllers\EventController.cs" />
@@ -362,11 +357,8 @@
     <Folder Include="Views\Dashboard\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407132215394_initial.resx">
-      <DependentUpon>201407132215394_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201407271043579_outcomeTweak.resx">
-      <DependentUpon>201407271043579_outcomeTweak.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201408052219483_initial.resx">
+      <DependentUpon>201408052219483_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

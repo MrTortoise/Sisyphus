@@ -11,7 +11,7 @@ Background:
 	And I set the user Identity to "writer@admin.com"
 	And I have set SisyphusDateTime to TestDateTime
 	And I have set the date to year "2014" Month "7" Day "20" hour "19" minute "24" second "12" millisecond "123"
-	And I have created a test database called "eventsTest"	
+	And I have created a test database called "eventSequencer"	
 	And I create a user with email "writer@admin.com" with password "testtest"
 	And I assign the following roles to user "writer@admin.com"
 		| role   |
@@ -43,21 +43,44 @@ Background:
 		| jim3 | none      | foot | rarley   | somewhere |
 		| jim4 | none      | foot | bannanas | somewhere |
 	And I create the following events
-		| name       | Description                          | Outcomes            | Places    | Duration | Characters | Event Type |
-		| testEvent  | a test event to show how things work |                     | testPlace | 3        | jim,jim3   | story      |
-		| testEvent2 | a test event to show how things work |                     | testPlace | 3        | jim,jim4   | story      |
-		| testEvent3 | decision event                       | passed, failed, war | testPlace | 3        | jim,jim4   | decision   |
-		| testEvent4 | decision event                       | passed, failed, war | testPlace | 3        | jim,jim4   | decision   |
+		| name       | Description                          | Outcomes            | Duration | event type |
+		| testEvent  | a test event to show how things work |                     | 3        | story      |
+		| testEvent2 | another test event                   |                     | 3        | story      |
+		| testEvent3 | and another test event               | passed, failed, war | 3        | decision   |
+		| testEvent4 | decision event                       | passed, failed, war | 3        | decision   |
+	And I add the following characters to the event "testEvent"
+		| name |
+		| jim  |
+		| jim4 |
+	And I add the following characters to the event "testEvent2"
+		| name |
+		| jim  |
+		| jim4 |
+	And I add the following characters to the event "testEvent3"
+		| name |
+		| jim4 |
+		| jim  |
+	And I add the following characters to the event "testEvent4"
+		| name |
+		| jim4 |
+		| jim  |
 
 Scenario: Open the event sequencer before anything has been chained should have start node and all events available for selection
 	When I open the Event Sequencer Index
-	Then I expect the Sequence nodes to contain
-		|Name|
+	Then I expect the Sequenced nodes to contain
+		| Name        |
+		| Story Start |
+	And I expect the events available for attachment to be the following
+		| name       |
+		| testEvent  |
+		| testEvent2 |
+		| testEvent3 |
+		| testEvent4 |
 
-Scenario: Open event sequencer and select an event
+Scenario: Open event sequencer and select the story start event, and an event to attach then click attach
 	Given I open the view "EventSequencer"
-	When I select the event "testEvent"
-	Then I expect the event sequencer to have the event "testEvent" selected
+	When I select the sequenced event "Story Start" and the event "testEvent" then attach them
+	Then I expect the event "testEvent" to be atached to the event "Story Start"
 
 Scenario: Open the event editor with the correct event
 	Given I open the view "EventSequencer"

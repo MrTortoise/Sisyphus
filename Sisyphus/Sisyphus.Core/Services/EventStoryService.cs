@@ -27,6 +27,7 @@ namespace Sisyphus.Core.Services
 
                 context.StoryItems.Add(si);
                 context.SaveChanges();
+                return si;
             }
         }
     }

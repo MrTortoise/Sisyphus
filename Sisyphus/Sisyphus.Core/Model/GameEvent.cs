@@ -21,20 +21,11 @@ namespace Sisyphus.Core.Model
 
         public string Description { get; set; }
 
-        public virtual ICollection<Outcome> Outcomes { get; set; }
-
-        public virtual ICollection<Place> Places { get; set; }
-
         [Required]
         public int Duration { get; set; }
 
-        public virtual ICollection<Character> Characters { get; set; }
-
-        [Required]
-        public EventType EventType { get; set; }
-
-        [Timestamp]
-        public Byte[] TimeStamp { get; set; }
+        //[Required]
+        //public EventType EventType { get; set; }
 
         public virtual Story Story { get; set; }
 
@@ -42,11 +33,27 @@ namespace Sisyphus.Core.Model
         [Required]
         public int StoryId { get; set; }
 
+        public virtual ICollection<Character> Characters { get; set; }
+
+
+        [InverseProperty("TargetGameEvent")]
+        public virtual ICollection<Outcome> ParentOutcomes { get; set; }
+
+        [InverseProperty("ParentGameEvent")]
+        public virtual ICollection<Outcome> TargetOutcomes { get; set; }
+
+        public virtual ICollection<Place> Places { get; set; }
+
         public virtual ICollection<StoryItem> StoryItems { get; set; }
+
+        [Timestamp]
+        public Byte[] TimeStamp { get; set; }
+
+
 
         public GameEvent()
         {
-            Outcomes=new HashSet<Outcome>();
+            TargetOutcomes=new HashSet<Outcome>();
             Places = new HashSet<Place>();
             Characters=new HashSet<Character>();
         }
@@ -54,7 +61,7 @@ namespace Sisyphus.Core.Model
         public string ConstructOutcomeString()
         {
             var sb = new StringBuilder();
-            Outcomes.ToList().ForEach(o => sb.Append(o.Name + ", "));
+            TargetOutcomes.ToList().ForEach(o => sb.Append(o.Name + ", "));
             var outcomeString = sb.ToString();
             if (!string.IsNullOrWhiteSpace(outcomeString))
             {

@@ -5,6 +5,9 @@ namespace Sisyphus.Core.Model
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
+    /// <summary>
+    /// Character in a story.
+    /// </summary>
     public class Character
     {
         [Key]

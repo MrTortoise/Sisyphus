@@ -42,11 +42,20 @@ Background:
 		| jim3 | none      | foot | rarley   | somewhere |
 		| jim4 | none      | foot | bannanas | somewhere |
 	And I create the following events
-		| name      | Description                          | Outcomes            | Duration |
-		| testEvent | a test event to show how things work | passed, failed, war | 3        |
+		| name       | Description                          | Outcomes            | Duration |
+		| testEvent  | a test event to show how things work | passed, failed, war | 3        |
+		| testEvent2 | another test event                   | another             | 3        |
+		| testEvent3 | and another test event               | next                | 3        |
 	And I add the following characters to the event "testEvent"
 		| name |
 		| jim  |
+		| jim3 |
+	And I add the following characters to the event "testEvent2"
+		| name |
+		| jim  |
+		| jim3 |
+	And I add the following characters to the event "testEvent3"
+		| name |
 		| jim3 |
 
 Scenario: Add dialogue to an event
