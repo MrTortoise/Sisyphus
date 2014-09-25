@@ -127,19 +127,13 @@ this.ScenarioSetup(scenarioInfo);
                         "name",
                         "Description",
                         "Outcomes",
-                        "Places",
                         "Duration",
-                        "Characters",
-                        "Event Type",
                         "Story"});
             table3.AddRow(new string[] {
                         "Story Start",
                         "Story Start",
-                        "",
-                        "",
+                        "StoryStartOutcome",
                         "0",
-                        "",
-                        "StoryStart",
                         "test1"});
 #line 28
  testRunner.Then("I expect the following events to exist", ((string)(null)), table3, "Then ");

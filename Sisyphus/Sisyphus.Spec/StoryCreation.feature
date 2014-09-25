@@ -26,8 +26,8 @@ Scenario: Create a story and verify its initialisation state
 		| test1 | ooo itS BACK STORY |
 	And I select the story "test1"
 	Then I expect the following events to exist
-		| name        | Description | Outcomes | Places | Duration | Characters | Event Type | Story |
-		| Story Start | Story Start |          |        | 0        |            | StoryStart | test1 |
+		| name        | Description | Outcomes          |  Duration |   Story |
+		| Story Start | Story Start | StoryStartOutcome |  0        |   test1 |
 
 Scenario: Create some stories and verify they are in the index
 	Given I have created the stories

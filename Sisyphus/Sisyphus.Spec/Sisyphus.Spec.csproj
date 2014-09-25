@@ -178,6 +178,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EventSequencer.feature</DependentUpon>
     </Compile>
+    <Compile Include="EventStorySteps.cs" />
     <Compile Include="Places.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

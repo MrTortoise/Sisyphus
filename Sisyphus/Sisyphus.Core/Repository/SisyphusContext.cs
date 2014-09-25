@@ -39,6 +39,7 @@
         public DbSet<Sex> Sexes { get; set; }
 
         public DbSet<Outcome> Outcomes { get; set; }
+        public DbSet<StoryItem> StoryItems { get; set; }
 
         #endregion
 

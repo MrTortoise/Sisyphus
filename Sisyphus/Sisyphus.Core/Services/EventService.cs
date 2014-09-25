@@ -60,17 +60,23 @@ namespace Sisyphus.Core.Services
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
             {
-                var session = context.GetSessionForUser(userName);
-                var retVal =
-                    context.GameEvents.Where(e => e.Name == eventName && e.StoryId == session.StoryId)
-                        .Include(e => e.Outcomes)
-                        .Include(e => e.Places)
-                        .Include(e => e.Characters.Select(c=>c.Race))
-                         .Include(e => e.Characters.Select(c=>c.Sex))
-                        .SingleOrDefault();
-            
+                var retVal = GetGameEvent(eventName, userName, context);
                 return retVal;
             }
+        }
+
+        private static GameEvent GetGameEvent(string eventName, string userName, SisyphusContext context)
+        {
+            var session = context.GetSessionForUser(userName);
+            var retVal =
+                context.GameEvents.Where(e => e.Name == eventName && e.StoryId == session.StoryId)
+                    .Include(e => e.TargetOutcomes)
+                    .Include(e => e.Places)
+                    .Include(e => e.Characters.Select(c => c.Race))
+                    .Include(e => e.Characters.Select(c => c.Sex))
+                    .Include(e => e.StoryItems)
+                    .SingleOrDefault();
+            return retVal;
         }
 
         public List<GameEvent> GetEvents(string userName)
@@ -81,9 +87,10 @@ namespace Sisyphus.Core.Services
                 var session = context.GetSessionForUser(userName);
                 var events =
                     context.GameEvents.Where(e => e.StoryId == session.StoryId)
-                        .Include(e => e.Outcomes)
+                        .Include(e => e.TargetOutcomes)
                         .Include(e => e.Places)
                         .Include(e => e.Characters)
+                        .Include(e=>e.StoryItems)
                         .OrderBy(e => e.Name);
                 return events.ToList();
             }
@@ -98,10 +105,10 @@ namespace Sisyphus.Core.Services
                 {
                     var session = context.GetSessionForUser(userName);
                     var gameEvent = context.GameEvents.Single(e => e.Name == name && session.StoryId == e.StoryId);
-                    var outcomes = gameEvent.Outcomes.ToList();
+                    var outcomes = gameEvent.TargetOutcomes.ToList();
                     foreach (var outcome in outcomes)
                     {
-                        gameEvent.Outcomes.Remove(outcome);
+                        gameEvent.TargetOutcomes.Remove(outcome);
                         context.Outcomes.Remove(outcome);
                     }
 
@@ -120,7 +127,7 @@ namespace Sisyphus.Core.Services
                 using (var tran = context.Database.BeginTransaction())
                 {
                     var gameEvent = context.GameEvents.Single(e => e.Id == model.Id);
-                    var outcomes = gameEvent.Outcomes.ToList();
+                    var outcomes = gameEvent.TargetOutcomes.ToList();
                     foreach (var outcome in outcomes)
                     {
                         context.Outcomes.Remove(outcome);
@@ -170,8 +177,7 @@ namespace Sisyphus.Core.Services
             }
         }
 
-        public GameEvent CreateEvent(string eventName, string description, int duration, EventType eventType,
-            List<string> outcomes, string userName)
+        public GameEvent CreateEvent(string eventName, string description, int duration, List<string> outcomes, string userName)
         {
             var conStr = Config.GetConnectionString();
             using (var context = new SisyphusContext(conStr))
@@ -182,7 +188,6 @@ namespace Sisyphus.Core.Services
                     {
                         Name = eventName,
                         Description = description,
-                        EventType = eventType,
                         Duration = duration
                     };
                     var session = context.GetSessionForUser(userName);
@@ -194,8 +199,9 @@ namespace Sisyphus.Core.Services
                     {
                         var o = new Outcome()
                         {
-                            GameEvent = gameEvent,
-                            Name = outcome
+                            ParentGameEvent = gameEvent,
+                            Name = outcome,
+                            FriendlyName = outcome
                         };
 
                         context.Outcomes.Add(o);
@@ -204,6 +210,7 @@ namespace Sisyphus.Core.Services
                     context.SaveChanges();
                     tran.Commit();
 
+                    gameEvent = GetGameEvent(eventName, userName, context);
                     return gameEvent;
                 }
             }
@@ -219,13 +226,13 @@ namespace Sisyphus.Core.Services
                 using (var tran = context.Database.BeginTransaction())
                 {
                     var ge = context.GameEvents.Single(e => e.Id == gameEventId);
-                    var eventOutcomes = ge.Outcomes.ToList();
+                    var eventOutcomes = ge.TargetOutcomes.ToList();
 
                     //remove deleted
                     var deleted = eventOutcomes.Where(o => !outcomeNameList.Contains(o.Name));
                     foreach (var delItem in deleted)
                     {
-                        ge.Outcomes.Remove(delItem);
+                        ge.TargetOutcomes.Remove(delItem);
                         context.Outcomes.Remove(delItem);
                     }
 
@@ -233,13 +240,12 @@ namespace Sisyphus.Core.Services
                     var added = outcomeNameList.Where(i => !eventOutcomes.Select(o => o.Name).Contains(i));
                     foreach (var i in added)
                     {
-                        var add = new Outcome() {GameEvent = ge, Name = i, GameEventId = ge.Id};
+                        var add = new Outcome() {ParentGameEvent = ge, Name = i};
                         context.Outcomes.Add(add);
                     }
 
                     ge.Name = name;
                     ge.Description = description;
-                    ge.EventType = eventType;
                     ge.Duration = duration;
 
                     context.SaveChanges();

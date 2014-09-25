@@ -32,13 +32,11 @@ namespace Sisyphus.Spec
             {
                 var name = tableRow[0];
                 var description = tableRow[1];
-                var outcomes = tableRow[2].Split(',').ToList();
+                var outcomes = tableRow[2];
                 var duration = tableRow[3].AsInt();
-                var eventTypeInt = tableRow[4].AsInt();
-                var eventType = (EventType)eventTypeInt;
 
 
-                controller.Create(name, description, duration, eventType, tableRow[2]);
+                controller.Create(name, description, duration, outcomes);
 
                 //  controller.Create(gameEvent);
             }
@@ -115,20 +113,18 @@ namespace Sisyphus.Spec
                 var description = tableRow[1];
                 var outcomes = tableRow[2].Split(',').ToList();
                 var duration = tableRow[3].AsInt();
-                var eventTypeString = tableRow[4];
-                var eventType = Enum.Parse(typeof(EventType), eventTypeString);
+
 
                 Assert.Contains(name, model.Events.Select(e => e.Name).ToList());
                 var gameEvent = model.Events.Single(e => e.Name == name);
 
-                Assert.IsNotNull(gameEvent);
+                Assert.IsNotNull(gameEvent, string.Format("game event: {0} was not in viewmodel", name));
                 Assert.AreEqual(description, gameEvent.Description);
                 Assert.AreEqual(duration, gameEvent.Duration);
-                Assert.AreEqual(eventType, gameEvent.EventType);
 
                 foreach (var outcome in outcomes.Where(s => !string.IsNullOrWhiteSpace(s)))
                 {
-                    Assert.IsTrue(gameEvent.Outcomes.Any(o => o.Name == outcome));
+                    Assert.IsTrue(gameEvent.TargetOutcomes.Any(o => o.Name == outcome),string.Format("game event did not contain outcome: {0}",outcome));
                 }
                 //foreach (var place in places.Where(s => !string.IsNullOrWhiteSpace(s)))
                 //{
@@ -141,7 +137,7 @@ namespace Sisyphus.Spec
 
                 if (tableRow.ContainsKey("Story"))
                 {
-                    var story = tableRow[7];
+                    var story = tableRow[4];
                     Assert.AreEqual(story, gameEvent.Story.Name);
                 }
             }
@@ -216,14 +212,14 @@ namespace Sisyphus.Spec
             var duration = int.Parse(table.Rows[0][3]);
             //var charactersString = table.Rows[0][5];
             //var characterNames = charactersString.Split(',');
-            var eventType = Enum.Parse(typeof(EventType), table.Rows[0][4]);
+            //var eventType = Enum.Parse(typeof(EventType), table.Rows[0][4]);
 
 
             Assert.AreEqual(name, model.Name);
             Assert.AreEqual(description, model.Description);
             foreach (var outcome in outcomes)
             {
-                Assert.IsTrue(model.Outcomes.Select(o => o.Name).Contains(outcome));
+                Assert.IsTrue(model.TargetOutcomes.Select(o => o.Name).Contains(outcome));
             }
             //foreach (var place in places)
             //{
@@ -234,7 +230,7 @@ namespace Sisyphus.Spec
             //{
             //    Assert.IsTrue(model.Characters.Select(c => c.Name).Contains(characterName));
             //}
-            Assert.AreEqual(eventType, model.EventType);
+            //Assert.AreEqual(eventType, model.EventType);
 
         }
 
@@ -263,14 +259,14 @@ namespace Sisyphus.Spec
             var duration = int.Parse(table.Rows[0][3]);
             //var charactersString = table.Rows[0][5];
             //var characterNames = charactersString.Split(',');
-            var eventType = Enum.Parse(typeof(EventType), table.Rows[0][4]);
+            //var eventType = Enum.Parse(typeof(EventType), table.Rows[0][4]);
 
 
             Assert.AreEqual(name, model.Name);
             Assert.AreEqual(description, model.Description);
             foreach (var outcome in outcomes)
             {
-                Assert.IsTrue(model.Outcomes.Select(o => o.Name).Contains(outcome));
+                Assert.IsTrue(model.TargetOutcomes.Select(o => o.Name).Contains(outcome));
             }
             //foreach (var place in places)
             //{
@@ -281,7 +277,7 @@ namespace Sisyphus.Spec
             //{
             //    Assert.IsTrue(model.Characters.Select(c => c.Name).Contains(characterName));
             //}
-            Assert.AreEqual(eventType, model.EventType);
+            //Assert.AreEqual(eventType, model.EventType);
         }
 
         [When(@"I click delete event ""(.*)"" in Index")]

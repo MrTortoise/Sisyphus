@@ -11,6 +11,8 @@ namespace Sisyphus.Core.Services
     public class StoryService
     {
         public const string StoryStartString = "Story Start";
+        public const string StoryStartOutcomeFriendlyName = "Story Start Outcome";
+        public const string StoryStartOutcomeName = "StoryStartOutcome";
 
         public void CreateStory(string name, string backstory, string userName)
         {
@@ -22,13 +24,20 @@ namespace Sisyphus.Core.Services
                     var story = new Story() { BackStory = backstory, Name = name };
                     context.Stories.Add(story);
 
+                    var storyStartOutcome = new Outcome()
+                    {
+                        FriendlyName = StoryStartOutcomeFriendlyName,
+                        Name = StoryStartOutcomeName
+                    };
+
                     var startEvent = new GameEvent()
-                                     {
-                                         Description = StoryStartString,
-                                         Name = StoryStartString,
-                                         Story = story,
-                                         EventType = EventType.StoryStart
-                                     };
+                    {
+                        Description = StoryStartString,
+                        Name = StoryStartString,
+                        Story = story,
+                        TargetOutcomes = new HashSet<Outcome>() {storyStartOutcome}
+                    };
+
                     context.GameEvents.Add(startEvent);
 
                     var user = context.Users.Single(u => u.UserName == userName);

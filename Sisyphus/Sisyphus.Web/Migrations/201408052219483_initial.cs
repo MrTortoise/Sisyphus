@@ -41,7 +41,7 @@ namespace Sisyphus.Web.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Stories", t => t.StoryId)
-                .Index(t => new { t.RaceName, t.StoryId }, unique: true, name: "SexUnique");
+                .Index(t => new { t.RaceName, t.StoryId }, unique: true, name: "RaceUnique");
             
             CreateTable(
                 "dbo.Stories",
@@ -62,9 +62,8 @@ namespace Sisyphus.Web.Migrations
                         GameEventName = c.String(nullable: false, maxLength: 100),
                         Description = c.String(),
                         Duration = c.Int(nullable: false),
-                        EventType = c.Int(nullable: false),
-                        TimeStamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                         StoryId = c.Int(nullable: false),
+                        TimeStamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Stories", t => t.StoryId)
@@ -76,12 +75,16 @@ namespace Sisyphus.Web.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         OutcomeName = c.String(nullable: false, maxLength: 4000),
+                        FriendlyName = c.String(),
+                        ParentGameEventId = c.Int(nullable: false),
+                        TargetGameEventId = c.Int(nullable: false),
                         TimeStamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
-                        GameEvent_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.GameEvents", t => t.GameEvent_Id)
-                .Index(t => t.GameEvent_Id);
+                .ForeignKey("dbo.GameEvents", t => t.TargetGameEventId)
+                .ForeignKey("dbo.GameEvents", t => t.ParentGameEventId)
+                .Index(t => t.ParentGameEventId)
+                .Index(t => t.TargetGameEventId);
             
             CreateTable(
                 "dbo.Places",
@@ -99,6 +102,24 @@ namespace Sisyphus.Web.Migrations
                 .ForeignKey("dbo.GameEvents", t => t.GameEvent_Id)
                 .Index(t => new { t.PlaceName, t.StoryId }, unique: true, name: "PlaceUniquw")
                 .Index(t => t.GameEvent_Id);
+            
+            CreateTable(
+                "dbo.StoryItems",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        GameEventId = c.Int(nullable: false),
+                        CharacterId = c.Int(nullable: false),
+                        ItemIndex = c.Int(nullable: false),
+                        Text = c.String(nullable: false),
+                        StoryItemType = c.Int(nullable: false),
+                        TimeStamp = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Characters", t => t.CharacterId)
+                .ForeignKey("dbo.GameEvents", t => t.GameEventId)
+                .Index(t => new { t.GameEventId, t.ItemIndex }, unique: true, name: "StoryItemUnique")
+                .Index(t => t.CharacterId);
             
             CreateTable(
                 "dbo.Sessions",
@@ -212,6 +233,19 @@ namespace Sisyphus.Web.Migrations
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
+            CreateTable(
+                "dbo.ApplicationUserStories",
+                c => new
+                    {
+                        ApplicationUser_Id = c.String(nullable: false, maxLength: 128),
+                        Story_Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.ApplicationUser_Id, t.Story_Id })
+                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
+                .ForeignKey("dbo.Stories", t => t.Story_Id)
+                .Index(t => t.ApplicationUser_Id)
+                .Index(t => t.Story_Id);
+            
         }
         
         public override void Down()
@@ -223,16 +257,23 @@ namespace Sisyphus.Web.Migrations
             DropForeignKey("dbo.Characters", "RaceId", "dbo.Races");
             DropForeignKey("dbo.Races", "StoryId", "dbo.Stories");
             DropForeignKey("dbo.TimeUnits", "StoryId", "dbo.Stories");
+            DropForeignKey("dbo.ApplicationUserStories", "Story_Id", "dbo.Stories");
+            DropForeignKey("dbo.ApplicationUserStories", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.Sessions", "User_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Sessions", "StoryId", "dbo.Stories");
+            DropForeignKey("dbo.Outcomes", "ParentGameEventId", "dbo.GameEvents");
+            DropForeignKey("dbo.StoryItems", "GameEventId", "dbo.GameEvents");
+            DropForeignKey("dbo.StoryItems", "CharacterId", "dbo.Characters");
             DropForeignKey("dbo.GameEvents", "StoryId", "dbo.Stories");
             DropForeignKey("dbo.Places", "GameEvent_Id", "dbo.GameEvents");
             DropForeignKey("dbo.Places", "StoryId", "dbo.Stories");
-            DropForeignKey("dbo.Outcomes", "GameEvent_Id", "dbo.GameEvents");
+            DropForeignKey("dbo.Outcomes", "TargetGameEventId", "dbo.GameEvents");
             DropForeignKey("dbo.Characters", "GameEvent_Id", "dbo.GameEvents");
+            DropIndex("dbo.ApplicationUserStories", new[] { "Story_Id" });
+            DropIndex("dbo.ApplicationUserStories", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Sexes", "SexUnique");
             DropIndex("dbo.TimeUnits", "bitValue");
@@ -243,16 +284,20 @@ namespace Sisyphus.Web.Migrations
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Sessions", new[] { "User_Id" });
             DropIndex("dbo.Sessions", new[] { "StoryId" });
+            DropIndex("dbo.StoryItems", new[] { "CharacterId" });
+            DropIndex("dbo.StoryItems", "StoryItemUnique");
             DropIndex("dbo.Places", new[] { "GameEvent_Id" });
             DropIndex("dbo.Places", "PlaceUniquw");
-            DropIndex("dbo.Outcomes", new[] { "GameEvent_Id" });
+            DropIndex("dbo.Outcomes", new[] { "TargetGameEventId" });
+            DropIndex("dbo.Outcomes", new[] { "ParentGameEventId" });
             DropIndex("dbo.GameEvents", "GameEventUnique");
             DropIndex("dbo.Stories", new[] { "StoryName" });
-            DropIndex("dbo.Races", "SexUnique");
+            DropIndex("dbo.Races", "RaceUnique");
             DropIndex("dbo.Characters", new[] { "GameEvent_Id" });
             DropIndex("dbo.Characters", "CharacterUnique");
             DropIndex("dbo.Characters", new[] { "RaceId" });
             DropIndex("dbo.Characters", new[] { "SexId" });
+            DropTable("dbo.ApplicationUserStories");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Sexes");
             DropTable("dbo.TimeUnits");
@@ -261,6 +306,7 @@ namespace Sisyphus.Web.Migrations
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Sessions");
+            DropTable("dbo.StoryItems");
             DropTable("dbo.Places");
             DropTable("dbo.Outcomes");
             DropTable("dbo.GameEvents");
